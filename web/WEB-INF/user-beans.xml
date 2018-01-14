@@ -5,15 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="topseller" />
     <context:annotation-config />
-    <bean id="userService" class="topseller.service.UserServiceImpl" />
-    <bean id="userDao" class="topseller.DAO.UserDAOImpl" />
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="datasource" />
     </bean>
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/topseller" />
-        <property name="username" value="root" />
-        <property name="password" value="" />
+        <property name="username" value="webmaster" />
+        <property name="password" value="khalilrafaa12" />
     </bean>
+
 </beans>

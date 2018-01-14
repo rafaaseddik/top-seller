@@ -1,5 +1,7 @@
 package topseller.models;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class User {
     private int id;
     private String fname;
@@ -11,6 +13,15 @@ public class User {
     private String phone;
     private UserType type;
     private int nbStrikes;
+    private MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     public int getId() {
         return id;
@@ -105,6 +116,7 @@ public class User {
                 ", phone='" + phone + '\'' +
                 ", type=" + type +
                 ", nbStrikes=" + nbStrikes +
+                ", file=" + file +
                 '}';
     }
 }

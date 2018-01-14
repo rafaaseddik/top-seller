@@ -1,13 +1,13 @@
 package topseller.models;
 
 public enum UserType {
-    ADMIN,VENDOR,VISITOR;
+    ADMIN,VENDOR,CLIENT;
     public static UserType toUserType(String usertype){
         switch(usertype){
             case "ADMIN" : return ADMIN;
             case "VENDOR" : return VENDOR;
-            case "VISITOR" : return VISITOR;
-            default:return VISITOR;
+            case "VISITOR" : return CLIENT;
+            default:return CLIENT;
         }
     }
 }

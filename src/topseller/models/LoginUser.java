@@ -2,19 +2,19 @@ package topseller.models;
 
 
 public class LoginUser {
-    private String username;
+    private String email;
     private String password;
 
     public LoginUser() {
 
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -28,7 +28,7 @@ public class LoginUser {
     @Override
     public String toString() {
         return "LoginUser{" +
-                "username='" + username + '\'' +
+                "username='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

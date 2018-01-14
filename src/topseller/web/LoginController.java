@@ -3,40 +3,74 @@ package topseller.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.portlet.ModelAndView;
 import topseller.models.LoginUser;
 import topseller.models.User;
+import topseller.service.FileService;
 import topseller.service.UserService;
 
-import javax.jws.WebParam;
+import java.io.File;
+import java.io.FileOutputStream;
 
 @Controller
+@RequestMapping(value = "/login")
 public class LoginController {
     @Autowired
     UserService userService;
+    @Autowired
+    FileService fileService;
 
-    @RequestMapping(value = "/login/submit",method = RequestMethod.POST)
-    public String handleLogin(@ModelAttribute("login") LoginUser loginUser) {
-        System.out.println(loginUser.toString());
+    @RequestMapping(value = "/signin",method = RequestMethod.POST)
+    public String handleSignin(@ModelAttribute("login") LoginUser loginUser,Model model) {
+        if(!this.userService.validateLoginUser(loginUser)){
+            model.addAttribute("error",true);
+            return "login/signin";
+        }
         User loggedUser = this.userService.signin(loginUser);
+        if(loggedUser==null){
+            model.addAttribute("error",true);
+            return "login/signin";
+        }
         System.out.println(loggedUser.toString());
-        return "listPersons";
+        model.addAttribute("loggedUser",loggedUser);
+        return "redirect:/home";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLogin(Model model){
-        //ModelAndView model = new ModelAndView("login");
-        System.out.println("rsqdddddddddddddddddqdqsdqsez");
+    @RequestMapping(value = "/signin", method = RequestMethod.GET)
+    public String showSignin(Model model){
             model.addAttribute("login",new LoginUser());
-            model.addAttribute("name","hello");
-        return "login";
+        return "login/signin";
     }
-    @RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") User user) {
 
-        return new ModelAndView("subittt");
+    @RequestMapping(value = "/signup",method = RequestMethod.POST, consumes = {"multipart/form-data"})
+    public String handleSignup(@RequestParam("avatar_url")MultipartFile file, @ModelAttribute("newUser") User newUser, Model model) {
+        System.out.println(file.toString());
+        try{
+            fileService.writeFile(file.getBytes(),file.getOriginalFilename());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        if(!this.userService.validateNewUser(newUser)){
+            model.addAttribute("error",true);
+            return "login/signup";
+        }
+        this.userService.signup(newUser);
+
+        System.out.println(newUser.toString());
+        return "redirect:/home";
     }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String showSignup(Model model){
+        model.addAttribute("newUser",new User());
+        return "login/signup";
+    }
+
+
+
 }

@@ -1,2 +1,2 @@
-<%@ include file="/WEB-INF/jsp/include.jsp" %>
+<%@ include file="/views/include.jsp" %>
 <%-- Redirected because we can't set the welcome page to a virtual URL. --%>
