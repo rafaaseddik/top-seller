@@ -11,6 +11,7 @@ import topseller.models.UserType;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class UserDAOImpl implements UserDAO {
@@ -23,15 +24,34 @@ public class UserDAOImpl implements UserDAO {
     public void signup(User newUser) {
 
     }
-
     @Override
     public User signin(LoginUser loginUser) {
         String sql = "select * from user where email='" + loginUser.getEmail() + "' and password='" + loginUser.getPassword()
                 + "'";
-        List<User> users = jdbcTemplate.query(sql, new UserMapper());
+        List<User> users = new ArrayList<User>();
+        try{
+            users = jdbcTemplate.query(sql, new UserMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : UserDao.signup() : Error getting database");
+            e.printStackTrace();
+        }
+
         return users.size() > 0 ? users.get(0) : null;
     }
 
+    @Override
+    public User getUserByEmail(String email){
+        String sql = "select * from user where email='" + email + "'";
+        List<User> users = new ArrayList<User>();
+        try{
+            users = jdbcTemplate.query(sql, new UserMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : UserDao.getUserByEmail() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return users.size() > 0 ? users.get(0) : null;
+    }
     class UserMapper implements RowMapper<User> {
         public User mapRow(ResultSet rs, int arg1) throws SQLException {
             User user = new User();
@@ -46,5 +66,5 @@ public class UserDAOImpl implements UserDAO {
             user.setNbStrikes(rs.getInt("nb_strikes"));
             return user;
         }
-}
+    }
 }

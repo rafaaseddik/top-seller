@@ -12,7 +12,7 @@ public class User {
     private String avatarUrl;
     private String phone;
     private UserType type;
-    private int nbStrikes;
+    private int nbStrikes=0;
     private MultipartFile file;
 
     public MultipartFile getFile() {

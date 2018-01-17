@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.portlet.ModelAndView;
+import topseller.models.FormException;
 import topseller.models.LoginUser;
 import topseller.models.User;
 import topseller.service.FileService;
@@ -14,6 +15,7 @@ import topseller.service.UserService;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping(value = "/login")
@@ -25,13 +27,16 @@ public class LoginController {
 
     @RequestMapping(value = "/signin",method = RequestMethod.POST)
     public String handleSignin(@ModelAttribute("login") LoginUser loginUser,Model model) {
+        ArrayList<String> errorList= new ArrayList<String>();
         if(!this.userService.validateLoginUser(loginUser)){
-            model.addAttribute("error",true);
+            errorList.add("Email invalid");
+            model.addAttribute("errors",errorList);
             return "login/signin";
         }
         User loggedUser = this.userService.signin(loginUser);
         if(loggedUser==null){
-            model.addAttribute("error",true);
+            errorList.add("There was an error with your E-Mail/Password combination. Please try again.");
+            model.addAttribute("errors",errorList);
             return "login/signin";
         }
         System.out.println(loggedUser.toString());
@@ -47,18 +52,24 @@ public class LoginController {
 
     @RequestMapping(value = "/signup",method = RequestMethod.POST, consumes = {"multipart/form-data"})
     public String handleSignup(@RequestParam("avatar_url")MultipartFile file, @ModelAttribute("newUser") User newUser, Model model) {
-        System.out.println(file.toString());
+        ArrayList<String> errorList= new ArrayList<String>();
         try{
-            fileService.writeFile(file.getBytes(),file.getOriginalFilename());
+            this.userService.validateNewUser(newUser);
+        }
+        catch (FormException e){
+            e.printStackTrace();
+            errorList.add(e.getMessage());
+            model.addAttribute("errors",errorList);
+            return "login/signup";
+        }
+        try{
+            newUser.setAvatarUrl(fileService.writeFile(file.getBytes(),System.currentTimeMillis()+file.getOriginalFilename()));
         }catch (Exception e){
             e.printStackTrace();
         }
 
 
-        if(!this.userService.validateNewUser(newUser)){
-            model.addAttribute("error",true);
-            return "login/signup";
-        }
+
         this.userService.signup(newUser);
 
         System.out.println(newUser.toString());

@@ -1,7 +1,6 @@
 package topseller.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -16,7 +15,8 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public String writeFile(byte[] data, String filename) throws Exception {
-        File out = new File(fileSystemUploadPath+filename);
+        String fullPath=fileSystemUploadPath+filename;
+        File out = new File(fullPath);
         FileOutputStream fos = null;
         try{
             fos = new FileOutputStream(out);
@@ -30,6 +30,6 @@ public class FileServiceImpl implements FileService {
         }finally {
             if(fos!=null)try{}catch(Exception e){throw new Exception("FileService : Couldn't close FileOutputStream",e);}
         }
-        return null;
+        return fullPath;
     }
 }

@@ -14,8 +14,11 @@
 </head>
 <body>
 This is a signin page
-<c:if test="${error}">
-    <br><b class="error-login">There was an error with your E-Mail/Password combination. Please try again.</b>
+<c:if test="${errors.size()>0}">
+    <c:forEach items="${errors}" var="error">
+        <br><b class="error-login"><c:out value = "${error}"/></b>
+    </c:forEach>
+
     <br>
 </c:if>
 <form:form method="POST" action="/login/signin/" commandName="login">

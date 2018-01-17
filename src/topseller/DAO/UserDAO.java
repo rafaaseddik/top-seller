@@ -6,4 +6,5 @@ import topseller.models.User;
 public interface UserDAO {
     public void signup(User newUser);
     public User signin(LoginUser loginUser);
+    public User getUserByEmail(String email);
 }
