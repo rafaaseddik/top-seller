@@ -1,7 +1,8 @@
-package topseller.service;
+package topseller.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import topseller.service.FileService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,6 +31,6 @@ public class FileServiceImpl implements FileService {
         }finally {
             if(fos!=null)try{}catch(Exception e){throw new Exception("FileService : Couldn't close FileOutputStream",e);}
         }
-        return fullPath;
+        return filename;
     }
 }

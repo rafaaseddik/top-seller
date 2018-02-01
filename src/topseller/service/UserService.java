@@ -9,4 +9,5 @@ public interface UserService {
     public User signin(LoginUser loginUser);
     public boolean validateLoginUser(LoginUser loginUser);
     public boolean validateNewUser(User User)throws FormException;
+    public boolean checkExistingUser(User newUser);
 }

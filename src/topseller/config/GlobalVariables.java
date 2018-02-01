@@ -10,4 +10,6 @@ public class GlobalVariables {
     public String fileSystemUploadPath(){
       return "c:/wamp64/www/fileupload/topseller/";
     }
+    @Bean
+    public String imagesServerURL(){ return "http://localhost/fileupload/topseller/"; }
 }

@@ -13,5 +13,6 @@
 </head>
 <body>
 this is home ${loggedUser.fname}
+this is ${produit.name}
 </body>
 </html>

@@ -14,7 +14,7 @@ public class User {
     private UserType type;
     private int nbStrikes=0;
     private MultipartFile file;
-
+    private String imagesServerURL;
     public MultipartFile getFile() {
         return file;
     }
@@ -71,13 +71,10 @@ public class User {
         this.region = region;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
+    public String getAvatarUrl() { return imagesServerURL+avatarUrl; }
+    public String getRawAvatarUrl(){ return avatarUrl;}
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
 
     public String getPhone() {
         return phone;
@@ -103,6 +100,10 @@ public class User {
         this.nbStrikes = nbStrikes;
     }
 
+    public void setImagesServerURL(String imagesServerURL) {
+        this.imagesServerURL = imagesServerURL;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -110,13 +111,18 @@ public class User {
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", region='" + region + '\'' +
                 ", avatarUrl='" + avatarUrl + '\'' +
                 ", phone='" + phone + '\'' +
                 ", type=" + type +
                 ", nbStrikes=" + nbStrikes +
-                ", file=" + file +
                 '}';
+    }
+
+    public static User getMockUser() {
+        User user = new User();
+        user.setId(15);
+        user.setEmail("rafaaseddik");
+        return user;
     }
 }
