@@ -117,6 +117,25 @@ public class Shop extends Subject{
         return category;
     }
 
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", logoURL='" + logoURL + '\'' +
+                ", coverURL='" + coverURL + '\'' +
+                ", creationDate=" + creationDate +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", globalScore=" + globalScore +
+                ", closed=" + closed +
+                ", owner=" + owner +
+                ", category=" + category +
+                '}';
+    }
+
     public void setCategory(Category category) {
         this.category = category;
     }
