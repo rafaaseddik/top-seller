@@ -7,71 +7,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa24480b-8516-4b9f-9a39-a26eead7c4e8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/topseller/DAO/ProductDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/topseller/DAO/implementations/ProductDAOImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/topseller/service/ProductService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/topseller/service/implementations/ProductServiceImpl.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAOImpl$UserMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAOImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/FileServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/PersonManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/SimplePersonManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/UserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/HelloController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/UsersController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAOImpl$UserMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAOImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/FileServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/PersonManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/SimplePersonManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/UserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/HelloController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/UsersController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/topseller/service/PersonManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/topseller/service/SimplePersonManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/topseller/web/HelloController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/topseller/web/UsersController.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/topseller/DAO/UserDAOImpl.java" afterPath="$PROJECT_DIR$/src/topseller/DAO/implementations/UserDAOImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/topseller/service/FileServiceImpl.java" afterPath="$PROJECT_DIR$/src/topseller/service/implementations/FileServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/topseller/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAO.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/config/GlobalVariables.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/config/GlobalVariables.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Category.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Product.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductReport.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductStatus.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductStatus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Report.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Report.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Shop.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Shop.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/User.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/UserService.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/HomeController.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAO.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/config/GlobalVariables.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/config/GlobalVariables.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Category.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Product.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductReport.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductStatus.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductStatus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Report.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Report.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Shop.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Shop.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/User.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/HomeController.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/TopSeller_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/TopSeller_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TopSeller.iml" afterPath="$PROJECT_DIR$/TopSeller.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/home/home.jsp" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/home/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/DAO/UserDAO.java" afterPath="$PROJECT_DIR$/src/topseller/DAO/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/config/GlobalVariables.java" afterPath="$PROJECT_DIR$/src/topseller/config/GlobalVariables.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/Category.java" afterPath="$PROJECT_DIR$/src/topseller/models/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/Product.java" afterPath="$PROJECT_DIR$/src/topseller/models/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/ProductReport.java" afterPath="$PROJECT_DIR$/src/topseller/models/ProductReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/ProductStatus.java" afterPath="$PROJECT_DIR$/src/topseller/models/ProductStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/Report.java" afterPath="$PROJECT_DIR$/src/topseller/models/Report.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/Shop.java" afterPath="$PROJECT_DIR$/src/topseller/models/Shop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/models/User.java" afterPath="$PROJECT_DIR$/src/topseller/models/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/service/UserService.java" afterPath="$PROJECT_DIR$/src/topseller/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/topseller/web/HomeController.java" afterPath="$PROJECT_DIR$/src/topseller/web/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/views/home/home.jsp" afterPath="$PROJECT_DIR$/web/views/home/home.jsp" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TopSeller_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/TopSeller_war_exploded.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/TopSeller.iml" afterPath="$PROJECT_DIR$/TopSeller.iml" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAO.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAO.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAOImpl$UserMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/DAO/UserDAOImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/config/GlobalVariables.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/config/GlobalVariables.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Category.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Category.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Product.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Product.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductReport.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductReport.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductStatus.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/ProductStatus.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Report.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Report.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Shop.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/Shop.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/User.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/models/User.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/ressources/Globals.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/FileServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/PersonManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/SimplePersonManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/UserService.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/UserService.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/service/UserServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/HelloController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/HomeController.class" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/HomeController.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/classes/topseller/web/UsersController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/mainface-servlet.xml" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/mainface-servlet.xml" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/user-beans.xml" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/user-beans.xml" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/index.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/assets/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/home/home.jsp" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/home/home.jsp" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/include.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/login/signin.jsp" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/login/signin.jsp" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/login/signup.jsp" afterPath="$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/login/signup.jsp" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAO.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAO.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAOImpl$UserMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/DAO/UserDAOImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/config/GlobalVariables.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/config/GlobalVariables.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Category.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Category.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Product.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Product.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductReport.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductReport.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductStatus.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/ProductStatus.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Report.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Report.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Shop.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/Shop.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/User.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/models/User.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/FileServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/PersonManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/SimplePersonManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/UserService.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/service/UserServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/HelloController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/HomeController.class" afterPath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/HomeController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/TopSeller/topseller/web/UsersController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/topseller/DAO/implementations/ProductDAOImpl.java" afterPath="$PROJECT_DIR$/src/topseller/DAO/implementations/ProductDAOImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/topseller/web/HomeController.java" afterPath="$PROJECT_DIR$/src/topseller/web/HomeController.java" />
+      <change beforePath="$PROJECT_DIR$/src/topseller/web/LoginController.java" afterPath="$PROJECT_DIR$/src/topseller/web/LoginController.java" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/web/views/assets/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/web/views/home/home.jsp" afterPath="$PROJECT_DIR$/web/views/home/home.jsp" />
+      <change beforePath="$PROJECT_DIR$/web/views/include.jsp" afterPath="$PROJECT_DIR$/web/views/includeHeader.jsp" />
+      <change beforePath="$PROJECT_DIR$/web/views/login/signin.jsp" afterPath="$PROJECT_DIR$/web/views/login/signin.jsp" />
+      <change beforePath="$PROJECT_DIR$/web/views/login/signup.jsp" afterPath="$PROJECT_DIR$/web/views/login/signup.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,132 +102,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/service/implementations/ProductServiceImpl.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/topseller/web/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="48" column="59" lean-forward="false" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
-              <folding>
-                <element signature="e#1238#1239#0" expanded="true" />
-                <element signature="e#1300#1301#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductDAOImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/topseller/DAO/implementations/ProductDAOImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="91" column="66" lean-forward="false" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="66" />
+            <state relative-caret-position="689">
+              <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#882#891#0" expanded="true" />
-                <element signature="e#3054#3069#0" expanded="true" />
-                <element signature="e#3599#3608#0" expanded="true" />
-                <marker date="1517525466155" expanded="true" signature="790:833" ph="select * fro... product" />
-                <marker date="1517525466155" expanded="true" signature="790:835" ph="select * fro... user" />
-                <marker date="1517525466155" expanded="true" signature="1314:1416" ph="INSERT INTO productreport... " />
-                <marker date="1517525466155" expanded="true" signature="1656:1800" ph="INSERT INTO product... " />
-                <marker date="1517525466155" expanded="true" signature="2118:2261" ph="UPDATE produ... " />
-                <marker date="1517525466155" expanded="true" signature="2595:2615" ph="DELETE from " />
-                <marker date="1517525466155" expanded="true" signature="2595:2625" ph="DELETE from " />
-                <marker date="1517525466155" expanded="true" signature="2770:2809" ph="UPDATE produ... " />
-                <marker date="1517525466155" expanded="true" signature="2967:2988" ph="select * fro... product" />
-                <marker date="1517525466155" expanded="true" signature="2967:2994" ph="select * fro... productreport" />
-                <marker date="1517525466155" expanded="true" signature="3493:3514" ph="select * fro... product" />
-                <marker date="1517525466155" expanded="true" signature="3493:3532" ph="select * fro... product" />
-                <marker date="1517525466155" expanded="true" signature="3493:3538" ph="select * fro... product" />
+                <element signature="e#1182#1190#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDAOImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/DAO/implementations/UserDAOImpl.java">
+      <file leaf-file-name="signup.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/views/login/signup.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-              <folding>
-                <marker date="1517521911787" expanded="true" signature="784:934" ph="INSERT INTO user... " />
-                <marker date="1517521911787" expanded="true" signature="1267:1391" ph="select * fro... user" />
-                <marker date="1517521911787" expanded="true" signature="1825:1871" ph="select * fro... user" />
-                <marker date="1517521911787" expanded="true" signature="1825:1873" ph="select * fro... user" />
-                <marker date="1517521911787" expanded="true" signature="2309:2353" ph="select * fro... user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/web/HomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/models/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+            <state relative-caret-position="15">
+              <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Subject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/models/Subject.java">
+      <file leaf-file-name="includeHeader.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/views/includeHeader.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="839">
+              <caret line="502" column="6" lean-forward="false" selection-start-line="502" selection-start-column="6" selection-end-line="503" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/models/Product.java">
+      <file leaf-file-name="signin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/views/login/signin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="87" column="18" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/service/ProductService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="64" lean-forward="false" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/topseller/DAO/ProductDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="64" />
+            <state relative-caret-position="300">
+              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -242,11 +152,24 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="FxmlFile" />
-        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Home</find>
+      <find>home</find>
+      <find>/</find>
+      <find>contact</find>
+      <find>Account</find>
+      <find>assets/</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>/assets/</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -259,17 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/topseller/web/GetUsersController.java" />
-        <option value="$PROJECT_DIR$/src/topseller/service/SimplePersonManager.java" />
-        <option value="$PROJECT_DIR$/src/topseller/service/PersonManager.java" />
-        <option value="$PROJECT_DIR$/lib/jstl-1.1.2.jar!/javax/servlet/jsp/jstl/core/Config.class" />
-        <option value="$PROJECT_DIR$/web/views/nameDisplayer.jsp" />
-        <option value="$PROJECT_DIR$/src/topseller/models/Tag.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/topseller-servlet.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/topseller/web/HelloController.java" />
-        <option value="$PROJECT_DIR$/src/topseller/web/UsersController.java" />
         <option value="$PROJECT_DIR$/web/views/listPersons.jsp" />
         <option value="$PROJECT_DIR$/web/views/login.jsp" />
         <option value="$PROJECT_DIR$/src/topseller/UserDAO.java" />
@@ -283,17 +195,13 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/user-beans.xml" />
         <option value="$PROJECT_DIR$/src/topseller/ressources/Globals.java" />
         <option value="$PROJECT_DIR$/src/topseller/config/Globals.java" />
-        <option value="$PROJECT_DIR$/web/views/login/signin.jsp" />
         <option value="$PROJECT_DIR$/src/topseller/models/FormException.java" />
-        <option value="$PROJECT_DIR$/web/views/login/signup.jsp" />
         <option value="$PROJECT_DIR$/src/topseller/DAO/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/topseller/service/FileServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/topseller/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/topseller/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/topseller/DAO/ProductDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/topseller/service/implementations/FileServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/topseller/web/LoginController.java" />
         <option value="$PROJECT_DIR$/src/topseller/config/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/topseller/models/ProductStatus.java" />
         <option value="$PROJECT_DIR$/web/views/home/home.jsp" />
@@ -308,8 +216,23 @@
         <option value="$PROJECT_DIR$/src/topseller/DAO/ProductDAO.java" />
         <option value="$PROJECT_DIR$/src/topseller/service/ProductService.java" />
         <option value="$PROJECT_DIR$/src/topseller/service/implementations/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/topseller/web/HomeController.java" />
         <option value="$PROJECT_DIR$/src/topseller/DAO/implementations/ProductDAOImpl.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/topseller/web/AboutController.java" />
+        <option value="$PROJECT_DIR$/web/views/contact.jsp" />
+        <option value="$PROJECT_DIR$/src/topseller/web/ContactController.java" />
+        <option value="$PROJECT_DIR$/web/views/libs.jsp" />
+        <option value="$PROJECT_DIR$/web/views/index.jsp" />
+        <option value="$PROJECT_DIR$/src/topseller/web/HomeController.java" />
+        <option value="$PROJECT_DIR$/web/views/includeFooter.jsp" />
+        <option value="$PROJECT_DIR$/web/views/home.jsp" />
+        <option value="$PROJECT_DIR$/web/views/about.jsp" />
+        <option value="$PROJECT_DIR$/web/views/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/web/views/login/signin.jsp" />
+        <option value="$PROJECT_DIR$/src/topseller/web/LoginController.java" />
+        <option value="$PROJECT_DIR$/web/views/login/signup.jsp" />
+        <option value="$PROJECT_DIR$/web/views/includeHeader.jsp" />
       </list>
     </option>
   </component>
@@ -322,14 +245,14 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" value="" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1920" />
+    <option name="height" value="1104" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -350,6 +273,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -360,44 +284,58 @@
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="topseller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="TopSeller_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="topseller" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="TopSeller_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="topseller" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
+              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="topseller" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
+              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
+              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="TopSeller_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="TopSeller_war_exploded" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
@@ -405,119 +343,23 @@
             <path>
               <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
               <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-              <item name="TopSeller_war_exploded" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-              <item name="implementations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="implementations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="topseller" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="top-seller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="top-seller" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3954023" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
@@ -528,15 +370,20 @@
     <property name="full.screen.before.presentation.mode" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\rafaa\Desktop\Projects\Web\top-seller\top-seller\web\dump" />
-      <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\web\views" />
-      <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\web\views\login" />
-      <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\lib" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/views" />
       <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\src\topseller\models" />
       <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\lib" />
+      <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\web\views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="topseller.web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/views" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/web/views/assets" />
+      <recent name="C:\Users\rafaa\Desktop\Projects\Web\top-seller\top-seller\web\dump" />
       <recent name="C:\Users\rafaa\Desktop\GL3\GL3\J2EE\Projet J2EE\TopSeller\web\views" />
     </key>
   </component>
@@ -553,6 +400,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat Server">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
     <configuration name="FormException" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -571,6 +425,74 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="TopSeller" />
       <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
     </configuration>
     <configuration name="Tomcat Server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.20" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -644,86 +566,11 @@
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat Server" />
@@ -735,8 +582,16 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -773,14 +628,16 @@
       <workItem from="1517330742682" duration="4057000" />
       <workItem from="1517422836012" duration="4678000" />
       <workItem from="1517508422138" duration="11034000" />
+      <workItem from="1517529765394" duration="1393000" />
+      <workItem from="1517531392478" duration="12562000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117278000" />
+    <option name="totallyTimeSpent" value="131233000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1104" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -799,12 +656,13 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18228404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33795837" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818532" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3270565" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.185836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -815,40 +673,6 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18228404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -858,79 +682,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/deprecated-dispatcher-servlet.xml" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/topseller-servlet.xml" />
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/service/PersonManager.java" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="122" lean-forward="false" selection-start-line="3" selection-start-column="122" selection-end-line="3" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/models/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/listPersons.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/models/LoginUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/nameDisplayer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/include.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project.properties" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/project.properties" />
-    <entry file="jar://$PROJECT_DIR$/lib/commons-validator-1.6.jar!/org/apache/commons/validator/Validator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1428">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/models/FormException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -938,44 +694,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0000d080-59be-4039-bb4a-6259aeb48ce5/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/login/signup.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/user-beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="48" lean-forward="false" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3f8bc90/0000d080-59be-4039-bb4a-6259aeb48ce5/topseller.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0000d080-59be-4039-bb4a-6259aeb48ce5/console.sql" />
+    <entry file="das://table:/3f8bc90/0000d080-59be-4039-bb4a-6259aeb48ce5/topseller.user" />
     <entry file="file://$PROJECT_DIR$/src/topseller/service/SimplePersonManager.java" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/mainface-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/TopSeller_war_exploded/views/login/signup.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -992,14 +713,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/web/HelloController.java" />
     <entry file="file://$PROJECT_DIR$/src/topseller/web/UsersController.java" />
-    <entry file="file://$PROJECT_DIR$/src/topseller/web/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/models/TagType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1027,24 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/login/signin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1077,18 +772,18 @@
         <state relative-caret-position="476">
           <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
           <folding>
-            <element signature="e#154#155#0" expanded="true" />
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#212#213#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#298#299#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="false" />
+            <element signature="e#179#180#0" expanded="false" />
+            <element signature="e#212#213#0" expanded="false" />
+            <element signature="e#240#241#0" expanded="false" />
+            <element signature="e#271#272#0" expanded="false" />
+            <element signature="e#298#299#0" expanded="false" />
+            <element signature="e#338#339#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+            <element signature="e#434#435#0" expanded="false" />
+            <element signature="e#480#481#0" expanded="false" />
+            <element signature="e#516#517#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1105,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,28 +811,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/DAO/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/models/Report.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
           <folding>
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="false" />
+            <element signature="e#912#913#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/models/Subject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="30">
           <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
           <folding />
         </state>
@@ -1146,7 +832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/models/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="765">
           <caret line="87" column="18" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
           <folding />
         </state>
@@ -1154,96 +840,259 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/DAO/implementations/UserDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-          <folding>
-            <marker date="1517521911787" expanded="true" signature="784:934" ph="INSERT INTO user... " />
-            <marker date="1517521911787" expanded="true" signature="1267:1391" ph="select * fro... user" />
-            <marker date="1517521911787" expanded="true" signature="1825:1871" ph="select * fro... user" />
-            <marker date="1517521911787" expanded="true" signature="1825:1873" ph="select * fro... user" />
-            <marker date="1517521911787" expanded="true" signature="2309:2353" ph="select * fro... user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/DAO/ProductDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="64" />
+        <state relative-caret-position="345">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="180">
           <caret line="16" column="64" lean-forward="false" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/service/implementations/ProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="0">
           <caret line="48" column="59" lean-forward="false" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
           <folding>
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="false" />
+            <element signature="e#1300#1301#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/topseller/web/HomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/topseller/DAO/implementations/UserDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        <state relative-caret-position="810">
+          <caret line="67" column="28" lean-forward="false" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1517529591000" expanded="true" signature="784:934" ph="INSERT INTO user... " />
+            <marker date="1517529591000" expanded="true" signature="1267:1391" ph="select * fro... user" />
+            <marker date="1517529591000" expanded="true" signature="1825:1871" ph="select * fro... user" />
+            <marker date="1517529591000" expanded="true" signature="2309:2353" ph="select * fro... user" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/topseller/DAO/implementations/ProductDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="91" column="66" lean-forward="false" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="66" />
+        <state relative-caret-position="0">
+          <caret line="87" column="5" lean-forward="false" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1517531306000" expanded="true" signature="750:793" ph="select * fro... product" />
+            <marker date="1517531306000" expanded="true" signature="1274:1376" ph="INSERT INTO productreport... " />
+            <marker date="1517531306000" expanded="true" signature="1616:1760" ph="INSERT INTO product... " />
+            <marker date="1517531306000" expanded="true" signature="2078:2221" ph="UPDATE product... " />
+            <marker date="1517531306000" expanded="true" signature="2555:2585" ph="DELETE from product" />
+            <marker date="1517531306000" expanded="true" signature="2730:2769" ph="UPDATE product... " />
+            <marker date="1517531306000" expanded="true" signature="2927:2954" ph="select * fro... productreport" />
+            <marker date="1517531306000" expanded="true" signature="3453:3498" ph="select * fro... product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/DAO/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/user-beans.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="11" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/mainface-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="122" lean-forward="false" selection-start-line="3" selection-start-column="122" selection-end-line="3" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/web/ContactController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/web/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/libs.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/web/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/vide.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/contact.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="876" column="6" lean-forward="false" selection-start-line="876" selection-start-column="6" selection-end-line="876" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#4;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/assets/img/about/img1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/about.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/includeFooter.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="53" column="48" lean-forward="false" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/DAO/ProductDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/service/implementations/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="39" column="15" lean-forward="false" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3828">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/login/signin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/topseller/web/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="46" column="42" lean-forward="false" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#882#891#0" expanded="true" />
-            <element signature="e#3054#3069#0" expanded="true" />
-            <element signature="e#3599#3608#0" expanded="true" />
-            <marker date="1517525466155" expanded="true" signature="790:833" ph="select * fro... product" />
-            <marker date="1517525466155" expanded="true" signature="790:835" ph="select * fro... user" />
-            <marker date="1517525466155" expanded="true" signature="1314:1416" ph="INSERT INTO productreport... " />
-            <marker date="1517525466155" expanded="true" signature="1656:1800" ph="INSERT INTO product... " />
-            <marker date="1517525466155" expanded="true" signature="2118:2261" ph="UPDATE produ... " />
-            <marker date="1517525466155" expanded="true" signature="2595:2615" ph="DELETE from " />
-            <marker date="1517525466155" expanded="true" signature="2595:2625" ph="DELETE from " />
-            <marker date="1517525466155" expanded="true" signature="2770:2809" ph="UPDATE produ... " />
-            <marker date="1517525466155" expanded="true" signature="2967:2988" ph="select * fro... product" />
-            <marker date="1517525466155" expanded="true" signature="2967:2994" ph="select * fro... productreport" />
-            <marker date="1517525466155" expanded="true" signature="3493:3514" ph="select * fro... product" />
-            <marker date="1517525466155" expanded="true" signature="3493:3532" ph="select * fro... product" />
-            <marker date="1517525466155" expanded="true" signature="3493:3538" ph="select * fro... product" />
+            <element signature="e#1182#1190#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/login/signup.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/includeHeader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="502" column="6" lean-forward="false" selection-start-line="502" selection-start-column="6" selection-end-line="503" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1257,7 +1106,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.3954023" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1270,7 +1119,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.3954023" />
               </list>
             </option>
           </splitter-proportions>
@@ -1306,8 +1155,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.3954023" />
               </list>
             </option>
           </splitter-proportions>
@@ -1315,7 +1163,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.springframework.session:spring-session:1.3.1.RELEASE</last-edited>
+          <last-edited>javax.servlet:jstl:1.1.2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,31 +1,51 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: rafaa
-  Date: 12/1/2017
-  Time: 7:58 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../include.jsp"%>
-<html>
-<head>
-    <title>Signin</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-This is a signin page
-<c:if test="${errors.size()>0}">
-    <c:forEach items="${errors}" var="error">
-        <br><b class="error-login"><c:out value = "${error}"/></b>
-    </c:forEach>
+<%@ include file="/views/includeHeader.jsp" %>
 
-    <br>
-</c:if>
-<form:form method="POST" action="/login/signin/" commandName="login">
-    <form:input path="email"></form:input><br>
-    <form:password path="password" ></form:password>
-    <input type="submit" value="Submit" />
-</form:form>
-<a href="/login/signup">Create account</a>
-</body>
-</html>
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h3>Login</h3>
+                            <p>Please Register using account detail bellow.</p>
+                        </div>
+
+                        <c:if test="${errors.size()>0}">
+                            <h4 class="error-login">Errors :</h4>
+                            <c:forEach items="${errors}" var="error">
+                                <h5> <b class="error-login"><c:out value = " - ${error}"/></b> </h5>
+                            </c:forEach>
+                        </c:if>
+
+                        <br>
+
+                        <form:form class="login-form" method="post" action="/login/signin/" commandName="login">
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Email"  path="email"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Password"  path="password"></form:input>
+                                </div>
+                            </div>
+                            <div class="button-box">
+                                <div class="login-toggle-btn">
+                                    <input type="checkbox">
+                                    <label>Remember me</label>
+                                    <a href="/login/signup">Create account ?</a>
+                                </div>
+                                <button type="submit" class="btn btn-common log-btn">Login</button>
+                            </div>
+                        </form:form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%@ include file="/views/includeFooter.jsp" %>

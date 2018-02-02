@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import topseller.DAO.ProductDAO;
 import topseller.DAO.UserDAO;
 import topseller.models.*;
-import topseller.service.ProductService;
+
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;

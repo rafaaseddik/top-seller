@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean validateLoginUser(LoginUser loginUser) {
-        return (loginUser.getPassword().length()>=8)&&EmailValidator.getInstance().isValid(loginUser.getEmail());
+        return EmailValidator.getInstance().isValid(loginUser.getEmail());
     }
 
     @Override

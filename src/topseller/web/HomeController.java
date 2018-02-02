@@ -24,7 +24,7 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String visitHome(Model model) {
-        User rafaa = new User();
+        /*User rafaa = new User();
         rafaa.setId(6);
         ProductReport report = new ProductReport();
         report.setDescription("descr");
@@ -40,8 +40,10 @@ public class HomeController {
         for(Product reporte:latest){
             System.out.println(reporte);
         }
-        model.addAttribute("produit",productService.getProductByID(1));
-        return "home/home";
+        model.addAttribute("produit",productService.getProductByID(1));*/
+        String pageName = "home";
+        model.addAttribute("pageName",pageName);
+        return pageName;
     }
 
 }

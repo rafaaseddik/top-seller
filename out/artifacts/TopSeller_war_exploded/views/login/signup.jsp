@@ -1,39 +1,83 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: rafaa
-  Date: 1/14/2018
-  Time: 10:27 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../include.jsp"%>
-<html>
-<head>
-    <title>Signup</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-This is a signup page
-<c:if test="${errors.size()>0}">
-    <c:forEach items="${errors}" var="error">
-        <br><b class="error-login"><c:out value = "${error}"/></b>
-    </c:forEach>
 
-    <br>
-</c:if>
-<form:form method="POST" action="/login/signup" commandName="newUser" enctype="multipart/form-data">
-    <form:input path="fname" placeholder="First name"></form:input><br>
-    <form:input path="lname" placeholder="Last name"></form:input><br>
-    <form:input path="email" placeholder="Email Adress"></form:input><br>
-    <form:password path="password" placeholder="Password"></form:password><br>
-    <form:input path="region" placeholder="Region"></form:input><br>
-    <form:input path="phone" placeholder="Phone"></form:input><br>
-        <input type="file" name="avatar_url"/><br>
-    <form:select path="type" placeholder="Client type">
-        <form:option value="CLIENT">Client</form:option>
-        <form:option value="VENDOR">Vendor</form:option>
-    </form:select><br>
-    <input type="submit" value="Submit" />
-</form:form>
-</body>
-</html>
+<%@ include file="/views/includeHeader.jsp" %>
+
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h3>Sign up</h3>
+                            <p>Please Register using account detail bellow.</p>
+                        </div>
+
+                        <c:if test="${errors.size()>0}">
+                            <h4 class="error-login">Errors :</h4>
+                            <c:forEach items="${errors}" var="error">
+                                <h5> <b class="error-login"><c:out value = " - ${error}"/></b> </h5>
+                            </c:forEach>
+                        </c:if>
+                        <br>
+
+                        <form:form method="POST" action="/login/signup" commandName="newUser" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="First Name"  path="fname"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Last Name"  path="lname"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Email"  path="email"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Password"  path="password"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Region"  path="region"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:input class="form-control" placeholder="Phone"  path="phone"></form:input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <input class="form-control" type="file" name="avatar_url"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <form:select path="type" class="form-control" placeholder="Client type">
+                                        <form:option value="CLIENT">Client</form:option>
+                                        <form:option value="VENDOR">Vendor</form:option>
+                                    </form:select>
+                                </div>
+                            </div>
+
+                            <div class="button-box">
+                                <div class="login-toggle-btn">
+                                    <a href="/login/signin">Have an account ?</a>
+                                </div>
+                                <button type="submit" class="btn btn-common log-btn">Sign up</button>
+                            </div>
+                        </form:form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%@ include file="/views/includeFooter.jsp" %>

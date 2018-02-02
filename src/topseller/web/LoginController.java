@@ -1,6 +1,8 @@
 package topseller.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.session.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 @Controller
+@SessionAttributes(value="loggedUser", types={User.class} )
 @RequestMapping(value = "/login")
 public class LoginController {
     @Autowired
@@ -30,18 +33,24 @@ public class LoginController {
         ArrayList<String> errorList= new ArrayList<String>();
         if(!this.userService.validateLoginUser(loginUser)){
             errorList.add("Email invalid");
+        }
+        if(loginUser.getPassword().length()<8){
+            errorList.add("Password must be at least 8 characters long");
+        }
+        if(errorList.isEmpty()){
+            User loggedUser = this.userService.signin(loginUser);
+            if(loggedUser==null){
+                errorList.add("There was an error with your E-Mail/Password combination. Please try again.");
+                model.addAttribute("errors",errorList);
+                return "login/signin";
+            }
+            model.addAttribute("loggedUser",loggedUser);
+            return "redirect:/home";
+        }
+        else {
             model.addAttribute("errors",errorList);
             return "login/signin";
         }
-        User loggedUser = this.userService.signin(loginUser);
-        if(loggedUser==null){
-            errorList.add("There was an error with your E-Mail/Password combination. Please try again.");
-            model.addAttribute("errors",errorList);
-            return "login/signin";
-        }
-        System.out.println(loggedUser.toString());
-        model.addAttribute("loggedUser",loggedUser);
-        return "redirect:/home";
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
