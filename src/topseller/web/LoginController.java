@@ -15,21 +15,20 @@ import topseller.models.User;
 import topseller.service.FileService;
 import topseller.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 @Controller
-@SessionAttributes(value="loggedUser", types={User.class} )
 @RequestMapping(value = "/login")
 public class LoginController {
     @Autowired
     UserService userService;
     @Autowired
     FileService fileService;
-
     @RequestMapping(value = "/signin",method = RequestMethod.POST)
-    public String handleSignin(@ModelAttribute("login") LoginUser loginUser,Model model) {
+    public String handleSignin(@ModelAttribute("login") LoginUser loginUser, Model model, HttpSession session) {
         ArrayList<String> errorList= new ArrayList<String>();
         if(!this.userService.validateLoginUser(loginUser)){
             errorList.add("Email invalid");
@@ -44,7 +43,8 @@ public class LoginController {
                 model.addAttribute("errors",errorList);
                 return "login/signin";
             }
-            model.addAttribute("loggedUser",loggedUser);
+            //model.addAttribute("loggedUser",loggedUser);
+            session.setAttribute("loggedUser",loggedUser);
             return "redirect:/home";
         }
         else {
@@ -54,8 +54,9 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
-    public String showSignin(Model model){
-            model.addAttribute("login",new LoginUser());
+    public String showSignin(Model model,HttpSession session){
+        model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
+        model.addAttribute("login",new LoginUser());
         return "login/signin";
     }
 
@@ -86,7 +87,8 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String showSignup(Model model){
+    public String showSignup(Model model,HttpSession session){
+        model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         model.addAttribute("newUser",new User());
         return "login/signup";
     }

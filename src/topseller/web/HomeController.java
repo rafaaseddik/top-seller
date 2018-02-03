@@ -14,6 +14,8 @@ import topseller.models.Report;
 import topseller.service.UserService;
 import topseller.service.ProductService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping(value = "/home")
 public class HomeController {
@@ -23,7 +25,7 @@ public class HomeController {
     ProductService productService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String visitHome(Model model) {
+    public String visitHome(Model model, HttpSession session) {
         /*User rafaa = new User();
         rafaa.setId(6);
         ProductReport report = new ProductReport();
@@ -41,6 +43,7 @@ public class HomeController {
             System.out.println(reporte);
         }
         model.addAttribute("produit",productService.getProductByID(1));*/
+        model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         String pageName = "home";
         model.addAttribute("pageName",pageName);
         return pageName;

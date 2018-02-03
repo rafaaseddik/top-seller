@@ -1,5 +1,6 @@
 <%@ include file="/views/libs.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -352,15 +353,32 @@
                             <div class="account link-inline">
                                 <div class="dropdown text-right">
                                     <a href="#" aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown">
-                                        <span class="icon-user"></span> Account <span class="icon-arrow-down"></span>
+                                        <span class="icon-user"></span>
+
+                                        <c:choose>
+                                            <c:when test="${empty loggedUser}">
+                                                Account
+                                            </c:when>
+                                            <c:otherwise>
+                                                ${loggedUser.fname} ${loggedUser.lname}
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <span class="icon-arrow-down"></span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <!--<li><a href="login-form.html"><span class="icon icon-user"></span>My Account</a></li>
                                         <li><a href="wishlist.html"><span class="icon icon-heart"></span>My Wishlist</a></li>
                                         <li><a href="compare.html"><span class="icon icon-graph"></span>Compare</a></li>
                                         <li><a href="checkout.html"><span class="icon icon-check"></span>Checkout</a></li>-->
-                                        <li><a href="/login/signin"><span class="icon icon-lock"></span>Log In</a></li>
-                                        <li><a href="/login/signup"><span class="icon icon-user-follow"></span>Create an account</a></li>
+                                        <c:choose>
+                                            <c:when test="${empty loggedUser}">
+                                                <li><a href="/login/signin"><span class="icon icon-lock"></span>Log In</a></li>
+                                                <li><a href="/login/signup"><span class="icon icon-user-follow"></span>Create an account</a></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li><a href="/logout"><span class="icon icon-lock"></span>Log out</a></li>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </ul>
                                 </div>
                             </div>
@@ -500,5 +518,4 @@
     </nav>
 </div>
 
-yaaa zebiiiiiiii
-${loggedUser}
+

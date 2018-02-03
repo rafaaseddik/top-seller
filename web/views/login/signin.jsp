@@ -1,5 +1,4 @@
 <%@ include file="/views/includeHeader.jsp" %>
-
 <div id="content">
     <div class="container">
         <div class="row">
@@ -49,3 +48,4 @@
 </div>
 
 <%@ include file="/views/includeFooter.jsp" %>
+
