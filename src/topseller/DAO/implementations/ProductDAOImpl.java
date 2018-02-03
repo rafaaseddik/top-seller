@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import topseller.DAO.CategoryDAO;
 import topseller.DAO.ProductDAO;
 import topseller.DAO.UserDAO;
 import topseller.models.*;
@@ -23,6 +24,9 @@ public class ProductDAOImpl implements ProductDAO {
     JdbcTemplate jdbcTemplate;
     @Autowired
     UserDAO userDAO;
+    @Autowired
+    CategoryDAO categoryDAO;
+
     @Override
     public Product getProductByID(int id) {
         String sql = "select * from product where id='" + id + "'";
@@ -111,6 +115,7 @@ public class ProductDAOImpl implements ProductDAO {
             product.setDescription(rs.getString("description"));
             product.setClosed(rs.getBoolean("closed"));
             product.setStatus(ProductStatus.toProductStatus(rs.getString("status")));
+            product.setCategory(ProductDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
             return product;
         }
     }

@@ -47,6 +47,20 @@ public class CategoryDAOImpl implements CategoryDAO {
         return new ArrayList<Category>(parentsMap.values());
     }
 
+    @Override
+    public Category getCategoryByID(int id){
+        Category result = new Category();
+        String sql = "SELECT * FROM category WHERE id='" + id + "'";
+        List<Category> categories = new ArrayList<Category>();
+        try{
+            categories = jdbcTemplate.query(sql, new RecursiveCategoryMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : CategoryDao.getCategoryByID() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return categories.size() > 0 ? categories.get(0) : null;
+    }
     class CategoryMapper implements RowMapper<Category> {
 
         public Category mapRow(ResultSet rs, int arg1) throws SQLException {
@@ -55,6 +69,20 @@ public class CategoryDAOImpl implements CategoryDAO {
             category.setName(rs.getString("name"));
             try {
                 category.setParentID(rs.getInt("parentID"));
+            } catch (Exception e) {
+            }
+            return category;
+        }
+    }
+    class RecursiveCategoryMapper implements RowMapper<Category> {
+
+        public Category mapRow(ResultSet rs, int arg1) throws SQLException {
+            Category category = new Category();
+            category.setId(rs.getInt("id"));
+            category.setName(rs.getString("name"));
+            try {
+                category.setParentID(rs.getInt("parentID"));
+                category.setParent(CategoryDAOImpl.this.getCategoryByID(rs.getInt("parentID")));
             } catch (Exception e) {
             }
             return category;

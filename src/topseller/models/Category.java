@@ -60,7 +60,7 @@ public class Category {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", parentID=" + parentID +
+                ((parent==null)?(", parentID=" + parentID):(", parent=" + parent)) +
                 ", children=" + children +
                 "}\n";
     }
