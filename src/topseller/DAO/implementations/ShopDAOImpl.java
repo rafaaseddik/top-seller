@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import topseller.DAO.CategoryDAO;
 import topseller.DAO.ShopDAO;
 import topseller.DAO.UserDAO;
 import topseller.models.*;
@@ -18,11 +19,14 @@ import java.util.List;
 @Repository
 public class ShopDAOImpl implements ShopDAO {
     @Autowired
-    UserDAO userDAO;
-    @Autowired
     DataSource dataSource;
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    UserDAO userDAO;
+    @Autowired
+    CategoryDAO categoryDAO;
 
     @Override
     public Shop getShopByID(int id) {
@@ -109,11 +113,15 @@ public class ShopDAOImpl implements ShopDAO {
             Shop shop = new Shop();
             shop.setId(rs.getInt("id"));
             shop.setName(rs.getString("name"));
-            /*shop.setPrice(rs.getFloat("price"));
-            shop.setQuantity(rs.getInt("quantity"));
-            shop.setDescription(rs.getString("description"));
+            shop.setLogoURL(rs.getString("logo_url"));
+            shop.setCoverURL(rs.getString("cover_url"));
+            shop.setCreationDate(rs.getDate("creation_date"));
+            shop.setAddress(rs.getString("address"));
+            shop.setLongitude(rs.getDouble("longitude"));
+            shop.setLatitude(rs.getDouble("latitude"));
             shop.setClosed(rs.getBoolean("closed"));
-            shop.setStatus(ProductStatus.toProductStatus(rs.getString("status")));*/
+            shop.setOwner(ShopDAOImpl.this.userDAO.getUserByID(rs.getInt("userID")));
+            shop.setCategory(ShopDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
             return shop;
         }
     }
