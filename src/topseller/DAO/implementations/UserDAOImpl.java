@@ -29,6 +29,7 @@ public class UserDAOImpl implements UserDAO {
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, new Object[] { newUser.getFname(),newUser.getLname(),newUser.getEmail(),newUser.getPassword(),
                 newUser.getRegion(),newUser.getRawAvatarUrl(),newUser.getType().toString(),newUser.getPhone() });
+        newUser.setId(this.getUserByEmail(newUser.getEmail()).getId());
     }
     @Override
     public User signin(LoginUser loginUser) {
@@ -41,7 +42,6 @@ public class UserDAOImpl implements UserDAO {
             System.out.println("-- ERROR : UserDao.signup() : Error getting database");
             e.printStackTrace();
         }
-
         return users.size() > 0 ? users.get(0) : null;
     }
 

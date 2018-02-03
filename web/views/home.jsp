@@ -9,90 +9,29 @@
                 <div class="categories-wrapper white-bg">
                     <h3 class="block-title">Product Categories</h3>
                     <ul class="vertical-menu">
-                        <li>
-                            <a href="#">New Arrivals</a>
-                        </li>
+
                         <li>
                             <a href="#">All Products</a>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                Bags & Accessories <i class="caret-right fa fa-angle-right"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bags & Accessories</a></li>
-                                <li><a href="#">Man's Products</a></li>
-                                <li><a href="#">Woman's Products</a></li>
-                                <li><a href="#">Top Brands</a></li>
-                                <li><a href="#">Special Offer</a></li>
-                                <li><a href="#">Leather's Products</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                Man's Products <i class="caret-right fa fa-angle-right"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bags & Accessories</a></li>
-                                <li><a href="#">Man's Products</a></li>
-                                <li><a href="#">Woman's Products</a></li>
-                                <li><a href="#">Top Brands</a></li>
-                                <li><a href="#">Special Offer</a></li>
-                                <li><a href="#">Leather's Products</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                Woman's Products <i class="caret-right fa fa-angle-right"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bags & Accessories</a></li>
-                                <li><a href="#">Man's Products</a></li>
-                                <li><a href="#">Woman's Products</a></li>
-                                <li><a href="#">Top Brands</a></li>
-                                <li><a href="#">Special Offer</a></li>
-                                <li><a href="#">Leather's Products</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                Top Brands <i class="caret-right fa fa-angle-right"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bags & Accessories</a></li>
-                                <li><a href="#">Man's Products</a></li>
-                                <li><a href="#">Woman's Products</a></li>
-                                <li><a href="#">Top Brands</a></li>
-                                <li><a href="#">Special Offer</a></li>
-                                <li><a href="#">Leather's Products</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                Special Offer <i class="caret-right fa fa-angle-right"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bags & Accessories</a></li>
-                                <li><a href="#">Man's Products</a></li>
-                                <li><a href="#">Woman's Products</a></li>
-                                <li><a href="#">Top Brands</a></li>
-                                <li><a href="#">Special Offer</a></li>
-                                <li><a href="#">Leather's Products</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                Leather's Productsr <i class="caret-right fa fa-angle-right"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bags & Accessories</a></li>
-                                <li><a href="#">Man's Products</a></li>
-                                <li><a href="#">Woman's Products</a></li>
-                                <li><a href="#">Top Brands</a></li>
-                                <li><a href="#">Special Offer</a></li>
-                                <li><a href="#">Leather's Products</a></li>
-                            </ul>
-                        </li>
+                        <c:forEach items="${listSuperCategories}" var="item">
+                            <li <c:if test="${item.children != null && item.children.size() > 0}"> class="dropdown" </c:if>>
+
+
+                            <c:choose>
+                                <c:when test="${not empty item.children && item.children.size() > 0 }">
+                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" href="#"> ${item.name} <i class="caret-right fa fa-angle-right"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <c:forEach items="${item.children}" var="children">
+                                            <li><a href="#">${children.name}</a></li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="#"> ${item.name}</a>
+                                </c:otherwise>
+                            </c:choose>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>

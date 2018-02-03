@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("existing");
         }
         this.userDAO.signup(newUser);
+
     }
 
     @Override

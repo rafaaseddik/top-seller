@@ -61,7 +61,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/signup",method = RequestMethod.POST, consumes = {"multipart/form-data"})
-    public String handleSignup(@RequestParam("avatar_url")MultipartFile file, @ModelAttribute("newUser") User newUser, Model model) {
+    public String handleSignup(@RequestParam("avatar_url")MultipartFile file, @ModelAttribute("newUser") User newUser, Model model,HttpSession session) {
         ArrayList<String> errorList= new ArrayList<String>();
         try{
             this.userService.validateNewUser(newUser);
@@ -81,6 +81,8 @@ public class LoginController {
 
 
         this.userService.signup(newUser);
+
+        session.setAttribute("loggedUser",newUser);
 
         System.out.println(newUser.toString());
         return "redirect:/home";

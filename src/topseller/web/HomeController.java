@@ -6,11 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.portlet.ModelAndView;
 import java.util.ArrayList;
-import topseller.models.LoginUser;
-import topseller.models.Product;
-import topseller.models.User;
-import topseller.models.ProductReport;
-import topseller.models.Report;
+
+import topseller.models.*;
+import topseller.service.CategoryService;
 import topseller.service.UserService;
 import topseller.service.ProductService;
 
@@ -23,6 +21,9 @@ public class HomeController {
     UserService userService;
     @Autowired
     ProductService productService;
+
+    @Autowired
+    CategoryService categoryService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String visitHome(Model model, HttpSession session) {
@@ -43,6 +44,8 @@ public class HomeController {
             System.out.println(reporte);
         }
         model.addAttribute("produit",productService.getProductByID(1));*/
+        ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
+        model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         String pageName = "home";
         model.addAttribute("pageName",pageName);
