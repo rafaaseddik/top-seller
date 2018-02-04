@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.portlet.ModelAndView;
+import topseller.models.Category;
 import topseller.models.FormException;
 import topseller.models.LoginUser;
 import topseller.models.User;
+import topseller.service.CategoryService;
 import topseller.service.FileService;
 import topseller.service.UserService;
 
@@ -27,6 +29,8 @@ public class LoginController {
     UserService userService;
     @Autowired
     FileService fileService;
+    @Autowired
+    CategoryService categoryService;
     @RequestMapping(value = "/signin",method = RequestMethod.POST)
     public String handleSignin(@ModelAttribute("login") LoginUser loginUser, Model model, HttpSession session) {
         ArrayList<String> errorList= new ArrayList<String>();
@@ -56,6 +60,8 @@ public class LoginController {
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
     public String showSignin(Model model,HttpSession session){
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
+        ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
+        model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("login",new LoginUser());
         return "login/signin";
     }
@@ -91,6 +97,8 @@ public class LoginController {
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String showSignup(Model model,HttpSession session){
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
+        ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
+        model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("newUser",new User());
         return "login/signup";
     }

@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 public class GlobalVariables {
     @Bean
     public String fileSystemUploadPath(){
-      return "c:/wamp64/www/fileupload/topseller/";
+      return "/Applications/MAMP/htdocs/fileupload/topseller/";
     }
     @Bean
-    public String imagesServerURL(){ return "http://localhost/fileupload/topseller/"; }
+    public static String imagesServerURL(){ return "http://localhost/fileupload/topseller/"; }
+    @Bean
+    public static int getMaxPrice(){ return 50000; }
 }

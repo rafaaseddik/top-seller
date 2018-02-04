@@ -132,6 +132,8 @@ public class ProductDAOImpl implements ProductDAO {
         try{
             String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
             products = (ArrayList<Product>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",statusString,min_price,max_price,limit,page*limit} ,new ProductMapper());
+            System.out.println(products.toString());
+            System.out.println(products.size());
         }catch(Exception e){
             System.out.println("-- ERROR : ProductDao.searchProducts() : Error getting database");
             e.printStackTrace();
@@ -210,19 +212,24 @@ public class ProductDAOImpl implements ProductDAO {
         Random random = new Random();
         String sql = "select * from category c where (select count(p.id) from product p where p.categoryID = c.id)>1";
         allCategories = (ArrayList<Category>)jdbcTemplate.query(sql, new CategoryDAOImpl.CategoryMapper());
+        System.out.println(allCategories.toString());
+        ArrayList<Pair<Category,ArrayList<Product>>> result = new ArrayList<Pair<Category,ArrayList<Product>>>();
         int choice1=random.nextInt(allCategories.size()),choice2=-1,choice3=-1;
         Pair<Category,ArrayList<Product>> firstPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice1),this.searchProducts("",allCategories.get(choice1),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
         allCategories.remove(choice1);
-        choice2 = random.nextInt(allCategories.size());
-        Pair<Category,ArrayList<Product>> secondPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice2),this.searchProducts("",allCategories.get(choice2),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
-        allCategories.remove(choice2);
-        choice3 = random.nextInt(allCategories.size());
-        Pair<Category,ArrayList<Product>> thirdPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice3),this.searchProducts("",allCategories.get(choice3),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
-
-        ArrayList<Pair<Category,ArrayList<Product>>> result = new ArrayList<Pair<Category,ArrayList<Product>>>();
         result.add(firstPair);
-        result.add(secondPair);
-        result.add(thirdPair);
+        if(allCategories.size()>0){
+            choice2 = random.nextInt(allCategories.size());
+            Pair<Category,ArrayList<Product>> secondPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice2),this.searchProducts("",allCategories.get(choice2),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+            allCategories.remove(choice2);
+            result.add(secondPair);
+            if(allCategories.size()>0) {
+                choice3 = random.nextInt(allCategories.size());
+                Pair<Category, ArrayList<Product>> thirdPair = new Pair<Category, ArrayList<Product>>(allCategories.get(choice3), this.searchProducts("", allCategories.get(choice3), Product.MAX_PRICE, 0, ProductStatus.ANY, 2, 0));
+                result.add(thirdPair);
+            }
+        }
+
         return result;
     }
     class ProductMapper implements RowMapper<Product> {

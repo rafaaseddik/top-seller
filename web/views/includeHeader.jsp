@@ -85,22 +85,27 @@
                     <div class="clear"></div>
                 </div>
                 <div class="col-md-6 col-sm-8">
-
                     <div class="search-area">
-                        <form>
+                        <form:form>
+
                             <div class="control-group">
-                                <form>
-                                    <select class="dropdown-menu">>
-                                        <option class="menu-header">Clothing</option>
-                                        <option class="menu-header">Electronics</option>
-                                    </select>
-                                </form>
-                                <ul class="categories-filter animate-dropdown">
-                                </ul>
+                                <select style="
+                                        width:  100px;
+                                        height: 38px;
+                                        border: none;
+                                        background:  none;
+                                        margin:  0;
+                                        padding:  0;
+                                        border-radius: 0px!important;
+                                    " name="type" class="categories-filter">
+                                    <option>Product</option>
+                                    <option>Shop</option>
+                                </select>
+                                |
                                 <input class="search-field" placeholder="Search here...">
                                 <a class="search-button" href="#"><i class="icon-magnifier"></i></a>
                             </div>
-                        </form>
+                        </form:form>
                     </div>
 
                     <div class="shop-cart">
@@ -181,164 +186,74 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">Catalog <span class="caret"></span></a>
+                            <a href="#">Our products <span class="caret"></span></a>
                             <div class="dropdown mega-menu megamenu1">
                                 <div class="row">
+
                                     <div class="col-sm-3 col-xs-12">
                                         <ul class="menulinks">
                                             <li class="maga-menu-title">
-                                                <a href="#">Men</a>
+                                                <a href="#">Our products</a>
                                             </li>
-                                            <li><a href="category.html">Clothing</a></li>
-                                            <li><a href="category.html">Handbags</a></li>
-                                            <li><a href="category.html">Maternity</a></li>
-                                            <li><a href="category.html">Jewelry</a></li>
-                                            <li><a href="category.html">Scarves</a></li>
+                                            <li><a href="/filtre?cat_id=0">All products</a></li>
+                                            <c:forEach items="${listSuperCategories}" var="category">
+                                                <c:if test="true">
+                                                    <li><a href="/filtre?cat_id=${category.id}">${category.name}</a></li>
+                                                </c:if>
+                                            </c:forEach>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-3 col-xs-12">
-                                        <ul class="menulinks">
-                                            <li class="maga-menu-title">
-                                                <a href="#">Women</a>
-                                            </li>
-                                            <li><a href="category.html">Handbags</a></li>
-                                            <li><a href="category.html">Jewelry</a></li>
-                                            <li><a href="category.html">Clothing</a></li>
-                                            <li><a href="category.html">Watches</a></li>
-                                            <li><a href="category.html">Hats</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-12">
-                                        <ul class="menulinks">
-                                            <li class="maga-menu-title">
-                                                <a href="#">Accessories</a>
-                                            </li>
-                                            <li><a href="category.html">Belts</a></li>
-                                            <li><a href="category.html">Scarves</a></li>
-                                            <li><a href="category.html">Hats</a></li>
-                                            <li><a href="category.html">Ties</a></li>
-                                            <li><a href="category.html">Handbags</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-12">
-<span class="block-last">
-<img src="/assets/img/block_menu.jpg" alt="">
-</span>
-                                    </div>
+                                    <c:forEach items="${listSuperCategories}" var="category">
+                                        <c:if test="${category.children != null && category.children.size() > 0}">
+                                            <div class="col-sm-3 col-xs-12">
+                                                <ul class="menulinks">
+                                                    <li class="maga-menu-title">
+                                                        <a href="/filtre?cat_id=${category.id}">${category.name}</a>
+                                                    </li>
+                                                    <c:forEach items="${category.children}" var="children">
+                                                        <li><a href="/filtre?cat_id=${children.id}">${children.name}</a></li>
+                                                    </c:forEach>
+                                                </ul>
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <a href="#">Shop <span class="caret"></span></a>
-                            <div class="dropdown mega-menu megamenu2">
+                            <a href="#">Our Shops <span class="caret"></span></a>
+                            <div class="dropdown mega-menu megamenu1">
                                 <div class="row">
+
                                     <div class="col-sm-3 col-xs-12">
                                         <ul class="menulinks">
                                             <li class="maga-menu-title">
-                                                <a href="#">Shop Types</a>
+                                                <a href="#">Our shops</a>
                                             </li>
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="shop-grid.html">Shop Grid Sidebar</a></li>
-                                            <li><a href="shop-list.html">Shop List Sidebar</a></li>
-                                            <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li>
+                                            <li><a href="/filtre/shop?cat_id=0">All shops</a></li>
+                                            <c:forEach items="${listSuperCategories}" var="category">
+                                                <c:if test="true">
+                                                    <li><a href="/filtre/shop?cat_id=${category.id}">${category.name}</a></li>
+                                                </c:if>
+                                            </c:forEach>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-3 col-xs-12">
-                                        <ul class="menulinks">
-                                            <li class="maga-menu-title">
-                                                <a href="#">Shop Pages</a>
-                                            </li>
-                                            <li><a href="shopping-cart.html">Cart Page</a></li>
-                                            <li><a href="checkout.html">Checkout Page</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="order.html">Your Order</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="login-form.html">My Account</a></li>
-                                        </ul>
-                                    </div>
+                                    <c:forEach items="${listSuperCategories}" var="category">
+                                        <c:if test="${category.children != null && category.children.size() > 0}">
+                                            <div class="col-sm-3 col-xs-12">
+                                                <ul class="menulinks">
+                                                    <li class="maga-menu-title">
+                                                        <a href="/filtre/shop?cat_id=${category.id}">${category.name}</a>
+                                                    </li>
+                                                    <c:forEach items="${category.children}" var="children">
+                                                        <li><a href="/filtre/shop?cat_id=${children.id}">${children.name}</a></li>
+                                                    </c:forEach>
+                                                </ul>
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <a href="#">Pages <span class="caret"></span></a>
-                            <ul class="dropdown">
-                                <li>
-                                    <a href="about.html">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="services.html">
-                                        Services
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="product-details.html">
-                                        Product Details
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="team.html">
-                                        Team Member
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="checkout.html">
-                                        Checkout
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="shopping-cart.html">
-                                        Shopping cart
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="faq.html">
-                                        FAQs
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="wishlist.html">
-                                        Wishlist
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="404.html">
-                                        404 Error
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Blog <span class="caret"></span></a>
-                            <ul class="dropdown">
-                                <li>
-                                    <a href="blog.html">
-                                        Blog Right Sidebar
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="blog-left-sidebar.html">
-                                        Blog Left Sidebar
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="blog-full-width.html">
-                                        Blog Full Width
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html">
-                                        Blog Details
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a <c:if test="${pageName == 'contact'}"> class="active" </c:if> href="/contact">

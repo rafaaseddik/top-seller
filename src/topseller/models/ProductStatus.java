@@ -7,9 +7,9 @@ public enum ProductStatus {
             case "NEW" : return NEW;
             case "USED" : return USED;
             case "BROKEN" : return BROKEN;
+            case "ANY" : return ANY;
             case "BARELY_USED" : return BARELY_USED;
-            default:return NEW;
+            default:return ANY;
         }
     }
-
 }

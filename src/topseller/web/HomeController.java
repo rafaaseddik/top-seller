@@ -1,5 +1,6 @@
 package topseller.web;
 
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.portlet.ModelAndView;
 import java.util.ArrayList;
 
+import topseller.config.GlobalVariables;
 import topseller.models.*;
 import topseller.service.CategoryService;
 import topseller.service.UserService;
@@ -27,28 +29,16 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String visitHome(Model model, HttpSession session) {
-        /*User rafaa = new User();
-        rafaa.setId(6);
-        ProductReport report = new ProductReport();
-        report.setDescription("descr");
-        report.setUser(rafaa);
-        report.setSubject(productService.getProductByID(1));
-        this.productService.reportProduct(report);
-        this.productService.addProduct(Product.getMockProduct());
-        Product toEdit = Product.getMockProduct();
-        toEdit.setId(6);
-
-        this.productService.blockProduct(toEdit);
-        ArrayList<Product> latest = this.productService.getLatestProductsList(3);
-        for(Product reporte:latest){
-            System.out.println(reporte);
-        }
-        model.addAttribute("produit",productService.getProductByID(1));*/
         ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
+        ArrayList<Product> listNewArivalProduct = productService.getLatestProductsList(8);
+        ArrayList<Pair<Category,ArrayList<Product>>> listRecommendedProducts = productService.getRecommendedProducts();
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         String pageName = "home";
         model.addAttribute("pageName",pageName);
+        model.addAttribute("listNewArivalProduct",listNewArivalProduct);
+        model.addAttribute("imagesServerURL", GlobalVariables.imagesServerURL());
+        model.addAttribute("listRecommendedProducts", listRecommendedProducts);
         return pageName;
     }
 
