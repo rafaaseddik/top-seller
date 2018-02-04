@@ -1,9 +1,6 @@
 package topseller.DAO;
 
-import topseller.models.Category;
-import topseller.models.Product;
-import topseller.models.ProductReport;
-import topseller.models.ProductStatus;
+import topseller.models.*;
 
 import java.util.ArrayList;
 
@@ -21,4 +18,6 @@ public interface ProductDAO {
     ArrayList<Product> searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit, int page);
 
     ArrayList<String> getProductImages(Product product);
+
+    ArrayList<Product> getProductsByShop(Shop shop);
 }

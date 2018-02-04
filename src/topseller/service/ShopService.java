@@ -11,17 +11,12 @@ import java.util.ArrayList;
 public interface ShopService {
     Shop getShopByID(int id);
 
-    ArrayList<Shop> searchShopByName(String name);
+    ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page);
 
-    ArrayList<Shop> searchShopByCategory(Category category);
 
-    ArrayList<Shop> searchShopByRegion(String region);
+    ArrayList<Shop> getBestShops(int number);
 
-    ArrayList<Shop> searchShopInProximity(Pair<Float, Float> center, int distance);
-
-    ArrayList<Shop> searchShopByRating(int rating);
-
-    void ratetShop(int rating, User user);
+    void rateShop(int rating, User user);
 
     void reportShop(ShopReport shopReport);
 

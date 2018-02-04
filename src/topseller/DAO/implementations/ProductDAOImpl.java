@@ -145,6 +145,19 @@ public class ProductDAOImpl implements ProductDAO {
         images = (ArrayList<String>)jdbcTemplate.query(sql,new Object[]{product.getId()},new StringMapper());
         return images;
     }
+    @Override
+    public ArrayList<Product> getProductsByShop(Shop shop) {
+        String sql = "select * from product where shopID='" + shop.getId() + "'";
+        ArrayList<Product> products = new ArrayList<Product>();
+        try{
+            products = (ArrayList<Product>)jdbcTemplate.query(sql, new ProductMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.getProductByShop() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return products;
+    }
     class ProductMapper implements RowMapper<Product> {
         public Product mapRow(ResultSet rs, int arg1) throws SQLException {
             Product product = new Product();

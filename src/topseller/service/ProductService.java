@@ -14,5 +14,7 @@ public interface ProductService {
     public ArrayList<ProductReport> getProductReportsList();
     public ArrayList<Product> getLatestProductsList(int number);
 
+    ArrayList<Product> getProductsByShop(Shop shop);
+
     ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);
 }

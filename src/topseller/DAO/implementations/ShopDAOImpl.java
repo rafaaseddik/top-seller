@@ -36,7 +36,7 @@ public class ShopDAOImpl implements ShopDAO {
         try{
             shops = jdbcTemplate.query(sql, new ShopDAOImpl.ShopMapper());
         }catch(Exception e){
-            System.out.println("-- ERROR : ProductDao.getProductByID() : Error getting database");
+            System.out.println("-- ERROR : ShopDao.getShopByID() : Error getting database");
             e.printStackTrace();
         }
 
@@ -44,32 +44,38 @@ public class ShopDAOImpl implements ShopDAO {
     }
 
     @Override
-    public ArrayList<Shop> searchShopByName(String name) {
-        return null;
+    public ArrayList<Shop> searchShop(String name, Category category, String region, int limit, int page) {
+
+        String sql = "SELECT * FROM shop WHERE name LIKE ? AND categoryID = ?  AND address LIKE ? LIMIT ? OFFSET ?";
+        ArrayList<Shop> shops = new ArrayList<Shop>();
+        try{
+            region = "%"+region+"%";
+            shops = (ArrayList<Shop>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",category.getId(),region,limit,page*limit} ,new ShopDAOImpl.ShopMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.searchShop() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return shops;
+    }
+    @Override
+    public ArrayList<Shop> searchShopNoCategory(String name,String region, int limit, int page) {
+
+        String sql = "SELECT * FROM shop WHERE name LIKE ?  AND address LIKE ? LIMIT ? OFFSET ?";
+        ArrayList<Shop> shops = new ArrayList<Shop>();
+        try{
+            region = "%"+region+"%";
+            shops = (ArrayList<Shop>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",region,limit,page*limit} ,new ShopDAOImpl.ShopMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.searchShop() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return shops;
     }
 
     @Override
-    public ArrayList<Shop> searchShopByCategory(Category category) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopByRegion(String region) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopInProximity(Pair<Float, Float> center, int distance) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopByRating(int rating) {
-        return null;
-    }
-
-    @Override
-    public void ratetShop(int rating, User user) {
+    public void rateShop(int rating, User user) {
 
     }
 
@@ -114,7 +120,14 @@ public class ShopDAOImpl implements ShopDAO {
         List<Double> score;
         score=  jdbcTemplate.query(sql,new Object[]{shop.getId()},new DoubleMapper());
         return score.isEmpty()?0:score.get(0);
+    }
 
+    @Override
+    public ArrayList<Shop> getBestShops(int number){
+        String sql = "SELECT shop.*,avg(score.score) as score from shop, score where shop.id=score.shopID group by shop.id order by score DESC LIMIT ?";
+        ArrayList<Shop> shops;
+        shops=  (ArrayList<Shop> )jdbcTemplate.query(sql,new Object[]{number},new ShopMapper());
+        return shops;
     }
     class ShopMapper implements RowMapper<Shop> {
         public Shop mapRow(ResultSet rs, int arg1) throws SQLException {

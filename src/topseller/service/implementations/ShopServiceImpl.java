@@ -21,34 +21,19 @@ public class ShopServiceImpl implements ShopService {
     public Shop getShopByID(int id) {
         return this.shopDAO.getShopByID(id);
     }
+  @Override
+  public ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page){
+    if(category.equals(Category.ANY_CATEGORY()))
+      return this.shopDAO.searchShopNoCategory(name,region,limit,page);
+    return this.shopDAO.searchShop(name,category,region,limit,page);
+  }
+  @Override
+  public ArrayList<Shop> getBestShops(int number){
+    return this.shopDAO.getBestShops(number);
+  }
 
     @Override
-    public ArrayList<Shop> searchShopByName(String name) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopByCategory(Category category) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopByRegion(String region) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopInProximity(Pair<Float, Float> center, int distance) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Shop> searchShopByRating(int rating) {
-        return null;
-    }
-
-    @Override
-    public void ratetShop(int rating, User user) {
+    public void rateShop(int rating, User user) {
 
     }
 
