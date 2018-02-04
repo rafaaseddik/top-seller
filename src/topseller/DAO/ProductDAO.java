@@ -19,4 +19,6 @@ public interface ProductDAO {
     public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);
 
     ArrayList<Product> searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit, int page);
+
+    ArrayList<String> getProductImages(Product product);
 }

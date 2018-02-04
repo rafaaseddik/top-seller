@@ -20,4 +20,6 @@ public interface ShopDAO {
     public void blockShop(Shop shop);
     public ArrayList<ShopReport> getShopReportsList();
     public ArrayList<Shop> getLatestShopsList(int number);
+
+    double getShopRating(Shop shop);
 }

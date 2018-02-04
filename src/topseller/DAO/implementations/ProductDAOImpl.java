@@ -2,10 +2,12 @@ package topseller.DAO.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import topseller.DAO.CategoryDAO;
 import topseller.DAO.ProductDAO;
+import topseller.DAO.ShopDAO;
 import topseller.DAO.UserDAO;
 import topseller.models.*;
 
@@ -26,6 +28,8 @@ public class ProductDAOImpl implements ProductDAO {
     UserDAO userDAO;
     @Autowired
     CategoryDAO categoryDAO;
+    @Autowired
+    ShopDAO shopDAO;
 
     @Override
     public Product getProductByID(int id) {
@@ -107,7 +111,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page) {
 
-        String sql = "SELECT * FROM product WHERE name LIKE ? AND categoryID = ?  AND status = ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
+        String sql = "SELECT * FROM product WHERE name LIKE ? AND categoryID = ?  AND status LIKE ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
         ArrayList<Product> products = new ArrayList<Product>();
         try{
             String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
@@ -134,6 +138,13 @@ public class ProductDAOImpl implements ProductDAO {
 
         return products;
     }
+    @Override
+    public ArrayList<String> getProductImages(Product product){
+        String sql = "SELECT imgURL FROM images WHERE productID= ?";
+        ArrayList<String> images = new ArrayList<String>();
+        images = (ArrayList<String>)jdbcTemplate.query(sql,new Object[]{product.getId()},new StringMapper());
+        return images;
+    }
     class ProductMapper implements RowMapper<Product> {
         public Product mapRow(ResultSet rs, int arg1) throws SQLException {
             Product product = new Product();
@@ -145,6 +156,8 @@ public class ProductDAOImpl implements ProductDAO {
             product.setClosed(rs.getBoolean("closed"));
             product.setStatus(ProductStatus.toProductStatus(rs.getString("status")));
             product.setCategory(ProductDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
+            product.setImages(ProductDAOImpl.this.getProductImages(product));
+            product.setShop(ProductDAOImpl.this.shopDAO.getShopByID(rs.getInt("shopID")));
             return product;
         }
     }
@@ -158,6 +171,12 @@ public class ProductDAOImpl implements ProductDAO {
             productReport.setSubject(ProductDAOImpl.this.getProductByID(rs.getInt("productID")));
             productReport.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
             return productReport;
+        }
+    }
+
+    private class StringMapper implements RowMapper<String> {
+        public String mapRow(ResultSet rs,int argl) throws SQLException{
+            return rs.getString("imgURL");
         }
     }
 }

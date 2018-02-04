@@ -108,6 +108,14 @@ public class ShopDAOImpl implements ShopDAO {
         return null;
     }
 
+    @Override
+    public double getShopRating(Shop shop){
+        String sql = "SELECT avg(score) as score FROM `score` WHERE shopID= ?";
+        List<Double> score;
+        score=  jdbcTemplate.query(sql,new Object[]{shop.getId()},new DoubleMapper());
+        return score.isEmpty()?0:score.get(0);
+
+    }
     class ShopMapper implements RowMapper<Shop> {
         public Shop mapRow(ResultSet rs, int arg1) throws SQLException {
             Shop shop = new Shop();
@@ -122,6 +130,7 @@ public class ShopDAOImpl implements ShopDAO {
             shop.setClosed(rs.getBoolean("closed"));
             shop.setOwner(ShopDAOImpl.this.userDAO.getUserByID(rs.getInt("userID")));
             shop.setCategory(ShopDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
+            shop.setGlobalScore(ShopDAOImpl.this.getShopRating(shop));
             return shop;
         }
     }
@@ -135,6 +144,12 @@ public class ShopDAOImpl implements ShopDAO {
             shopReport.setSubject(ShopDAOImpl.this.getShopByID(rs.getInt("shopID")));
             shopReport.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
             return shopReport;
+        }
+    }
+
+    private class DoubleMapper implements RowMapper<Double> {
+        public Double mapRow(ResultSet rs,int argl) throws SQLException{
+            return rs.getDouble("score");
         }
     }
 }

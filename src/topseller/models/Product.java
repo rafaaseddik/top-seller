@@ -1,5 +1,7 @@
 package topseller.models;
 
+import java.util.ArrayList;
+
 public class Product extends Subject{
     private int id;
     private String name;
@@ -10,6 +12,7 @@ public class Product extends Subject{
     private Category category;
     private Shop shop;
     private ProductStatus Status;
+    private ArrayList<String> images = new ArrayList<String>();
     public static double MAX_PRICE = 100000;
 
     public int getId() {
@@ -84,6 +87,22 @@ public class Product extends Subject{
         this.Status = Status;
     }
 
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
+    }
+
+    public void addImage(String img){
+        this.images.add(img);
+    }
+    public void deleteImageByName(String img){
+        this.images.remove(img);
+    }
+    public void deleteImageByIndex(int index){
+        this.images.remove(index);
+    }
+    public ArrayList<String> getImages(){
+        return this.images;
+    }
     @Override
     public String toString() {
         return "Product{" +
@@ -96,6 +115,7 @@ public class Product extends Subject{
                 ", category=" + category +
                 ", shop=" + shop +
                 ", Status=" + Status +
+                ((images.size()>0)?(", images=" + images ):"")+
                 '}';
     }
 
