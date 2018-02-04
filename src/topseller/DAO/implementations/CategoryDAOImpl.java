@@ -61,7 +61,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
         return categories.size() > 0 ? categories.get(0) : null;
     }
-    class CategoryMapper implements RowMapper<Category> {
+    public static class CategoryMapper implements RowMapper<Category> {
 
         public Category mapRow(ResultSet rs, int arg1) throws SQLException {
             Category category = new Category();

@@ -27,12 +27,7 @@ public class TestController {
     ProductService productService;
     @RequestMapping(method = RequestMethod.GET)
     public String test(Model model){
-        Category category = new Category();
-        category.setId(5);
-        ArrayList<Shop> shops = this.shopService.searchShops("",category,"",100,0);
-        for(Shop _shop : shops){
-            System.out.println(this.productService.getProductsByShop(_shop));
-        }
+        System.out.println(productService.getRecommendedProducts());
         //System.out.println(this.productService.searchProducts("iPhone",category,70,0, ProductStatus.BARELY_USED,5,0));
         //System.out.println(this.productService.searchProducts("iPhone",Category.ANY_CATEGORY(), Product.MAX_PRICE,0, ProductStatus.ANY,5,0));
         return "test";

@@ -1,5 +1,6 @@
 package topseller.service;
 
+import javafx.util.Pair;
 import topseller.models.*;
 
 import java.util.ArrayList;
@@ -17,4 +18,6 @@ public interface ProductService {
     ArrayList<Product> getProductsByShop(Shop shop);
 
     ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);
+
+    ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
 }

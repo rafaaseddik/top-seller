@@ -1,5 +1,6 @@
 package topseller.DAO;
 
+import javafx.util.Pair;
 import topseller.models.*;
 
 import java.util.ArrayList;
@@ -20,4 +21,6 @@ public interface ProductDAO {
     ArrayList<String> getProductImages(Product product);
 
     ArrayList<Product> getProductsByShop(Shop shop);
+
+    ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
 }

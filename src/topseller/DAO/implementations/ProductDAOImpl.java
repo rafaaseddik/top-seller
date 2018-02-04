@@ -1,5 +1,6 @@
 package topseller.DAO.implementations;
 
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
@@ -17,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -157,6 +159,28 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
         return products;
+    }
+    @Override
+    public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){
+        ArrayList<Category> allCategories = this.categoryDAO.getSuperCategories();
+        Random random = new Random();
+        String sql = "select * from category c where (select count(p.id) from product p where p.categoryID = c.id)>1";
+        allCategories = (ArrayList<Category>)jdbcTemplate.query(sql, new CategoryDAOImpl.CategoryMapper());
+        int choice1=random.nextInt(allCategories.size()),choice2=-1,choice3=-1;
+        do{
+            choice2=random.nextInt(allCategories.size());
+        }while (choice2==choice1);
+        do{
+            choice3=random.nextInt(allCategories.size());
+        }while (choice3==choice1 || choice3==choice2);
+        Pair<Category,ArrayList<Product>> firstPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice1),this.searchProducts("",allCategories.get(choice1),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+        Pair<Category,ArrayList<Product>> secondPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice2),this.searchProducts("",allCategories.get(choice2),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+        Pair<Category,ArrayList<Product>> thirdPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice3),this.searchProducts("",allCategories.get(choice3),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+        ArrayList<Pair<Category,ArrayList<Product>>> result = new ArrayList<Pair<Category,ArrayList<Product>>>();
+        result.add(firstPair);
+        result.add(secondPair);
+        result.add(thirdPair);
+        return result;
     }
     class ProductMapper implements RowMapper<Product> {
         public Product mapRow(ResultSet rs, int arg1) throws SQLException {

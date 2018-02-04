@@ -1,5 +1,6 @@
 package topseller.service.implementations;
 
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import topseller.DAO.ProductDAO;
@@ -57,5 +58,9 @@ public class ProductServiceImpl implements ProductService {
         if(category.equals(Category.ANY_CATEGORY()))
             return this.productDAO.searchProductsNoCategory(name,max_price,min_price,status,limit,page);
         return this.productDAO.searchProducts(name,category,max_price,min_price,status,limit,page);
+    }
+    @Override
+    public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){
+        return this.productDAO.getRecommendedProducts();
     }
 }
