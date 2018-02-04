@@ -11,12 +11,16 @@ public interface ProductDAO {
     public void addProduct(Product product);
     public void updateProduct(Product product);
     public void deleteProduct(Product product);
-    public void blockProduct(Product product);
-    public ArrayList<ProductReport> getProductReportsList();
-    public ArrayList<Product> getLatestProductsList(int number);
-    public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);
+    void blockProduct(Product product);
+    ArrayList<ProductReport> getProductReportsList();
+    ArrayList<Product> getLatestProductsList(int number);
+    ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);
 
     ArrayList<Product> searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit, int page);
+
+    int nb_searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status , int limit);
+
+    int nb_searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status , int limit);
 
     ArrayList<String> getProductImages(Product product);
 

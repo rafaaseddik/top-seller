@@ -3,7 +3,6 @@ package topseller.DAO.implementations;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import topseller.DAO.CategoryDAO;
@@ -140,6 +139,37 @@ public class ProductDAOImpl implements ProductDAO {
 
         return products;
     }
+
+    @Override
+    public int nb_searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit) {
+        String sql = "SELECT COUNT(id) AS nb FROM product WHERE name LIKE ? AND categoryID = ?  AND status LIKE ? AND (price BETWEEN ? AND ?)";
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        try{
+            String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
+            result = (ArrayList<Integer>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",category.getId(),statusString,min_price,max_price} ,new IntegerMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.nb_searchProducts() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return result.size()>0?(int)Math.ceil(((double)  result.get(0))/((float)limit)):0;
+    }
+
+    @Override
+    public int nb_searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit) {
+        String sql = "SELECT COUNT(id) AS nb FROM product WHERE name LIKE ? AND status LIKE ? AND (price BETWEEN ? AND ?)";
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        try{
+            String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
+            result = (ArrayList<Integer>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",statusString,min_price,max_price} ,new IntegerMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.nb_searchProductsNoCategory() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return result.size()>0?(int)Math.ceil(((double)  result.get(0))/((float)limit)):0;
+    }
+
     @Override
     public ArrayList<String> getProductImages(Product product){
         String sql = "SELECT imgURL FROM images WHERE productID= ?";
@@ -214,6 +244,11 @@ public class ProductDAOImpl implements ProductDAO {
     private class StringMapper implements RowMapper<String> {
         public String mapRow(ResultSet rs,int argl) throws SQLException{
             return rs.getString("imgURL");
+        }
+    }
+    private class IntegerMapper implements RowMapper<Integer> {
+        public Integer mapRow(ResultSet rs,int argl) throws SQLException{
+            return rs.getInt("nb");
         }
     }
 }

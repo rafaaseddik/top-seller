@@ -59,6 +59,14 @@ public class ProductServiceImpl implements ProductService {
             return this.productDAO.searchProductsNoCategory(name,max_price,min_price,status,limit,page);
         return this.productDAO.searchProducts(name,category,max_price,min_price,status,limit,page);
     }
+
+    @Override
+    public int nb_searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit) {
+        if(category.equals(Category.ANY_CATEGORY()))
+            return this.productDAO.nb_searchProductsNoCategory(name,max_price,min_price,status,limit);
+        return this.productDAO.nb_searchProducts(name,category,max_price,min_price,status,limit);
+    }
+
     @Override
     public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){
         return this.productDAO.getRecommendedProducts();
