@@ -3,8 +3,10 @@ package topseller.service.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import topseller.DAO.ProductDAO;
+import topseller.models.Category;
 import topseller.models.Product;
 import topseller.models.ProductReport;
+import topseller.models.ProductStatus;
 import topseller.service.ProductService;
 
 import java.util.ArrayList;
@@ -47,5 +49,11 @@ public class ProductServiceImpl implements ProductService {
     }
     public ArrayList<Product> getLatestProductsList(int number){
         return this.productDAO.getLatestProductsList(number);
+    }
+    @Override
+    public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page){
+        if(category.equals(Category.ANY_CATEGORY()))
+            return this.productDAO.searchProductsNoCategory(name,max_price,min_price,status,limit,page);
+        return this.productDAO.searchProducts(name,category,max_price,min_price,status,limit,page);
     }
 }

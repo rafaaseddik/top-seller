@@ -104,7 +104,36 @@ public class ProductDAOImpl implements ProductDAO {
 
         return products;
     }
+    @Override
+    public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page) {
 
+        String sql = "SELECT * FROM product WHERE name LIKE ? AND categoryID = ?  AND status = ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
+        ArrayList<Product> products = new ArrayList<Product>();
+        try{
+            String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
+            products = (ArrayList<Product>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",category.getId(),statusString,min_price,max_price,limit,page*limit} ,new ProductMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.searchProducts() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return products;
+    }
+    @Override
+    public ArrayList<Product> searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit, int page) {
+
+        String sql = "SELECT * FROM product WHERE name LIKE ?  AND status LIKE ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
+        ArrayList<Product> products = new ArrayList<Product>();
+        try{
+            String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
+            products = (ArrayList<Product>)jdbcTemplate.query(sql,new Object[]{"%"+name+"%",statusString,min_price,max_price,limit,page*limit} ,new ProductMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.searchProducts() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return products;
+    }
     class ProductMapper implements RowMapper<Product> {
         public Product mapRow(ResultSet rs, int arg1) throws SQLException {
             Product product = new Product();

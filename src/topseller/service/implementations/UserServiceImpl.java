@@ -2,17 +2,13 @@ package topseller.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.commons.validator.routines.EmailValidator;
-import org.springframework.session.MapSession;
-import org.springframework.session.Session;
-import org.springframework.session.web.http.HttpSessionManager;
+
 import org.springframework.stereotype.Service;
 import topseller.DAO.UserDAO;
 import topseller.models.FormException;
 import topseller.models.LoginUser;
 import topseller.models.User;
 import topseller.service.UserService;
-
-import java.util.Map;
 
 
 @Service

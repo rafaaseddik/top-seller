@@ -10,7 +10,7 @@ public class Product extends Subject{
     private Category category;
     private Shop shop;
     private ProductStatus Status;
-
+    public static double MAX_PRICE = 100000;
 
     public int getId() {
         return id;

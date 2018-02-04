@@ -1,7 +1,9 @@
 package topseller.DAO;
 
+import topseller.models.Category;
 import topseller.models.Product;
 import topseller.models.ProductReport;
+import topseller.models.ProductStatus;
 
 import java.util.ArrayList;
 
@@ -14,4 +16,7 @@ public interface ProductDAO {
     public void blockProduct(Product product);
     public ArrayList<ProductReport> getProductReportsList();
     public ArrayList<Product> getLatestProductsList(int number);
+    public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);
+
+    ArrayList<Product> searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit, int page);
 }

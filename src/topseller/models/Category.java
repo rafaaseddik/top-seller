@@ -55,6 +55,11 @@ public class Category {
         this.parentID = parentID;
     }
 
+    public static Category ANY_CATEGORY(){
+        Category any = new Category();
+        any.setId(-1);
+        return any;
+    }
     @Override
     public String toString() {
         return "Category{" +
@@ -63,6 +68,21 @@ public class Category {
                 ((parent==null)?(", parentID=" + parentID):(", parent=" + parent)) +
                 ", children=" + children +
                 "}\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Category category = (Category) o;
+
+        return id == category.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 
     public static Category getMockCategory(){

@@ -1,7 +1,7 @@
 package topseller.models;
 
 public enum ProductStatus {
-    NEW,USED,BROKEN,BARELY_USED;
+    NEW,USED,BROKEN,BARELY_USED,ANY;
     public static ProductStatus toProductStatus(String productstatus){
         switch(productstatus){
             case "NEW" : return NEW;
@@ -11,4 +11,5 @@ public enum ProductStatus {
             default:return NEW;
         }
     }
+
 }
