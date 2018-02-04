@@ -71,4 +71,8 @@ public class ProductServiceImpl implements ProductService {
     public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){
         return this.productDAO.getRecommendedProducts();
     }
+    @Override
+    public ArrayList<Product> getSuggestedProducts(Product product, int number){
+        return this.productDAO.getSuggestedProducts(product,number);
+    }
 }

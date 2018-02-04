@@ -26,5 +26,7 @@ public interface ProductDAO {
 
     ArrayList<Product> getProductsByShop(Shop shop);
 
+    ArrayList<Product> getSuggestedProducts(Product product, int number);
+
     ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
 }

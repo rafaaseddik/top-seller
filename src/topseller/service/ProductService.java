@@ -22,4 +22,6 @@ public interface ProductService {
 
 
     ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
+
+    ArrayList<Product> getSuggestedProducts(Product product, int number);
 }

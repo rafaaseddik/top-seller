@@ -191,21 +191,34 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
     @Override
+    public ArrayList<Product> getSuggestedProducts(Product product, int number) {
+        String sql = "SELECT * FROM `product` WHERE (shopID= ? OR categoryID=?) AND id <> ? LIMIT ?";
+
+        ArrayList<Product> products = new ArrayList<Product>();
+        try{
+            products = (ArrayList<Product>)jdbcTemplate.query(sql,new Object[]{product.getShop().getId(),product.getCategory().getId(),product.getId(),number}, new ProductMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.getProductByShop() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return products;
+    }
+    @Override
     public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){
         ArrayList<Category> allCategories = this.categoryDAO.getSuperCategories();
         Random random = new Random();
         String sql = "select * from category c where (select count(p.id) from product p where p.categoryID = c.id)>1";
         allCategories = (ArrayList<Category>)jdbcTemplate.query(sql, new CategoryDAOImpl.CategoryMapper());
         int choice1=random.nextInt(allCategories.size()),choice2=-1,choice3=-1;
-        do{
-            choice2=random.nextInt(allCategories.size());
-        }while (choice2==choice1);
-        do{
-            choice3=random.nextInt(allCategories.size());
-        }while (choice3==choice1 || choice3==choice2);
         Pair<Category,ArrayList<Product>> firstPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice1),this.searchProducts("",allCategories.get(choice1),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+        allCategories.remove(choice1);
+        choice2 = random.nextInt(allCategories.size());
         Pair<Category,ArrayList<Product>> secondPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice2),this.searchProducts("",allCategories.get(choice2),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+        allCategories.remove(choice2);
+        choice3 = random.nextInt(allCategories.size());
         Pair<Category,ArrayList<Product>> thirdPair = new Pair<Category,ArrayList<Product>>(allCategories.get(choice3),this.searchProducts("",allCategories.get(choice3),Product.MAX_PRICE,0,ProductStatus.ANY,2,0));
+
         ArrayList<Pair<Category,ArrayList<Product>>> result = new ArrayList<Pair<Category,ArrayList<Product>>>();
         result.add(firstPair);
         result.add(secondPair);

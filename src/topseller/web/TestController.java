@@ -29,11 +29,9 @@ public class TestController {
     public String test(Model model){
         Category category = new Category();
         category.setId(2);
-        System.out.println(productService.getRecommendedProducts());
-        System.out.println(this.productService.searchProducts("iPhone",category,70,0, ProductStatus.BARELY_USED,5,0));
-        System.out.println(this.productService.searchProducts("iPhone",Category.ANY_CATEGORY(), Product.MAX_PRICE,0, ProductStatus.ANY,5,0));
-        System.out.println(this.productService.nb_searchProducts("iPhone",category,70,0, ProductStatus.BARELY_USED,5));
-        System.out.println(this.productService.nb_searchProducts("iPhone",Category.ANY_CATEGORY(), Product.MAX_PRICE,0, ProductStatus.ANY,5));
+        Product product = this.productService.searchProducts("",Category.ANY_CATEGORY(),Product.MAX_PRICE,0,ProductStatus.USED,1,0).get(0);
+        System.out.println(product);
+        System.out.println(this.productService.getSuggestedProducts(product,5));
         return "test";
     }
 }
