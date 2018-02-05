@@ -9,6 +9,16 @@ public class Comment {
     private User user;
     private Date date;
 
+    public Comment() {
+    }
+
+    public Comment(String text, int score, User user, Date date) {
+        this.text = text;
+        this.score = score;
+        this.user = user;
+        this.date = date;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,10 +1,7 @@
 package topseller.service;
 
 import javafx.util.Pair;
-import topseller.models.Category;
-import topseller.models.Shop;
-import topseller.models.ShopReport;
-import topseller.models.User;
+import topseller.models.*;
 
 import java.util.ArrayList;
 
@@ -16,7 +13,7 @@ public interface ShopService {
 
     ArrayList<Shop> getBestShops(int number);
 
-    void rateShop(Shop shop, int rating, User user);
+    void rateShop(Shop shop,Comment comment);
 
     void reportShop(ShopReport shopReport);
 
