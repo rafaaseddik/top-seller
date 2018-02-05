@@ -29,7 +29,7 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public void rateShop(Shop shop , Comment comment) {
-      this.shopDAO.rateShop(comment);
+      this.shopDAO.rateShop(shop,comment);
     }
 
     @Override
