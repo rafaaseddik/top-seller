@@ -141,7 +141,7 @@ public class Shop extends Subject{
     }
     public static Shop getMockShop(){
         Shop shop = new Shop();
-        shop.setId(15);
+        shop.setId(3);
         shop.setName("Apple Store");
         shop.setCategory(Category.getMockCategory());
         shop.setPhone("25011291");

@@ -16,7 +16,7 @@ public interface ShopService {
 
     ArrayList<Shop> getBestShops(int number);
 
-    void rateShop(int rating, User user);
+    void rateShop(Shop shop, int rating, User user);
 
     void reportShop(ShopReport shopReport);
 

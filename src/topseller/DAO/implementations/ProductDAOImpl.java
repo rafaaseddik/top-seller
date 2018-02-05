@@ -15,9 +15,7 @@ import topseller.models.*;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -34,7 +32,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public Product getProductByID(int id) {
-        String sql = "select * from product where id='" + id + "'";
+        String sql = "select * from product where closed=0 AND id='" + id + "'";
         List<Product> products = new ArrayList<Product>();
         try{
             products = jdbcTemplate.query(sql, new ProductMapper());
@@ -55,9 +53,12 @@ public class ProductDAOImpl implements ProductDAO {
     }
     @Override
     public void addProduct(Product product){
-        String sql = "INSERT INTO product (`name`, `price`, `quantity`, `description`, `categoryID`, `shopID`, `status`) " +
+        String sql = "INSERT INTO product (`name`, `price`, `quantity`, `description`, `categoryID`, `shopID`, `status`,`creation_date`) " +
                 "VALUES (?, ?, ?,?,?,?,?)";
-        jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() });
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
+        jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() ,today});
 
     }
     @Override
@@ -98,7 +99,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public ArrayList<Product> getLatestProductsList(int number) {
-        String sql = "select * from product order by id DESC LIMIT "+number;
+        String sql = "select * from product WHERE closed=0 Order By creation_date DESC LIMIT "+number;
         ArrayList<Product> products = new ArrayList<Product>();
         try{
             products = (ArrayList<Product>)jdbcTemplate.query(sql, new ProductMapper());
@@ -112,7 +113,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page) {
 
-        String sql = "SELECT * FROM product WHERE name LIKE ? AND categoryID = ?  AND status LIKE ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
+        String sql = "SELECT * FROM product WHERE closed=0 AND name LIKE ? AND categoryID = ?  AND status LIKE ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
         ArrayList<Product> products = new ArrayList<Product>();
         try{
             String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
@@ -144,7 +145,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public int nb_searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit) {
-        String sql = "SELECT COUNT(id) AS nb FROM product WHERE name LIKE ? AND categoryID = ?  AND status LIKE ? AND (price BETWEEN ? AND ?)";
+        String sql = "SELECT COUNT(id) AS nb FROM product WHERE closed=0 AND name LIKE ? AND categoryID = ?  AND status LIKE ? AND (price BETWEEN ? AND ?)";
         ArrayList<Integer> result = new ArrayList<Integer>();
         try{
             String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
@@ -242,6 +243,7 @@ public class ProductDAOImpl implements ProductDAO {
             product.setDescription(rs.getString("description"));
             product.setClosed(rs.getBoolean("closed"));
             product.setStatus(ProductStatus.toProductStatus(rs.getString("status")));
+            product.setCreation_date((rs.getDate("creation_date")));
             product.setCategory(ProductDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
             product.setImages(ProductDAOImpl.this.getProductImages(product));
             product.setShop(ProductDAOImpl.this.shopDAO.getShopByID(rs.getInt("shopID")));

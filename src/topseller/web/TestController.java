@@ -5,10 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import topseller.models.Category;
-import topseller.models.Product;
-import topseller.models.ProductStatus;
-import topseller.models.Shop;
+import topseller.models.*;
 import topseller.service.CategoryService;
 import topseller.service.ProductService;
 import topseller.service.ShopService;
@@ -32,6 +29,10 @@ public class TestController {
         Product product = this.productService.searchProducts("",Category.ANY_CATEGORY(),Product.MAX_PRICE,0,ProductStatus.USED,1,0).get(0);
         System.out.println(product);
         System.out.println(this.productService.getSuggestedProducts(product,5));
+        shopService.rateShop(Shop.getMockShop(),6, User.getMockUser());
+        ShopReport report = new ShopReport("Hakkeka",Shop.getMockShop(), User.getMockUser());
+
+        shopService.reportShop(report);
         return "test";
     }
 }

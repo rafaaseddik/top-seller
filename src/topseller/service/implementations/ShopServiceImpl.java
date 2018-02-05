@@ -1,6 +1,5 @@
 package topseller.service.implementations;
 
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import topseller.DAO.ShopDAO;
@@ -11,7 +10,6 @@ import topseller.models.User;
 import topseller.service.ShopService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -33,42 +31,42 @@ public class ShopServiceImpl implements ShopService {
   }
 
     @Override
-    public void rateShop(int rating, User user) {
-
+    public void rateShop(Shop shop, int rating, User user) {
+      this.shopDAO.rateShop(shop, rating,user);
     }
 
     @Override
     public void reportShop(ShopReport shopReport) {
-
+      this.shopDAO.reportShop(shopReport);
     }
 
     @Override
     public void addShop(Shop shop) {
-
+        shopDAO.addShop(shop);
     }
 
     @Override
     public void updateShop(Shop shop) {
-
+      shopDAO.updateShop(shop);
     }
 
     @Override
     public void deleteShop(Shop shop) {
-
+      shopDAO.deleteShop(shop);
     }
 
     @Override
     public void blockShop(Shop shop) {
-
+        shopDAO.blockShop(shop);
     }
 
     @Override
     public ArrayList<ShopReport> getShopReportsList() {
-        return null;
+        return shopDAO.getShopReportsList();
     }
 
     @Override
     public ArrayList<Shop> getLatestShopsList(int number) {
-        return null;
+        return shopDAO.getLatestShopsList(number);
     }
 }

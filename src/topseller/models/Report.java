@@ -7,6 +7,15 @@ public abstract class Report {
     private Subject subject;
     private User user;
 
+    public Report() {
+    }
+
+    public Report(String description, Subject subject, User user) {
+        this.description = description;
+        this.subject = subject;
+        this.user = user;
+    }
+
     public int getId() {
         return id;
     }

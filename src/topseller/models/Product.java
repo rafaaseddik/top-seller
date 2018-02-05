@@ -1,6 +1,7 @@
 package topseller.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Product extends Subject{
     private int id;
@@ -12,6 +13,7 @@ public class Product extends Subject{
     private Category category;
     private Shop shop;
     private ProductStatus Status;
+    private Date creation_date;
     private ArrayList<String> images = new ArrayList<String>();
     public static double MAX_PRICE = 100000;
 
@@ -85,6 +87,14 @@ public class Product extends Subject{
 
     public void setStatus(ProductStatus Status) {
         this.Status = Status;
+    }
+
+    public Date getCreation_date() {
+        return creation_date;
+    }
+
+    public void setCreation_date(Date creation_date) {
+        this.creation_date = creation_date;
     }
 
     public void setImages(ArrayList<String> images) {

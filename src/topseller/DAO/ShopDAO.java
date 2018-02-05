@@ -13,7 +13,7 @@ public interface ShopDAO {
     ArrayList<Shop> searchShopNoCategory(String name, String region, int limit, int page);
 
     public void reportShop(ShopReport shopReport);
-    public void rateShop(int rating,User user);
+    public void rateShop(Shop shop,int rating,User user);
     public void addShop(Shop shop);
     public void updateShop(Shop shop);
     public void deleteShop(Shop shop);
