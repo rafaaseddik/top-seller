@@ -22,17 +22,14 @@ public class TestController {
     ShopService shopService;
     @Autowired
     ProductService productService;
+
     @RequestMapping(method = RequestMethod.GET)
-    public String test(Model model){
-/*        Category category = new Category();
+    public String test(Model model) {
+        Category category = new Category();
         category.setId(2);
-        Product product = this.productService.searchProducts("",Category.ANY_CATEGORY(),Product.MAX_PRICE,0,ProductStatus.USED,1,0).get(0);
-        System.out.println(product);
-        System.out.println(this.productService.getSuggestedProducts(product,5));
-        shopService.rateShop(Shop.getMockShop(),6, User.getMockUser());
-        ShopReport report = new ShopReport("Hakkeka",Shop.getMockShop(), User.getMockUser());
-*/
-        System.out.println(shopService.getShopByID(3));
+        System.out.println(shopService.nb_searchShops("",Category.ANY_CATEGORY(),"",1));
+        System.out.println("---------------------------------");
+        System.out.println(shopService.nb_searchShops("",category,"",1));
         return "test";
     }
 }

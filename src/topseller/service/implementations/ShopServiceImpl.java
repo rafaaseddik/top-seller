@@ -10,31 +10,41 @@ import java.util.ArrayList;
 
 @Service
 public class ShopServiceImpl implements ShopService {
-  @Autowired
-  ShopDAO shopDAO;
+    @Autowired
+    ShopDAO shopDAO;
+
     @Override
     public Shop getShopByID(int id) {
         return this.shopDAO.getShopByID(id);
     }
-  @Override
-  public ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page){
-    if(category.equals(Category.ANY_CATEGORY()))
-      return this.shopDAO.searchShopNoCategory(name,region,limit,page);
-    return this.shopDAO.searchShop(name,category,region,limit,page);
-  }
-  @Override
-  public ArrayList<Shop> getBestShops(int number){
-    return this.shopDAO.getBestShops(number);
-  }
 
     @Override
-    public void rateShop(Shop shop , Comment comment) {
-      this.shopDAO.rateShop(shop,comment);
+    public ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page) {
+        if (category.equals(Category.ANY_CATEGORY()))
+            return this.shopDAO.searchShopNoCategory(name, region, limit, page);
+        return this.shopDAO.searchShop(name, category, region, limit, page);
+    }
+
+    @Override
+    public int nb_searchShops(String name, Category category, String region, int limit) {
+        if (category.equals(Category.ANY_CATEGORY()))
+            return this.shopDAO.nb_searchShopNoCategory(name, region, limit);
+        return this.shopDAO.nb_searchShop(name, category, region, limit);
+    }
+
+    @Override
+    public ArrayList<Shop> getBestShops(int number) {
+        return this.shopDAO.getBestShops(number);
+    }
+
+    @Override
+    public void rateShop(Shop shop, Comment comment) {
+        this.shopDAO.rateShop(shop, comment);
     }
 
     @Override
     public void reportShop(ShopReport shopReport) {
-      this.shopDAO.reportShop(shopReport);
+        this.shopDAO.reportShop(shopReport);
     }
 
     @Override
@@ -44,12 +54,12 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public void updateShop(Shop shop) {
-      shopDAO.updateShop(shop);
+        shopDAO.updateShop(shop);
     }
 
     @Override
     public void deleteShop(Shop shop) {
-      shopDAO.deleteShop(shop);
+        shopDAO.deleteShop(shop);
     }
 
     @Override

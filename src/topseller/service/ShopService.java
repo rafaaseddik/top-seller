@@ -11,6 +11,8 @@ public interface ShopService {
     ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page);
 
 
+    int nb_searchShops(String name, Category category, String region, int limit);
+
     ArrayList<Shop> getBestShops(int number);
 
     void rateShop(Shop shop,Comment comment);

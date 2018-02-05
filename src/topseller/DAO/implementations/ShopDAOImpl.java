@@ -78,6 +78,37 @@ public class ShopDAOImpl implements ShopDAO {
 
         return shops;
     }
+    @Override
+    public int nb_searchShop(String name, Category category, String region, int limit) {
+
+        String sql = "SELECT COUNT(id) AS nb FROM shop WHERE closed=0 AND name LIKE ? AND categoryID = ?  AND address LIKE ?";
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        try {
+            region = "%" + region + "%";
+            result = (ArrayList<Integer>) jdbcTemplate.query(sql, new Object[]{"%" + name + "%", category.getId(), region}, new IntegerMapper());
+        } catch (Exception e) {
+            System.out.println("-- ERROR : ShopDao.nb_searchShop() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return result.get(0);
+    }
+
+    @Override
+    public int  nb_searchShopNoCategory(String name, String region, int limit) {
+
+        String sql = "SELECT COUNT(id) AS nb FROM shop WHERE closed=0 AND name LIKE ?  AND address LIKE ?";
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        try {
+            region = "%" + region + "%";
+            result = (ArrayList<Integer>) jdbcTemplate.query(sql, new Object[]{"%" + name + "%", region}, new IntegerMapper());
+        } catch (Exception e) {
+            System.out.println("-- ERROR : ShopDao.nb_searchShop() : Error getting database");
+            e.printStackTrace();
+        }
+
+        return result.size()>0?(int)Math.ceil(((double)  result.get(0))/((float)limit)):0;
+    }
 
     @Override
     public void rateShop(Shop shop ,Comment comment) {
@@ -229,6 +260,11 @@ public class ShopDAOImpl implements ShopDAO {
     private class DoubleMapper implements RowMapper<Double> {
         public Double mapRow(ResultSet rs, int argl) throws SQLException {
             return rs.getDouble("score");
+        }
+    }
+    private class IntegerMapper implements RowMapper<Integer> {
+        public Integer mapRow(ResultSet rs,int argl) throws SQLException{
+            return rs.getInt("nb");
         }
     }
 }
