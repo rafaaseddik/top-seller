@@ -1,5 +1,6 @@
 package topseller.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Shop extends Subject{
@@ -16,6 +17,7 @@ public class Shop extends Subject{
     private boolean closed;
     private User owner;
     private Category category;
+    private ArrayList<Comment> commentsList=new ArrayList<>();
 
     public int getId() {
         return id;
@@ -117,6 +119,26 @@ public class Shop extends Subject{
         return category;
     }
 
+    public ArrayList<Comment> getCommentsList() {
+        return commentsList;
+    }
+
+    public void setCommentsList(ArrayList<Comment> commentsList) {
+        this.commentsList = commentsList;
+
+        if(this.commentsList.isEmpty())
+            this.setGlobalScore(0.0);
+        else{
+            double sum=0;
+            for(Comment comment:commentsList){
+                sum+=comment.getScore();
+            }
+            this.setGlobalScore(sum/commentsList.size());
+        }
+
+
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -133,6 +155,7 @@ public class Shop extends Subject{
                 ", closed=" + closed +
                 ", owner=" + owner +
                 ", category=" + category +
+                ((commentsList.size()>0)?"comments="+commentsList.toString():" ")+
                 '}';
     }
 

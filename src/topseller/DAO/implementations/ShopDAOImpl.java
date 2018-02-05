@@ -172,7 +172,13 @@ public class ShopDAOImpl implements ShopDAO {
         shops = (ArrayList<Shop>) jdbcTemplate.query(sql, new Object[]{number}, new ShopMapper());
         return shops;
     }
-
+    @Override
+    public ArrayList<Comment> getShopComments(Shop shop){
+        String sql = "Select * from score where shopID= ?";
+        ArrayList<Comment> comments = new ArrayList<>();
+        comments = (ArrayList<Comment> )jdbcTemplate.query(sql,new Object[]{shop.getId()},new CommentMapper());
+        return comments;
+    }
     class ShopMapper implements RowMapper<Shop> {
         public Shop mapRow(ResultSet rs, int arg1) throws SQLException {
             Shop shop = new Shop();
@@ -188,7 +194,7 @@ public class ShopDAOImpl implements ShopDAO {
             shop.setClosed(rs.getBoolean("closed"));
             shop.setOwner(ShopDAOImpl.this.userDAO.getUserByID(rs.getInt("userID")));
             shop.setCategory(ShopDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
-            shop.setGlobalScore(ShopDAOImpl.this.getShopRating(shop));
+            shop.setCommentsList(ShopDAOImpl.this.getShopComments(shop));
             return shop;
         }
     }
@@ -204,6 +210,20 @@ public class ShopDAOImpl implements ShopDAO {
             shopReport.setSubject(ShopDAOImpl.this.getShopByID(rs.getInt("shopID")));
             shopReport.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
             return shopReport;
+        }
+    }
+
+    class CommentMapper implements RowMapper<Comment> {
+        UserDAO userDAO = ShopDAOImpl.this.userDAO;
+
+        public Comment mapRow(ResultSet rs, int arg1) throws SQLException {
+            Comment comment = new Comment();
+            comment.setId(rs.getInt("id"));
+            comment.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
+            comment.setDate(rs.getDate("date"));
+            comment.setText(rs.getString("comment"));
+            comment.setScore(rs.getInt("score"));
+            return comment;
         }
     }
 

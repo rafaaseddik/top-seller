@@ -24,15 +24,15 @@ public class TestController {
     ProductService productService;
     @RequestMapping(method = RequestMethod.GET)
     public String test(Model model){
-        Category category = new Category();
+/*        Category category = new Category();
         category.setId(2);
         Product product = this.productService.searchProducts("",Category.ANY_CATEGORY(),Product.MAX_PRICE,0,ProductStatus.USED,1,0).get(0);
         System.out.println(product);
         System.out.println(this.productService.getSuggestedProducts(product,5));
         shopService.rateShop(Shop.getMockShop(),6, User.getMockUser());
         ShopReport report = new ShopReport("Hakkeka",Shop.getMockShop(), User.getMockUser());
-
-        shopService.reportShop(report);
+*/
+        System.out.println(shopService.getShopByID(3));
         return "test";
     }
 }

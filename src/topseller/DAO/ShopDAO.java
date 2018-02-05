@@ -24,4 +24,6 @@ public interface ShopDAO {
     double getShopRating(Shop shop);
 
     ArrayList<Shop> getBestShops(int number);
+
+    ArrayList<Comment> getShopComments(Shop shop);
 }

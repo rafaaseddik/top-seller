@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2018 at 12:38 PM
+-- Generation Time: Feb 05, 2018 at 03:04 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -67,6 +67,20 @@ INSERT INTO `category` (`id`, `name`, `parentID`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -99,6 +113,7 @@ CREATE TABLE `product` (
   `description` text NOT NULL,
   `closed` tinyint(1) NOT NULL DEFAULT '0',
   `status` varchar(30) NOT NULL,
+  `creation_date` date DEFAULT NULL,
   `categoryID` int(11) NOT NULL,
   `shopID` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -107,19 +122,19 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `description`, `closed`, `status`, `categoryID`, `shopID`) VALUES
-(1, 'Samsung Galaxy J3', 15, 1, 'New Smartphone by Samsung', 0, 'NEW', 2, 1),
-(3, 'iPhone X', 7, 50, 'the most fragile phnoe ever', 0, 'BARELY_USED', 11, 1),
-(8, 'iPhone X', 30, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 1),
-(5, 'iPhone X', 50, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 5, 15),
-(6, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 1, 'BARELY_USED', 2, 15),
-(7, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 15),
-(9, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'USED', 6, 15),
-(10, 'iPhone X', 48, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 15),
-(11, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 15),
-(12, 'iPhone X', 5, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 15),
-(13, 'iPhone X', 10, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 15),
-(14, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'BARELY_USED', 2, 15);
+INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `description`, `closed`, `status`, `creation_date`, `categoryID`, `shopID`) VALUES
+(1, 'Samsung Galaxy J3', 15, 1, 'New Smartphone by Samsung', 0, 'NEW', '2018-02-02', 2, 1),
+(3, 'iPhone X', 7, 50, 'the most fragile phnoe ever', 0, 'BARELY_USED', '2018-02-02', 11, 1),
+(8, 'iPhone X', 30, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 2, 1),
+(5, 'iPhone X', 50, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 5, 15),
+(6, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 1, 'BARELY_USED', '2018-02-02', 2, 15),
+(7, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 2, 15),
+(9, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'USED', '2018-02-02', 6, 15),
+(10, 'iPhone X', 48, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 11, 15),
+(11, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 2, 15),
+(12, 'iPhone X', 5, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 6, 15),
+(13, 'iPhone X', 10, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 2, 15),
+(14, 'iPhone X', 26.36, 50, 'The most expensive phone ever', 0, 'BARELY_USED', '2018-02-02', 2, 15);
 
 -- --------------------------------------------------------
 
@@ -158,7 +173,8 @@ INSERT INTO `productreport` (`id`, `description`, `validated`, `productID`, `use
 (16, 'descr', 0, 1, 6),
 (17, 'descr', 0, 1, 6),
 (18, 'descr', 0, 1, 6),
-(19, 'descr', 0, 1, 6);
+(19, 'descr', 0, 1, 6),
+(20, 'Hakkeka', 0, 3, 15);
 
 -- --------------------------------------------------------
 
@@ -171,16 +187,21 @@ CREATE TABLE `score` (
   `userID` int(11) NOT NULL,
   `shopID` int(11) NOT NULL,
   `date` date NOT NULL,
-  `score` int(11) NOT NULL
+  `score` int(11) NOT NULL,
+  `comment` text
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `score`
 --
 
-INSERT INTO `score` (`id`, `userID`, `shopID`, `date`, `score`) VALUES
-(1, 1, 1, '2018-02-13', 5),
-(2, 2, 1, '2018-02-21', 2);
+INSERT INTO `score` (`id`, `userID`, `shopID`, `date`, `score`, `comment`) VALUES
+(1, 1, 1, '2018-02-13', 5, NULL),
+(2, 2, 1, '2018-02-21', 2, NULL),
+(3, 2, 2, '2018-02-21', 3, NULL),
+(4, 15, 3, '2018-02-05', 5, 'j\'ai un commentaire'),
+(5, 15, 3, '2018-02-05', 2, 'bonjour'),
+(6, 15, 3, '2018-02-05', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -208,8 +229,9 @@ CREATE TABLE `shop` (
 --
 
 INSERT INTO `shop` (`id`, `name`, `logo_url`, `cover_url`, `creation_date`, `address`, `phone`, `longitude`, `latitude`, `closed`, `userID`, `categoryID`) VALUES
-(1, 'SAMSUNG Store', NULL, NULL, '2018-01-30', 'North Urban Center, Tunis', NULL, 36.844587, 10.19711, 0, 6, 11),
-(2, 'SAMSUNG Store 2', NULL, NULL, '2018-01-30', 'North Urban Center, Tunis', NULL, 36.844587, 10.19711, 0, 6, 11);
+(1, 'SAMSUNG Store', NULL, NULL, '2018-01-30', 'North Urban Center, Tunis', NULL, 36.844587, 10.19711, 0, 6, 5),
+(2, 'SAMSUNG Store 2', NULL, NULL, '2018-01-30', 'North Urban Center, Nabeul', NULL, 36.844587, 10.19711, 0, 6, 11),
+(3, 'Apple Store ', NULL, NULL, '2018-01-30', 'North Urban Center, Nabeul', NULL, 36.844587, 10.19711, 0, 6, 11);
 
 -- --------------------------------------------------------
 
@@ -223,6 +245,13 @@ CREATE TABLE `shopreport` (
   `shopID` int(11) NOT NULL,
   `userID` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shopreport`
+--
+
+INSERT INTO `shopreport` (`id`, `description`, `shopID`, `userID`) VALUES
+(1, 'Hakkeka', 3, 15);
 
 -- --------------------------------------------------------
 
@@ -277,6 +306,12 @@ INSERT INTO `user` (`id`, `fname`, `lname`, `email`, `password`, `region`, `avat
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `images`
@@ -336,6 +371,11 @@ ALTER TABLE `user`
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
@@ -349,22 +389,22 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `productreport`
 --
 ALTER TABLE `productreport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `score`
 --
 ALTER TABLE `score`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `shopreport`
 --
 ALTER TABLE `shopreport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
