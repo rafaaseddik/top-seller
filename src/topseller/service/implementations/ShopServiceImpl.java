@@ -3,10 +3,7 @@ package topseller.service.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import topseller.DAO.ShopDAO;
-import topseller.models.Category;
-import topseller.models.Shop;
-import topseller.models.ShopReport;
-import topseller.models.User;
+import topseller.models.*;
 import topseller.service.ShopService;
 
 import java.util.ArrayList;
@@ -31,8 +28,8 @@ public class ShopServiceImpl implements ShopService {
   }
 
     @Override
-    public void rateShop(Shop shop, int rating, User user) {
-      this.shopDAO.rateShop(shop, rating,user);
+    public void rateShop(Shop shop , Comment comment) {
+      this.shopDAO.rateShop(comment);
     }
 
     @Override

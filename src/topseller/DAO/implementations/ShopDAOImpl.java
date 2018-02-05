@@ -80,13 +80,13 @@ public class ShopDAOImpl implements ShopDAO {
     }
 
     @Override
-    public void rateShop(Shop shop, int rating, User user) {
-        String sql = "INSERT INTO score (userID,shopID,date,score) " +
-                "VALUES (?, ?, ?,?)";
+    public void rateShop(Shop shop ,Comment comment) {
+        String sql = "INSERT INTO score (userID,shopID,date,score,comment) " +
+                "VALUES (?, ?, ?,?,?)";
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
-        jdbcTemplate.update(sql, new Object[]{user.getId(), shop.getId(), today, rating});
+        jdbcTemplate.update(sql, new Object[]{comment.getUser().getId(), shop.getId(), today, comment.getScore(),comment.getText()});
 
     }
 
