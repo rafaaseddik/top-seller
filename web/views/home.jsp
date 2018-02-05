@@ -147,15 +147,15 @@
                 </div>
             </div>-->
             <c:forEach items="${listNewArivalProduct}" var="product">
-                <div class="col-md-3 col-sm-6 col-xs-12" >
+                <div class="col-md-3 col-sm-6 col-xs-12" style="height: 350px;">
                     <div class="shop-product">
                         <div class="product-box">
                             <c:choose>
                                 <c:when test="${not empty product.images && product.images.size() > 0 }">
-                                    <a href="#"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
+                                    <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="#"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                    <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -269,7 +269,7 @@
         <hr class="lines">
         <div class="row">
             <c:forEach items="${listRecommendedProducts}" var="item">
-            <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12" >
                 <div class="listcartproducts">
                     <h2 class="title-cart">${item.getKey().name}</h2>
                     <div class="products-item-inner">

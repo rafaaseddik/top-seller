@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-md-6 col-sm-8">
                     <div class="search-area">
-                        <form:form>
+                        <form action="/search" method="get">
 
                             <div class="control-group">
                                 <select style="
@@ -98,14 +98,14 @@
                                         padding:  0;
                                         border-radius: 0px!important;
                                     " name="type" class="categories-filter">
-                                    <option>Product</option>
-                                    <option>Shop</option>
+                                    <option value="1">Product</option>
+                                    <option value="2">Shop</option>
                                 </select>
                                 |
-                                <input class="search-field" placeholder="Search here...">
-                                <a class="search-button" href="#"><i class="icon-magnifier"></i></a>
+                                <input class="search-field" name="keyword" placeholder="Search here...">
+                                <button class="search-button" type="submit"><i class="icon-magnifier"></i></button>
                             </div>
-                        </form:form>
+                        </form>
                     </div>
 
                     <div class="shop-cart">

@@ -16,3 +16,8 @@ a.navbar-brand{
 .error-login{
     color: red;
 }
+
+.shop-section{
+    background: rgba(70, 68, 67, 0.83);
+    padding: 10px!important;
+}

@@ -101,7 +101,7 @@
                     <div class="tab-content">
                         <div id="grid-view" class="tab-pane active">
                             <c:forEach items="${listProduits}" var="product">
-                                <div class="col-md-4 col-sm-6 col-xs-12" >
+                                <div class="col-md-4 col-sm-6 col-xs-12" style="height: 350px;" >
                                     <div class="shop-product">
                                         <div class="product-box">
                                             <c:choose>

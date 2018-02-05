@@ -115,6 +115,45 @@
         </div>
     </div>
 </a>
+<c:if test="${true}">
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Customers also shopped for</h1>
+            <hr class="lines">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="new-products" class="owl-carousel">
+                        <c:forEach items="${listSuggestedProducts}" var="product">
+                            <div  style="height: 350px;">
+                                <div class="shop-product">
+                                    <div class="product-box">
+                                        <c:choose>
+                                            <c:when test="${not empty product.images && product.images.size() > 0 }">
+                                                <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-title"><a href="/product?id=${product.id}">${product.name}</a></h4>
+                                        <div class="align-items">
+                                            <div class="pull-left">
+                                                <span class="price">${product.price.toString().substring(0,product.price.toString().indexOf('.')+2)} DT</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</c:if>
+
 
 
 <%@ include file="/views/includeFooter.jsp" %>

@@ -83,9 +83,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-description mb-20">
-                                                    <p>Category : ${product.shop.category.name}</p>
-                                                    <p>Adresse : ${product.shop.address}</p>
-                                                    <p>Phone : ${product.shop.phone}</p>
+                                                    <p>Category : ${shop.category.name}</p>
+                                                    <p>Adresse : ${shop.address}</p>
+                                                    <p>Phone : ${shop.phone}</p>
                                                 </div>
                                             </div>
                                         </div>

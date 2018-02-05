@@ -7,42 +7,58 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import topseller.config.GlobalVariables;
-import topseller.models.Category;
-import topseller.models.Product;
-import topseller.models.User;
+import topseller.models.*;
 import topseller.service.CategoryService;
 import topseller.service.ProductService;
+import topseller.service.ShopService;
 import topseller.service.UserService;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping(value = "/product")
-public class ProductController {
+@RequestMapping(value = "/shop")
+public class ShopController {
     @Autowired
     UserService userService;
     @Autowired
     ProductService productService;
     @Autowired
+    ShopService shopService;
+    @Autowired
     CategoryService categoryService;
     @RequestMapping(method = RequestMethod.GET)
     public String visitHome(@ModelAttribute("id") int id,Model model, HttpSession session) {
-        Product product = productService.getProductByID(id);
+        Shop shop = shopService.getShopByID(id);
         ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
-        ArrayList<Product> listSuggestedProducts = productService.getSuggestedProducts(product,6);
+        ArrayList<Product> listProduits = productService.getProductsByShop(shop);
+
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
-        if(product != null){
+        if(shop != null){
             model.addAttribute("pageName","product");
-            model.addAttribute("product",product);
-            model.addAttribute("listSuggestedProducts",listSuggestedProducts);
+            model.addAttribute("shop",shop);
+            model.addAttribute("id",id);
+            model.addAttribute("listProduits",listProduits);
+            model.addAttribute("formComment",new FormComment(0,""));
             model.addAttribute("imagesServerURL", GlobalVariables.imagesServerURL());
-            return "detailsProduct";
+            return "detailsShop";
         }
         else {
             return "redirect:/404";
         }
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String doComment(@ModelAttribute("id") int id, @ModelAttribute("formComment") FormComment formComment , Model model, HttpSession session) {
+        Shop shop = shopService.getShopByID(id);
+        Comment c = new Comment();
+        c.setScore(formComment.rate);
+        c.setUser((User)session.getAttribute("loggedUser"));
+        c.setText(formComment.comment);
+        if(c.getUser() == null) return "redirect:/shop?id="+id;
+        shopService.rateShop(shop,c);
+        return "redirect:/shop?id="+id;
     }
 
 }

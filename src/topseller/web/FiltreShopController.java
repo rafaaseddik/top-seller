@@ -43,9 +43,9 @@ public class FiltreShopController {
             c = Category.ANY_CATEGORY();
         }
         int limit = 10;
-        int nbPages = 1;
+        int nbPages = shopService.nb_searchShops(keyword,c,"",limit);
         int currentPage = getIntValue(page,1) <= nbPages ? getIntValue(page,1) : 1;
-        ArrayList<Shop> listShops = shopService.searchShops(keyword,c,"",limit,currentPage);
+        ArrayList<Shop> listShops = shopService.searchShops(keyword,c,"",limit,currentPage-1);
         System.out.println(listShops.toString());
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
