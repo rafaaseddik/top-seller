@@ -106,10 +106,10 @@
                                         <div class="product-box">
                                             <c:choose>
                                                 <c:when test="${not empty product.images && product.images.size() > 0 }">
-                                                    <a href="#"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
+                                                    <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <a href="#"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                                    <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>

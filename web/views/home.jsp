@@ -195,231 +195,39 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="new-products" class="owl-carousel">
+                <c:forEach items="${listShops}" var="shop">
                     <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-01.jpg" alt=""></a>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">Nisi Ut Aliqu</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price" style="font-size: 12px;">12 products</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
+                                        <div class="shop-product">
+                                            <div class="product-box">
+                                                <c:choose>
+                                                    <c:when test="${not empty shop.logoURL}">
+                                                        <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${shop.logoURL}" alt=""></a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="http://localhost/fileupload/topseller/defaultStore.png" alt=""></a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                            <div class="product-info">
+                                                <h4 class="product-title"><a href="/shop?id=${shop.id}">${shop.name}</a></h4>
+                                                <div class="align-items">
+                                                    <div class="pull-left">
+                                                        <span class="price" style="font-size: 12px;">${shop.category.name}</span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <div class="reviews-icon">
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>0.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>1.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>2.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>3.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>4.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-02.jpg" alt=""></a>
-                                <div class="cart-overlay">
-                                </div>
-                                <div class="actions">
-                                    <div class="add-to-links">
-                                        <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                        <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                        <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">Eius Modi Tempo</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price">$59.00 <del>$79.00</del></span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-03.jpg" alt=""></a>
-                                <div class="cart-overlay">
-                                </div>
-                                <span class="sticker sale"><strong>Sale</strong></span>
-                                <div class="actions">
-                                    <div class="add-to-links">
-                                        <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                        <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                        <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">Quia Voluptas Sit</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price">$68.00</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-04.jpg" alt=""></a>
-                                <div class="cart-overlay">
-                                </div>
-                                <div class="actions">
-                                    <div class="add-to-links">
-                                        <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                        <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                        <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">An Tium Lores Eos</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price">$59.00 <del>$69.00</del></span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-05.jpg" alt=""></a>
-                                <div class="cart-overlay">
-                                </div>
-                                <span class="sticker discount"><strong>-40%</strong></span>
-                                <div class="actions">
-                                    <div class="add-to-links">
-                                        <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                        <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                        <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">Magni Dolores Eos</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price">$79.00</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-06.jpg" alt=""></a>
-                                <div class="cart-overlay">
-                                </div>
-                                <div class="actions">
-                                    <div class="add-to-links">
-                                        <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                        <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                        <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">Natur Aut Odit Aut</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price">$69.00</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="shop-product">
-                            <div class="product-box">
-                                <a href="#"><img src="/assets/img/feature-products/img-07.jpg" alt=""></a>
-                                <div class="cart-overlay">
-                                </div>
-                                <span class="sticker sale"><strong>Sale</strong></span>
-                                <div class="actions">
-                                    <div class="add-to-links">
-                                        <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                        <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                        <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="product-details.html">Qui Ratione Volup</a></h4>
-                                <div class="align-items">
-                                    <div class="pull-left">
-                                        <span class="price">$56.00</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <div class="reviews-icon">
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="i-color fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </c:forEach>
                 </div>
             </div>
         </div>
@@ -430,13 +238,26 @@
 <section id="content-area">
     <div class="container">
         <div class="hero-land clearfix">
-            <div class="landing caption">
-                <h2>Start Selling with ShopR</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis rem, ducimus reprehenderit sed molestiae iure sapiente accusamus incidunt minima expedita velit assumenda vitae libero. Eaque nostrum magni architecto, corporis doloremque!</p>
-                <p>
-                    <a href="category.html" class="btn btn-common"><span class="icon-organization"></span> Apply Now</a>
-                </p>
-            </div>
+            <c:choose>
+                <c:when test="${not empty loggedUser}">
+                    <div class="landing caption">
+                        <h2>search product now</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis rem, ducimus reprehenderit sed molestiae iure sapiente accusamus incidunt minima expedita velit assumenda vitae libero. Eaque nostrum magni architecto, corporis doloremque!</p>
+                        <p>
+                            <a href="/filtre" class="btn btn-common"><span class="icon-organization"></span>Search Now</a>
+                        </p>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="landing caption">
+                        <h2>Sign up</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis rem, ducimus reprehenderit sed molestiae iure sapiente accusamus incidunt minima expedita velit assumenda vitae libero. Eaque nostrum magni architecto, corporis doloremque!</p>
+                        <p>
+                            <a href="/login/signup" class="btn btn-common"><span class="icon-organization"></span> Sign up</a>
+                        </p>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </section>
@@ -452,44 +273,27 @@
                 <div class="listcartproducts">
                     <h2 class="title-cart">${item.getKey().name}</h2>
                     <div class="products-item-inner">
+                    <c:forEach items="${item.value}" var="product">
                         <div class="products-item">
-                            <div class="left">
-                                <a href="product-details.html"><img src="/assets/img/products/p1.jpg" alt=""></a>
-                                <a href="product-details.html" class="quick-view"><i class="icon-magnifier"></i></a>
-                            </div>
-                            <div class="right">
-                                <h5 class="product-name">Floral Print Buttoned</h5>
-                                <div class="reviews-icon">
-                                    <i class="i-color fa fa-star"></i>
-                                    <i class="i-color fa fa-star"></i>
-                                    <i class="i-color fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                <div class="left">
+                                    <c:choose>
+                                        <c:when test="${not empty product.images && product.images.size() > 0 }">
+                                            <a href="/product?id=${product.id}"><img style="height: 115px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="/product?id=${product.id}"><img style="height: 115px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <a href="/product?id=${product.id}" class="quick-view"><i class="icon-magnifier"></i></a>
                                 </div>
-                                <div class="price">
-                                    $ 49.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="products-item">
-                            <div class="left">
-                                <a href="product-details.html"><img src="/assets/img/products/p2.jpg" alt=""></a>
-                                <a href="product-details.html" class="quick-view"><i class="icon-magnifier"></i></a>
-                            </div>
-                            <div class="right">
-                                <h5 class="product-name">Floral Print Buttoned</h5>
-                                <div class="reviews-icon">
-                                    <i class="i-color fa fa-star"></i>
-                                    <i class="i-color fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="price">
-                                    $ 12.00
+                                <div class="right">
+                                    <h5 class="product-name">${product.name}</h5>
+                                    <div class="price">
+                                            ${product.price.toString().substring(0,product.price.toString().indexOf('.')+2)} DT
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                    </c:forEach>
                     </div>
                 </div>
             </div>

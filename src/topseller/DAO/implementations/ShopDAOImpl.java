@@ -188,7 +188,6 @@ public class ShopDAOImpl implements ShopDAO {
             shop.setCoverURL(rs.getString("cover_url"));
             shop.setCreationDate(rs.getDate("creation_date"));
             shop.setAddress(rs.getString("address"));
-            shop.setPhone(rs.getString("phone"));
             shop.setLongitude(rs.getDouble("longitude"));
             shop.setLatitude(rs.getDouble("latitude"));
             shop.setClosed(rs.getBoolean("closed"));

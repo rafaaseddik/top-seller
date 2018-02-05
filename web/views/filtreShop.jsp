@@ -6,8 +6,10 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="widget-search md-30">
-                    <form action="#">
-                        <input class="form-control" placeholder="Search here..." type="text">
+                    <form action="/filtre/shop" method="get">
+                        <input class="form-control" name="keyword" placeholder="Search here..." value="${keyword}" type="text">
+                        <input style="display: none" name="cat_id" value="${cat_id}" />
+                        <input style="display: none" name="page" value="${page}" />
                         <button type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -26,18 +28,18 @@
                                         <div id="category${item.id}" class="panel-collapse collapse">
                                             <ul class="listSidebar">
                                                 <c:forEach items="${item.children}" var="children">
-                                                    <li><a href="/filtre/shop?cat_id=${children.id}">${children.name}</a></li>
+                                                    <li><a <c:if test="${cat_id == children.id}"> class="pr-all" </c:if>  href="/filtre/shop?cat_id=${children.id}&page=${page}&keyword=${keyword}">${children.name}</a></li>
                                                 </c:forEach>
                                             </ul>
                                         </div>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="/filtre/shop?cat_id=${item.id}">${item.name} <span></span></a>
+                                        <a <c:if test="${cat_id == item.id}"> class="pr-all" </c:if> href="/filtre/shop?cat_id=${item.id}&page=${page}&keyword=${keyword}">${item.name} <span></span></a>
                                     </c:otherwise>
                                 </c:choose>
                             </li>
                         </c:forEach>
-                        <li><a href="/filtre/shop?cat_id=0" class="pr-all">Shop All</a></li>
+                        <li><a <c:if test="${cat_id == 0}"> class="pr-all" </c:if> href="/filtre/shop?cat_id=0&page=${page}&keyword=${keyword}">Shop All</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,188 +49,48 @@
                         <div class="product-option mb-30 clearfix">
 
                             <div class="showing text-right">
-                                <p class="hidden-xs">Showing 01-09 of 17 Results</p>
+                                <p class="hidden-xs">Showing: ${(limit*(page-1))+1} - ${(limit*(page))} Of ${(limit*(nbPages))} Results</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-content">
                         <div id="list-view" class="tab-pane active">
                             <div class="shop-list">
-                                <div class="col-md-12">
-                                    <div class="shop-product clearfix">
-                                        <div class="product-box">
-                                            <a href="#"><img src="/assets/img/products/img-01.jpg" alt=""></a>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="fix">
-                                                <h4 class="product-title pull-left"><a href="product-details.html">Qui Ratione Volup</a></h4>
-                                                <div class="star-rating pull-right">
-                                                    <div class="reviews-icon">
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
+                                <c:forEach items="${listShops}" var="shop">
+                                    <div class="col-md-12">
+                                        <div class="shop-product clearfix">
+                                            <div class="product-box">
+                                                <c:choose>
+                                                    <c:when test="${not empty shop.logoURL}">
+                                                        <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${shop.logoURL}" alt=""></a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="http://localhost/fileupload/topseller/defaultStore.png" alt=""></a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="fix">
+                                                    <h4 class="product-title pull-left"><a href="/shop?id=${shop.id}">${shop.name}</a></h4>
+                                                    <div class="star-rating pull-right">
+                                                        <div class="reviews-icon">
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>0.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>1.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>2.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>3.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                            <i class="fa <c:choose><c:when test="${shop.globalScore>4.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="product-description mb-20">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate pariatur tenetur fugiat quasi corrupti rerum officiis doloribus, cumque, culpa optio officia voluptatum fugit quis.</p>
-                                                <p><b>phone :</b> 26726840</p>
-                                                <p><b>closed :</b> false</p>
+                                                <div class="product-description mb-20">
+                                                    <p>Category : ${product.shop.category.name}</p>
+                                                    <p>Adresse : ${product.shop.address}</p>
+                                                    <p>Phone : ${product.shop.phone}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="shop-product clearfix">
-                                        <div class="product-box">
-                                            <a href="#"><img src="assets/img/products/img-02.jpg" alt=""></a>
-                                            <div class="cart-overlay">
-                                            </div>
-                                            <div class="actions">
-                                                <div class="add-to-links">
-                                                    <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                                    <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                                    <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="fix">
-                                                <h4 class="product-title pull-left"><a href="product-details.html">Eius Modi Tempo</a></h4>
-                                                <div class="star-rating pull-right">
-                                                    <div class="reviews-icon">
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="fix mb-10">
-                                                <span class="price">$ 56.20</span>
-                                            </div>
-                                            <div class="product-description mb-20">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate pariatur tenetur fugiat quasi corrupti rerum officiis doloribus, cumque, culpa optio officia voluptatum fugit quis.</p>
-                                            </div>
-                                            <button class="btn btn-common"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to wishlist</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="shop-product clearfix">
-                                        <div class="product-box">
-                                            <a href="#"><img src="assets/img/products/img-03.jpg" alt=""></a>
-                                            <div class="cart-overlay">
-                                            </div>
-                                            <div class="actions">
-                                                <div class="add-to-links">
-                                                    <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                                    <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                                    <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="fix">
-                                                <h4 class="product-title pull-left"><a href="product-details.html">Quia Voluptas Sit</a></h4>
-                                                <div class="star-rating pull-right">
-                                                    <div class="reviews-icon">
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="fix mb-10">
-                                                <span class="price">$ 56.20</span>
-                                                <span class="old-price font-16px ml-10"><del>$ 96.20</del></span>
-                                            </div>
-                                            <div class="product-description mb-20">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate pariatur tenetur fugiat quasi corrupti rerum officiis doloribus, cumque, culpa optio officia voluptatum fugit quis.</p>
-                                            </div>
-                                            <button class="btn btn-common"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to wishlist</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="shop-product clearfix">
-                                        <div class="product-box">
-                                            <a href="#"><img src="assets/img/products/img-04.jpg" alt=""></a>
-                                            <div class="cart-overlay">
-                                            </div>
-                                            <div class="actions">
-                                                <div class="add-to-links">
-                                                    <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                                    <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                                    <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="fix">
-                                                <h4 class="product-title pull-left"><a href="product-details.html">An Tium Lores Eos</a></h4>
-                                                <div class="star-rating pull-right">
-                                                    <div class="reviews-icon">
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="fix mb-10">
-                                                <span class="price">$ 56.20</span>
-                                            </div>
-                                            <div class="product-description mb-20">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate pariatur tenetur fugiat quasi corrupti rerum officiis doloribus, cumque, culpa optio officia voluptatum fugit quis.</p>
-                                            </div>
-                                            <button class="btn btn-common"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to wishlist</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="shop-product clearfix">
-                                        <div class="product-box">
-                                            <a href="#"><img src="assets/img/products/img-05.jpg" alt=""></a>
-                                            <div class="cart-overlay">
-                                            </div>
-                                            <div class="actions">
-                                                <div class="add-to-links">
-                                                    <a href="#" class="btn-cart"><i class="icon-basket-loaded"></i></a>
-                                                    <a href="#" class="btn-wish"><i class="icon-heart"></i></a>
-                                                    <a class="btn-quickview md-trigger" data-modal="modal-3"><i class="icon-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="fix">
-                                                <h4 class="product-title pull-left"><a href="product-details.html">Magni Dolores Eos</a></h4>
-                                                <div class="star-rating pull-right">
-                                                    <div class="reviews-icon">
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="i-color fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="fix mb-10">
-                                                <span class="price">$ 56.20</span>
-                                            </div>
-                                            <div class="product-description mb-20">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate pariatur tenetur fugiat quasi corrupti rerum officiis doloribus, cumque, culpa optio officia voluptatum fugit quis.</p>
-                                            </div>
-                                            <button class="btn btn-common"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to wishlist</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
@@ -236,15 +98,54 @@
 
                 <div class="pagination">
                     <div class="results-navigation pull-left">
-                        Showing: 1 - 6 Of 17
+                        Showing: ${(limit*(page-1))+1} - ${(limit*(page))} Of ${(limit*(nbPages))}
                     </div>
                     <nav class="navigation pull-right">
-                        <a class="next-page" href="#"><i class="fa fa-angle-left"></i></a>
-                        <span class="current page-num">1</span>
-                        <a class="page-num" href="#">2</a>
-                        <a class="page-num" href="#">3</a>
-                        <div class="divider">...</div>
-                        <a class="next-page" href="#"><i class="fa fa-angle-right"></i></a>
+                        <c:if test="${page > 1}"><a class="next-page" href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${page-1}"><i class="fa fa-angle-left"></i></a></c:if>
+                        <c:choose>
+                            <c:when test="${nbPages>4}">
+                                <c:choose>
+                                    <c:when test="${page>3 && page<nbPages-2}">
+                                        <c:forEach var = "i" begin = "1" end = "2">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                        <div class="divider">...</div>
+                                        <c:forEach var = "i" begin = "${page}" end = "${page}">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                        <div class="divider">...</div>
+                                        <c:forEach var = "i" begin = "${nbPages-1}" end = "${nbPages}">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                    </c:when>
+                                    <c:when test="${page>3 && page>=nbPages-2}">
+                                        <c:forEach var = "i" begin = "1" end = "2">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                        <div class="divider">...</div>
+                                        <c:forEach var = "i" begin = "${page}" end = "${nbPages}">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:forEach var = "i" begin = "1" end = "${page+1}">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                        <div class="divider">...</div>
+                                        <c:forEach var = "i" begin = "${nbPages-2}" end = "${nbPages}">
+                                            <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                        </c:forEach>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach var = "i" begin = "1" end = "${nbPages}">
+                                    <a <c:choose> <c:when test="${page == i}"> class="current page-num" </c:when> <c:otherwise> class="page-num" </c:otherwise> </c:choose>  href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${i}">${i}</a>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <c:if test="${page < nbPages}"><a class="next-page" href="/filtre/shop?cat_id=${cat_id}&keyword=${keyword}&page=${page+1}"><i class="fa fa-angle-right"></i></a></c:if>
                     </nav>
                 </div>
 

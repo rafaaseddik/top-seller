@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import topseller.config.GlobalVariables;
 import topseller.models.*;
 import topseller.service.CategoryService;
+import topseller.service.ShopService;
 import topseller.service.UserService;
 import topseller.service.ProductService;
 
@@ -23,7 +24,8 @@ public class HomeController {
     UserService userService;
     @Autowired
     ProductService productService;
-
+    @Autowired
+    ShopService shopService;
     @Autowired
     CategoryService categoryService;
 
@@ -31,12 +33,14 @@ public class HomeController {
     public String visitHome(Model model, HttpSession session) {
         ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
         ArrayList<Product> listNewArivalProduct = productService.getLatestProductsList(8);
+        ArrayList<Shop> listShops = shopService.getBestShops(10);
         ArrayList<Pair<Category,ArrayList<Product>>> listRecommendedProducts = productService.getRecommendedProducts();
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         String pageName = "home";
         model.addAttribute("pageName",pageName);
         model.addAttribute("listNewArivalProduct",listNewArivalProduct);
+        model.addAttribute("listShops",listShops);
         model.addAttribute("imagesServerURL", GlobalVariables.imagesServerURL());
         model.addAttribute("listRecommendedProducts", listRecommendedProducts);
         return pageName;
