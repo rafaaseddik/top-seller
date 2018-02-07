@@ -27,8 +27,8 @@
                                 <td>${product.category.name}</td>
                                 <td>${product.status}</td>
                                 <td>
-                                    <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Delete</a> |
-                                    <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">Modify</a>
+                                    <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Close</a> |
+                                    <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

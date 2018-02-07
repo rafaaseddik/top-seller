@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import topseller.config.GlobalVariables;
 import topseller.models.Category;
 import topseller.models.Product;
+import topseller.models.ProductReport;
 import topseller.models.User;
 import topseller.service.CategoryService;
 import topseller.service.ProductService;
@@ -45,4 +46,19 @@ public class ProductController {
         }
     }
 
-}
+    @RequestMapping(value = "report",method = RequestMethod.GET)
+    public String reportProduct(@ModelAttribute("id") int id , @ModelAttribute("description") String description ,Model model, HttpSession session) {
+        Product product = productService.getProductByID(id);
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if(product != null && loggedUser != null){
+            ProductReport report = new ProductReport();
+            report.setDescription(description);
+            report.setSubject(product);
+            report.setUser(loggedUser);
+            productService.reportProduct(report);
+        }
+        return "redirect:/product?id="+id;
+    }
+
+
+    }

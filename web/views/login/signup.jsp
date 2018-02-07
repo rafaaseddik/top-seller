@@ -23,7 +23,7 @@
                         <form:form method="POST" action="/login/signup" commandName="newUser" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div class="controls">
-                                    <form:input class="form-control" placeholder="First Name"  path="fname"></form:input>
+                                    <form:input required="" class="form-control" placeholder="First Name"  path="fname"></form:input>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="controls">
-                                    <form:input class="form-control" placeholder="Password"  path="password"></form:input>
+                                    <form:password class="form-control" placeholder="Password"  path="password"></form:password>
                                 </div>
                             </div>
                             <div class="form-group">

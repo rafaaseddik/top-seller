@@ -189,6 +189,9 @@
 <script type="text/javascript" src="/assets/js/jquery.slicknav.js"></script>
 <script type="text/javascript" src="/assets/js/form-validator.min.js"></script>
 <script type="text/javascript" src="/assets/js/contact-form-script.js"></script>
+<script src="https://unpkg.com/sweetalert2@7.10.0/dist/sweetalert2.all.js"></script>
+<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <script type="text/javascript" src="/assets/js/main.js"></script>
 </body>
 

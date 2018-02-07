@@ -56,25 +56,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <form id="contactForm" class="contact-form" data-toggle="validator">
+                    <form:form class="contact-form" action="" method="post" data-toggle="validator" commandName="formContact">
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required data-error="Please enter your name">
+                                            <form:input type="text" class="form-control" id="name" path="fullName" placeholder="Full Name" required="" data-error="Please enter your name"></form:input>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="mail@sitename.com" required data-error="Please enter your email">
+                                            <form:input type="email" class="form-control" id="email" path="email" placeholder="mail@sitename.com" required="" data-error="Please enter your email"></form:input>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="msg_subject" name="subject" placeholder="Subject" required data-error="Please enter your subject">
+                                            <form:input type="text" class="form-control" id="msg_subject" path="subject" placeholder="Subject" required="" data-error="Please enter your subject"></form:input>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -84,19 +84,19 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" id="message" placeholder="Massage" rows="9" data-error="Write your message" required></textarea>
+                                            <form:textarea class="form-control" id="message" placeholder="Massage" path="message" rows="9" data-error="Write your message" required=""></form:textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12 col-xs-12">
-                                <button type="submit" id="submit" class="btn btn-common">Send Message</button>
+                                <button type="submit" class="btn btn-common">Send Message</button>
                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>

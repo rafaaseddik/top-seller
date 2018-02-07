@@ -34,7 +34,6 @@
                             <c:otherwise>
                             </c:otherwise>
                         </c:choose>
-
                     </ul>
                 </div>
             </div>
@@ -78,7 +77,10 @@
                     <c:if test="${not empty product.shop.phone}">
                         <div class="quantity-cart">
                             <a <c:if test="${empty loggedUser}">href="/login/signin"</c:if>>
-                                <button class="btn btn-common"><i class="icon-basket-loaded-loaded"></i><c:choose><c:when test="${not empty loggedUser}">${product.shop.phone}</c:when><c:otherwise>log in to see the phone number</c:otherwise></c:choose> </button>
+                                <button class="btn btn-common"><i class="icon-basket-loaded-loaded"></i><c:choose><c:when test="${not empty loggedUser}">phone : ${product.shop.phone}</c:when><c:otherwise>log in to see the phone number</c:otherwise></c:choose> </button>
+                            </a>
+                            <a <c:if test="${empty loggedUser}">href="/login/signin"</c:if>>
+                                <button <c:if test="${not empty loggedUser}">onclick="reportProduct()"</c:if> class="btn btn-common " style="background:#f64040"><i class="icon-basket-loaded-loaded"></i><c:choose><c:when test="${not empty loggedUser}">Report</c:when><c:otherwise>log in to report this product</c:otherwise></c:choose></button>
                             </a>
                         </div>
                     </c:if>
@@ -89,6 +91,20 @@
     </div>
 </section>
 
+<script>
+    function reportProduct() {
+        swal({
+            title: 'Report product',
+            input: 'text',
+            type : 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
+            preConfirm: (input) => {
+            window.location.replace("/product/report?id=${product.id}&description="+input);
+    }});
+    }
+</script>
 <a href="/shop?id=${product.shop.id}">
     <div class="single-pro-tab section">
         <div class="container">

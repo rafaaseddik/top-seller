@@ -34,6 +34,7 @@
                                 <i class="fa <c:choose><c:when test="${shop.globalScore>4.5}">i-color fa-star</c:when><c:otherwise>fa-star-o</c:otherwise></c:choose>"></i>
                             </div>
                         </div>
+
                     </h1>
 
                     <div class="price-ratting">
@@ -43,12 +44,33 @@
                             <p style="color: white"> <b>Category : </b>${shop.category.name}</p>
                         </div>
                     </div>
+                    <div >
+                        <a <c:if test="${empty loggedUser}">href="/login/signin"</c:if>>
+                            <button <c:if test="${not empty loggedUser}">onclick="reportShop()"</c:if> class="btn btn-common " style="background:#f64040;position: absolute;right: 150px;"><i class="icon-basket-loaded-loaded"></i><c:choose><c:when test="${not empty loggedUser}">Report</c:when><c:otherwise>log in to report this shop</c:otherwise></c:choose></button>
+                        </a>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    function reportShop() {
+        swal({
+            title: 'Report shop',
+            input: 'text',
+            type : 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
+            preConfirm: (input) => {
+            window.location.replace("/shop/report?id=${shop.id}&description="+input);
+    }});
+    }
+</script>
+
 <section style="width: 100%;height: 200px;">
     <iframe
             width="2000"

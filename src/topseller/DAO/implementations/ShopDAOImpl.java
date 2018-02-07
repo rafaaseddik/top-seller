@@ -48,7 +48,7 @@ public class ShopDAOImpl implements ShopDAO {
     }
     @Override
     public ArrayList<Shop> getAllShops(){
-        String sql = "select * from product";
+        String sql = "select * from shop";
         ArrayList<Shop> shops = new ArrayList<Shop>();
         try{
             shops = (ArrayList<Shop>)jdbcTemplate.query(sql, new ShopMapper());
@@ -306,7 +306,7 @@ public class ShopDAOImpl implements ShopDAO {
             ShopReport shopReport = new ShopReport();
             shopReport.setId(rs.getInt("id"));
             shopReport.setDescription(rs.getString("description"));
-            shopReport.setValidated(rs.getBoolean("validated"));
+            //shopReport.setValidated(rs.getBoolean("validated"));
             shopReport.setSubject(ShopDAOImpl.this.getShopByID(rs.getInt("shopID")));
             shopReport.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
             return shopReport;

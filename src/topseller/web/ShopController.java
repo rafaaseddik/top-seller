@@ -61,4 +61,18 @@ public class ShopController {
         return "redirect:/shop?id="+id;
     }
 
+    @RequestMapping(value = "report",method = RequestMethod.GET)
+    public String reportShop(@ModelAttribute("id") int id , @ModelAttribute("description") String description ,Model model, HttpSession session) {
+        Shop shop = shopService.getShopByID(id);
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if(shop != null && loggedUser != null){
+            ShopReport report = new ShopReport();
+            report.setDescription(description);
+            report.setSubject(shop);
+            report.setUser(loggedUser);
+            shopService.reportShop(report);
+        }
+        return "redirect:/shop?id="+id;
+    }
+
 }

@@ -22,12 +22,12 @@
                         <form:form class="login-form" method="post" action="/login/signin/" commandName="login">
                             <div class="form-group">
                                 <div class="controls">
-                                    <form:input class="form-control" placeholder="Email"  path="email"></form:input>
+                                    <form:input required="" class="form-control" placeholder="Email"  path="email"></form:input>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="controls">
-                                    <form:input class="form-control" placeholder="Password"  path="password"></form:input>
+                                    <form:password required="" class="form-control" placeholder="Password"  path="password"></form:password>
                                 </div>
                             </div>
                             <div class="button-box">
