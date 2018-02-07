@@ -29,7 +29,9 @@ public class TestController {
         category.setId(2);
         System.out.println(shopService.nb_searchShops("",Category.ANY_CATEGORY(),"",1));
         System.out.println("---------------------------------");
-        System.out.println(shopService.nb_searchShops("",category,"",1));
+        System.out.println(shopService.getShopsByUser(User.getMockUser()));
+        productService.deletePictureFromProduct(Product.getMockProduct(),"testing image");
+        productService.deletePictureFromProduct(Product.getMockProduct(),"testing image2");
         return "test";
     }
 }

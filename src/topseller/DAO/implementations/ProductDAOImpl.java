@@ -252,6 +252,17 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
     @Override
+    public void deletePictureFromProduct(Product product, String pictureName){
+        String sql = "DELETE FROM images where productId= ? AND imgURL= ?";
+        try{
+            jdbcTemplate.update(sql,new Object[]{product.getId(),pictureName});
+        }
+        catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.deletePictureFromProduct() : Error getting database");
+            e.printStackTrace();
+        }
+    }
+    @Override
     public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){
         ArrayList<Category> allCategories = this.categoryDAO.getSuperCategories();
         Random random = new Random();

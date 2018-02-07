@@ -75,4 +75,12 @@ public class ProductServiceImpl implements ProductService {
     public ArrayList<Product> getSuggestedProducts(Product product, int number){
         return this.productDAO.getSuggestedProducts(product,number);
     }
+    @Override
+    public void addPictureToProduct(Product product, String pictureName){
+        this.productDAO.addPictureToProduct(product,pictureName);
+    }
+    @Override
+    public void deletePictureFromProduct(Product product, String pictureName){
+        this.productDAO.deletePictureFromProduct(product,pictureName);
+    }
 }

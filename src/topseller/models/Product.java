@@ -131,6 +131,7 @@ public class Product extends Subject{
 
     public static Product getMockProduct(){
         Product product = new Product();
+        product.setId(6);
         product.setName("iPhone X");
         product.setDescription("The most expensive phone ever");
         product.setQuantity(50);

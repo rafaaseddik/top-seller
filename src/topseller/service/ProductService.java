@@ -24,4 +24,8 @@ public interface ProductService {
     ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
 
     ArrayList<Product> getSuggestedProducts(Product product, int number);
+
+    void addPictureToProduct(Product product, String pictureName);
+
+    void deletePictureFromProduct(Product product, String pictureName);
 }

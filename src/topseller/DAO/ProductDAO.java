@@ -30,5 +30,7 @@ public interface ProductDAO {
 
     void addPictureToProduct(Product product, String pictureName);
 
+    void deletePictureFromProduct(Product product, String pictureName);
+
     ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
 }
