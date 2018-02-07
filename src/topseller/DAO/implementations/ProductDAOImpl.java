@@ -59,7 +59,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public void addProduct(Product product){
         String sql = "INSERT INTO product (`name`, `price`, `quantity`, `description`, `categoryID`, `shopID`, `status`,`creation_date`) " +
-                "VALUES (?, ?, ?,?,?,?,?)";
+                "VALUES (?, ?, ?,?,?,?,?,?)";
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);

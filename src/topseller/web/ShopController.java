@@ -36,7 +36,7 @@ public class ShopController {
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         if(shop != null){
-            model.addAttribute("pageName","product");
+            model.addAttribute("pageName","shop");
             model.addAttribute("shop",shop);
             model.addAttribute("id",id);
             model.addAttribute("listProduits",listProduits);

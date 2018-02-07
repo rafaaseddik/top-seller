@@ -48,7 +48,7 @@ public class FiltreController {
         ProductStatus condition = (status == "") ? ProductStatus.ANY : ProductStatus.toProductStatus(status);
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
-        model.addAttribute("pageName","filtre");
+        model.addAttribute("pageName","product");
         model.addAttribute("cat_id",cat_id);
         model.addAttribute("condition",condition);
         model.addAttribute("minPrice",minPrice);

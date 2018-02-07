@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 
 
-public class ActionController {
+public class SearchController {
 
     @Autowired
     CategoryService categoryService;

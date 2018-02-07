@@ -49,7 +49,7 @@ public class FiltreShopController {
         System.out.println(listShops.toString());
         model.addAttribute("listSuperCategories",listSuperCategories);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
-        model.addAttribute("pageName","filtreShop");
+        model.addAttribute("pageName","shop");
         model.addAttribute("cat_id",cat_id);
         model.addAttribute("keyword",keyword);
         model.addAttribute("nbPages",nbPages);

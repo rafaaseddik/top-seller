@@ -77,7 +77,9 @@
                     </div>
                     <c:if test="${not empty product.shop.phone}">
                         <div class="quantity-cart">
-                            <button class="btn btn-common"><i class="icon-basket-loaded-loaded"></i> ${product.shop.phone} </button>
+                            <a <c:if test="${empty loggedUser}">href="/login/signin"</c:if>>
+                                <button class="btn btn-common"><i class="icon-basket-loaded-loaded"></i><c:choose><c:when test="${not empty loggedUser}">${product.shop.phone}</c:when><c:otherwise>log in to see the phone number</c:otherwise></c:choose> </button>
+                            </a>
                         </div>
                     </c:if>
 

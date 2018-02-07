@@ -65,16 +65,6 @@
                                                 <img src="/assets/img/language/en-gb.png" alt="English" title="English" height="11" width="16">
                                                 English </button>
                                         </li>
-                                        <li>
-                                            <button class="language-select" type="button" name="de-DE">
-                                                <img src="/assets/img/language/de-DE.png" alt="Deutsch" title="Deutsch" height="11" width="16">
-                                                Deutsch </button>
-                                        </li>
-                                        <li>
-                                            <button class="language-select" type="button" name="ru-ru">
-                                                <img src="/assets/img/language/ru-ru.png" alt="Русский" title="Русский" height="11" width="16">
-                                                Русский </button>
-                                        </li>
                                     </ul>
                                 </div>
                             </form>
@@ -85,7 +75,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="col-md-6 col-sm-8">
-                    <div class="search-area">
+                    <div class="search-area" style="width: 100%;">
                         <form action="/search" method="get">
 
                             <div class="control-group">
@@ -106,53 +96,6 @@
                                 <button class="search-button" type="submit"><i class="icon-magnifier"></i></button>
                             </div>
                         </form>
-                    </div>
-
-                    <div class="shop-cart">
-                        <ul>
-                            <li>
-                                <a href="#" class="cart-icon cart-btn"><i class="icon-basket-loaded"></i><span class="cart-label">3</span></a>
-                                <div class="cart-box">
-                                    <div class="popup-container">
-                                        <div class="cart-entry">
-                                            <a href="#" class="image">
-                                                <img src="/assets/img/products/product-menu-1.jpg" alt="">
-                                            </a>
-                                            <div class="content">
-                                                <a href="#" class="title">Pullover Batwing</a>
-                                                <p class="quantity">Quantity: 3</p>
-                                                <span class="price">$45.00</span>
-                                            </div>
-                                            <div class="button-x">
-                                                <i class="icon-close"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cart-entry">
-                                            <a href="#" class="image">
-                                                <img src="/assets/img/products/product-menu-2.jpg" alt="">
-                                            </a>
-                                            <div class="content">
-                                                <a href="#" class="title">Pullover Batwing</a>
-                                                <p class="quantity">Quantity: 3</p>
-                                                <span class="price">$90.00</span>
-                                            </div>
-                                            <div class="button-x">
-                                                <i class="icon-close"></i>
-                                            </div>
-                                        </div>
-                                        <div class="summary">
-                                            <div class="subtotal">Sub Total</div>
-                                            <div class="price-s">$210.5</div>
-                                        </div>
-                                        <div class="cart-buttons">
-                                            <a href="#" class="btn btn-border-2">View Cart</a>
-                                            <a href="#" class="btn btn-common">Checkout</a>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -186,7 +129,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">Our products <span class="caret"></span></a>
+                            <a <c:if test="${pageName == 'product'}"> class="active" </c:if> href="#">Our products <span class="caret"></span></a>
                             <div class="dropdown mega-menu megamenu1">
                                 <div class="row">
 
@@ -221,7 +164,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#">Our Shops <span class="caret"></span></a>
+                            <a <c:if test="${pageName == 'shop'}"> class="active" </c:if> href="#">Our Shops <span class="caret"></span></a>
                             <div class="dropdown mega-menu megamenu1">
                                 <div class="row">
 
@@ -291,6 +234,17 @@
                                                 <li><a href="/login/signup"><span class="icon icon-user-follow"></span>Create an account</a></li>
                                             </c:when>
                                             <c:otherwise>
+                                                <c:if test="${loggedUser.type.toString() == 'VENDOR'}">
+                                                    <li><a href="/account/shop/add"><span class="icon icon-magnifier-add"></span>Add shop</a></li>
+                                                    <li><a href="/account/shops"><span class="icon icon-list"></span>My shops</a></li>
+                                                </c:if>
+                                                <c:if test="${loggedUser.type.toString() == 'ADMIN'}">
+                                                    <li><a href="/admin/users"><span class="icon icon-list"></span>List users</a></li>
+                                                    <li><a href="/admin/shops"><span class="icon icon-list"></span>List shops</a></li>
+                                                    <li><a href="/admin/products"><span class="icon icon-list"></span>List products</a></li>
+                                                    <li><a href="/admin/reports"><span class="icon icon-list"></span>List reports</a></li>
+                                                    <li><a href="/admin/messages"><span class="icon icon-list"></span>List messages</a></li>
+                                                </c:if>
                                                 <li><a href="/logout"><span class="icon icon-lock"></span>Log out</a></li>
                                             </c:otherwise>
                                         </c:choose>
