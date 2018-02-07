@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import topseller.config.GlobalVariables;
 import topseller.models.*;
-import topseller.service.CategoryService;
-import topseller.service.FileService;
-import topseller.service.ProductService;
-import topseller.service.ShopService;
+import topseller.service.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -25,6 +22,8 @@ public class AdminController {
     @Autowired
     CategoryService categoryService;
     @Autowired
+    UserService userService;
+    @Autowired
     ShopService shopService;
     @Autowired
     FileService fileService;
@@ -33,13 +32,21 @@ public class AdminController {
 
     @RequestMapping(value = "/users",method = RequestMethod.GET)
     public String getListUsers(Model model, HttpSession session){
+        ArrayList<User> listUsers = new ArrayList<User>();
+        listUsers.add(User.getMockUser());
+        listUsers.add(User.getMockUser());
+        listUsers.add(User.getMockUser());
+        listUsers.add(User.getMockUser());
+        model.addAttribute("listUsers",listUsers);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         return "admin/users";
     }
 
     @RequestMapping(value = "/products",method = RequestMethod.GET)
     public String getListProducts(Model model, HttpSession session){
+        ArrayList<Product> listProducts = productService.searchProducts("",Category.ANY_CATEGORY(),1000,0,ProductStatus.ANY,1000,0);
         model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
+        model.addAttribute("listProducts",listProducts);
         return "admin/products";
     }
 

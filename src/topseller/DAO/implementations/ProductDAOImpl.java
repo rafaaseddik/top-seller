@@ -166,7 +166,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public ArrayList<Product> searchProductsNoCategory(String name, double max_price, double min_price, ProductStatus status, int limit, int page) {
 
-        String sql = "SELECT * FROM product WHERE name LIKE ?  AND status LIKE ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
+        String sql = "SELECT * FROM product WHERE closed=0 AND name LIKE ?  AND status LIKE ? AND (price BETWEEN ? AND ?) LIMIT ? OFFSET ?";
         ArrayList<Product> products = new ArrayList<Product>();
         try{
             String statusString = "%"+(status.equals(ProductStatus.ANY)?"":status.toString())+"%";
@@ -226,7 +226,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
     @Override
     public ArrayList<Product> getProductsByShop(Shop shop) {
-        String sql = "select * from product where shopID='" + shop.getId() + "'";
+        String sql = "select * from product where closed=0 AND shopID='" + shop.getId() + "'";
         ArrayList<Product> products = new ArrayList<Product>();
         try{
             products = (ArrayList<Product>)jdbcTemplate.query(sql, new ProductMapper());

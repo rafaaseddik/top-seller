@@ -30,12 +30,12 @@ public class ShopController {
     @RequestMapping(method = RequestMethod.GET)
     public String visitHome(@ModelAttribute("id") int id,Model model, HttpSession session) {
         Shop shop = shopService.getShopByID(id);
-        ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
-        ArrayList<Product> listProduits = productService.getProductsByShop(shop);
 
-        model.addAttribute("listSuperCategories",listSuperCategories);
-        model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
         if(shop != null){
+            ArrayList<Category> listSuperCategories = categoryService.getSuperCategories();
+            ArrayList<Product> listProduits = productService.getProductsByShop(shop);
+            model.addAttribute("listSuperCategories",listSuperCategories);
+            model.addAttribute("loggedUser",(User)session.getAttribute("loggedUser"));
             model.addAttribute("pageName","shop");
             model.addAttribute("shop",shop);
             model.addAttribute("id",id);
