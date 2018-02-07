@@ -81,5 +81,10 @@ public class UserServiceImpl implements UserService {
         return (this.userDAO.getUserByEmail(newUser.getEmail())!=null);
     }
     @Override
-    public ArrayList<User> getAllUsers(){return this.userDAO.getAllUsers();}
+    public ArrayList<User> getAllUsers(){return this.userDAO.getAllUsers(); }
+
+    @Override
+    public void createNewAdmin(User newAdmin) {
+        this.userDAO.createNewAdmin(newAdmin);
+    }
 }

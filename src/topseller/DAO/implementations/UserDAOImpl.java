@@ -85,6 +85,15 @@ public class UserDAOImpl implements UserDAO {
 
         return users;
     }
+
+    @Override
+    public void createNewAdmin(User newAdmin) {
+        String sql = "INSERT INTO user (`fname`, `lname`, `email`, `password`, `region`, `avatar_url`, `type`, `phone`) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, new Object[] { newAdmin.getFname(),newAdmin.getLname(),newAdmin.getEmail(),newAdmin.getPassword(),
+                newAdmin.getRegion(),newAdmin.getRawAvatarUrl(),UserType.ADMIN.toString().toString(),newAdmin.getPhone() });
+    }
+
     class UserMapper implements RowMapper<User> {
         public User mapRow(ResultSet rs, int arg1) throws SQLException {
             User user = new User();

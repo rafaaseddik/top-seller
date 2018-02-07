@@ -14,4 +14,5 @@ public interface UserService {
     public boolean checkExistingUser(User newUser);
 
     ArrayList<User> getAllUsers();
+    void createNewAdmin(User newAdmin);
 }

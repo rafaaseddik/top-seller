@@ -126,11 +126,9 @@ public class ShopDAOImpl implements ShopDAO {
     public void rateShop(Shop shop ,Comment comment) {
         String sql = "INSERT INTO score (userID,shopID,date,score,comment) " +
                 "VALUES (?, ?, ?,?,?)";
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
+
         try{
-            jdbcTemplate.update(sql, new Object[]{comment.getUser().getId(), shop.getId(), today, comment.getScore(),comment.getText()});
+            jdbcTemplate.update(sql, new Object[]{comment.getUser().getId(), shop.getId(), Utilities.getToday(), comment.getScore(),comment.getText()});
         }catch(Exception e){
             System.out.println("-- ERROR : ShopDao.rateShop() : Error getting database");
             e.printStackTrace();
@@ -155,12 +153,9 @@ public class ShopDAOImpl implements ShopDAO {
     public void addShop(Shop shop) {
         String sql = "INSERT INTO `shop` (name, logo_url, cover_url, creation_date, address ,phone, longitude, latitude, userID, categoryID) " +
                 "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
         try{
             jdbcTemplate.update(sql, new Object[]{shop.getName(), shop.getLogoURL(), shop.getCoverURL(),
-                    today, shop.getAddress(), shop.getPhone(), shop.getLongitude(), shop.getLatitude(),
+                    Utilities.getToday(), shop.getAddress(), shop.getPhone(), shop.getLongitude(), shop.getLatitude(),
                     shop.getOwner().getId(), shop.getCategory().getId()});
         }catch(Exception e){
             System.out.println("-- ERROR : ShopDao.addShop() : Error getting database");

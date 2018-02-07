@@ -12,6 +12,7 @@ import topseller.DAO.UserDAO;
 import topseller.models.*;
 
 
+import javax.rmi.CORBA.Util;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,11 +73,9 @@ public class ProductDAOImpl implements ProductDAO {
     public void addProduct(Product product){
         String sql = "INSERT INTO product (`name`, `price`, `quantity`, `description`, `categoryID`, `shopID`, `status`,`creation_date`) " +
                 "VALUES (?, ?, ?,?,?,?,?,?)";
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
         try{
-            jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() ,today});
+            jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),
+                    product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() , Utilities.getToday()});
         }catch(Exception e){
             System.out.println("-- ERROR : ProductDao.addProduct() : Error getting database");
             e.printStackTrace();
