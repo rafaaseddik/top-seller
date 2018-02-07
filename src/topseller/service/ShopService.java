@@ -30,4 +30,6 @@ public interface ShopService {
     ArrayList<ShopReport> getShopReportsList();
 
     ArrayList<Shop> getLatestShopsList(int number);
+
+    ArrayList<Shop> getShopsByUser(User user);
 }

@@ -48,7 +48,12 @@ public class ProductDAOImpl implements ProductDAO {
     public void reportProduct(ProductReport productReport) {
         String sql = "INSERT INTO productreport (`description`, `productID`, `userID`) " +
                 "VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, new Object[] { productReport.getDescription(),productReport.getSubject().getId(),productReport.getUser().getId()});
+        try{
+            jdbcTemplate.update(sql, new Object[] { productReport.getDescription(),productReport.getSubject().getId(),productReport.getUser().getId()});
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.reportProduct() : Error getting database");
+            e.printStackTrace();
+        }
 
     }
     @Override
@@ -58,7 +63,12 @@ public class ProductDAOImpl implements ProductDAO {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
-        jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() ,today});
+        try{
+            jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() ,today});
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.addProduct() : Error getting database");
+            e.printStackTrace();
+        }
 
     }
     @Override
@@ -66,21 +76,38 @@ public class ProductDAOImpl implements ProductDAO {
 
         String sql = "UPDATE product set `name` = ? , `price`=?, `quantity`=?, `description`=?, `categoryID`=?, `shopID`=?, `status`=?" +
                 " WHERE ID="+product.getId();
-        jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() });
+        try{
+            jdbcTemplate.update(sql, new Object[] {product.getName(),product.getPrice(),product.getQuantity(),product.getDescription(),product.getCategory().getId(),product.getShop().getId(),product.getStatus().toString() });
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.updateProduct() : Error getting database");
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public void deleteProduct(Product product) {
         String sql = "DELETE  from product WHERE ID="+product.getId();
-        jdbcTemplate.update(sql);
-
+        try{
+            jdbcTemplate.update(sql);
+        }
+        catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.deleteProduct() : Error getting database");
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void blockProduct(Product product) {
         String sql = "UPDATE product set `closed`=1 WHERE ID="+product.getId();
-        jdbcTemplate.update(sql);
+        try{
+            jdbcTemplate.update(sql);
+        }
+        catch(Exception e){
+        System.out.println("-- ERROR : ProductDao.blockProduct() : Error getting database");
+        e.printStackTrace();
+    }
+
     }
 
     @Override
@@ -90,7 +117,7 @@ public class ProductDAOImpl implements ProductDAO {
         try{
             products = (ArrayList<ProductReport>)jdbcTemplate.query(sql, new ProductReportMapper());
         }catch(Exception e){
-            System.out.println("-- ERROR : ProductDao.getProductByID() : Error getting database");
+            System.out.println("-- ERROR : ProductDao.getProductReportsList() : Error getting database");
             e.printStackTrace();
         }
 
@@ -177,7 +204,13 @@ public class ProductDAOImpl implements ProductDAO {
     public ArrayList<String> getProductImages(Product product){
         String sql = "SELECT imgURL FROM images WHERE productID= ?";
         ArrayList<String> images = new ArrayList<String>();
-        images = (ArrayList<String>)jdbcTemplate.query(sql,new Object[]{product.getId()},new StringMapper());
+        try {
+            images = (ArrayList<String>)jdbcTemplate.query(sql,new Object[]{product.getId()},new StringMapper());
+        }
+        catch(Exception e){
+        System.out.println("-- ERROR : ProductDao.getProductImages() : Error getting database");
+        e.printStackTrace();
+    }
         return images;
     }
     @Override
@@ -206,6 +239,17 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
         return products;
+    }
+    @Override
+    public void addPictureToProduct(Product product, String pictureName){
+        String sql = "INSERT INTO images (productId, imgURL) VALUES (? , ?)";
+        try{
+            jdbcTemplate.update(sql,new Object[]{product.getId(),pictureName});
+        }
+        catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.addPictureToProduct() : Error getting database");
+            e.printStackTrace();
+        }
     }
     @Override
     public ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts(){

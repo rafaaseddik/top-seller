@@ -76,4 +76,6 @@ public class ShopServiceImpl implements ShopService {
     public ArrayList<Shop> getLatestShopsList(int number) {
         return shopDAO.getLatestShopsList(number);
     }
+    @Override
+    public ArrayList<Shop> getShopsByUser(User user){return this.shopDAO.getShopsByUser(user);}
 }

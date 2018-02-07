@@ -117,7 +117,12 @@ public class ShopDAOImpl implements ShopDAO {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
-        jdbcTemplate.update(sql, new Object[]{comment.getUser().getId(), shop.getId(), today, comment.getScore(),comment.getText()});
+        try{
+            jdbcTemplate.update(sql, new Object[]{comment.getUser().getId(), shop.getId(), today, comment.getScore(),comment.getText()});
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.rateShop() : Error getting database");
+            e.printStackTrace();
+        }
 
     }
 
@@ -125,7 +130,12 @@ public class ShopDAOImpl implements ShopDAO {
     public void reportShop(ShopReport shopReport) {
         String sql = "INSERT INTO shopreport (`description`, `shopID`, `userID`) " +
                 "VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, new Object[]{shopReport.getDescription(), shopReport.getSubject().getId(), shopReport.getUser().getId()});
+        try{
+            jdbcTemplate.update(sql, new Object[]{shopReport.getDescription(), shopReport.getSubject().getId(), shopReport.getUser().getId()});
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.reportShop() : Error getting database");
+            e.printStackTrace();
+        }
 
     }
 
@@ -136,9 +146,14 @@ public class ShopDAOImpl implements ShopDAO {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         String today = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH);
-        jdbcTemplate.update(sql, new Object[]{shop.getName(), shop.getLogoURL(), shop.getCoverURL(),
-                today, shop.getAddress(), shop.getPhone(), shop.getLongitude(), shop.getLatitude(),
-                shop.getOwner().getId(), shop.getCategory().getId()});
+        try{
+            jdbcTemplate.update(sql, new Object[]{shop.getName(), shop.getLogoURL(), shop.getCoverURL(),
+                    today, shop.getAddress(), shop.getPhone(), shop.getLongitude(), shop.getLatitude(),
+                    shop.getOwner().getId(), shop.getCategory().getId()});
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.addShop() : Error getting database");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -146,9 +161,14 @@ public class ShopDAOImpl implements ShopDAO {
         String sql = "UPDATE `shop` SET " +
                 "`name` = ?, `logo_url` = ?, `cover_url` = ?, `address` = ?, `phone` = ?, `longitude` = ?, " +
                 "`latitude` = ?, `userID` = ?, `categoryID` = ? WHERE `shop`.`id` = ?";
-        jdbcTemplate.update(sql, new Object[]{shop.getName(), shop.getLogoURL(), shop.getCoverURL(),
-                shop.getAddress(), shop.getPhone(), shop.getLongitude(), shop.getLatitude(),
-                shop.getOwner().getId(), shop.getCategory().getId(), shop.getId()});
+        try{
+            jdbcTemplate.update(sql, new Object[]{shop.getName(), shop.getLogoURL(), shop.getCoverURL(),
+                    shop.getAddress(), shop.getPhone(), shop.getLongitude(), shop.getLatitude(),
+                    shop.getOwner().getId(), shop.getCategory().getId(), shop.getId()});
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.updateShop() : Error getting database");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -157,13 +177,23 @@ public class ShopDAOImpl implements ShopDAO {
         for(Product product : shopProducts)
             productDAO.deleteProduct(product);
         String sql = "DELETE  from shop WHERE ID="+shop.getId();
-        jdbcTemplate.update(sql);
+        try{
+            jdbcTemplate.update(sql);
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.updateShop() : Error getting database");
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void blockShop(Shop shop) {
         String sql = "UPDATE shop set `closed`=1 WHERE ID="+shop.getId();
-        jdbcTemplate.update(sql);
+        try{
+            jdbcTemplate.update(sql);
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.blockShop() : Error getting database");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -183,32 +213,64 @@ public class ShopDAOImpl implements ShopDAO {
     @Override
     public ArrayList<Shop> getLatestShopsList(int number) {
         String sql = "SELECT * from shop WHERE closed=0 Order By creation_date DESC LIMIT ?";
-        ArrayList<Shop> shops;
-        shops = (ArrayList<Shop>) jdbcTemplate.query(sql, new Object[]{number}, new ShopMapper());
+        ArrayList<Shop> shops = new ArrayList<>();
+        try{
+            shops = (ArrayList<Shop>) jdbcTemplate.query(sql, new Object[]{number}, new ShopMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.getLatestShopsListg() : Error getting database");
+            e.printStackTrace();
+        }
         return shops;
     }
 
     @Override
     public double getShopRating(Shop shop) {
         String sql = "SELECT avg(score) as score FROM `score` WHERE shopID= ?";
-        List<Double> score;
-        score = jdbcTemplate.query(sql, new Object[]{shop.getId()}, new DoubleMapper());
+        List<Double> score = new ArrayList<>();
+        try{
+            score = jdbcTemplate.query(sql, new Object[]{shop.getId()}, new DoubleMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.getShopRating() : Error getting database");
+            e.printStackTrace();
+        }
         return score.isEmpty() ? 0 : score.get(0);
     }
 
     @Override
     public ArrayList<Shop> getBestShops(int number) {
         String sql = "SELECT shop.*,avg(score.score) as score from shop, score where shop.id=score.shopID group by shop.id order by score DESC LIMIT ?";
-        ArrayList<Shop> shops;
-        shops = (ArrayList<Shop>) jdbcTemplate.query(sql, new Object[]{number}, new ShopMapper());
+        ArrayList<Shop> shops = new ArrayList<>();
+        try{
+            shops = (ArrayList<Shop>) jdbcTemplate.query(sql, new Object[]{number}, new ShopMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.getBestShops() : Error getting database");
+            e.printStackTrace();
+        }
         return shops;
     }
     @Override
     public ArrayList<Comment> getShopComments(Shop shop){
         String sql = "Select * from score where shopID= ?";
         ArrayList<Comment> comments = new ArrayList<>();
-        comments = (ArrayList<Comment> )jdbcTemplate.query(sql,new Object[]{shop.getId()},new CommentMapper());
+        try{
+            comments = (ArrayList<Comment> )jdbcTemplate.query(sql,new Object[]{shop.getId()},new CommentMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.getShopComments() : Error getting database");
+            e.printStackTrace();
+        }
         return comments;
+    }
+    @Override
+    public ArrayList<Shop> getShopsByUser(User user){
+        String sql = "SELECT * from shop where userID= ?";
+        ArrayList<Shop> shops = new ArrayList<>();
+        try{
+            shops = (ArrayList<Shop>) jdbcTemplate.query(sql, new Object[]{user.getId()}, new ShopMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.getShopsByUser() : Error getting database");
+            e.printStackTrace();
+        }
+        return shops;
     }
     class ShopMapper implements RowMapper<Shop> {
         public Shop mapRow(ResultSet rs, int arg1) throws SQLException {

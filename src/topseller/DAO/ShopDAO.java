@@ -31,4 +31,6 @@ public interface ShopDAO {
     ArrayList<Shop> getBestShops(int number);
 
     ArrayList<Comment> getShopComments(Shop shop);
+
+    ArrayList<Shop> getShopsByUser(User user);
 }

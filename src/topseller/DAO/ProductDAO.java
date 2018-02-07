@@ -28,5 +28,7 @@ public interface ProductDAO {
 
     ArrayList<Product> getSuggestedProducts(Product product, int number);
 
+    void addPictureToProduct(Product product, String pictureName);
+
     ArrayList<Pair<Category,ArrayList<Product>>> getRecommendedProducts();
 }
