@@ -46,7 +46,19 @@ public class ShopDAOImpl implements ShopDAO {
 
         return shops.size() > 0 ? shops.get(0) : null;
     }
+    @Override
+    public ArrayList<Shop> getAllShops(){
+        String sql = "select * from product";
+        ArrayList<Shop> shops = new ArrayList<Shop>();
+        try{
+            shops = (ArrayList<Shop>)jdbcTemplate.query(sql, new ShopMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.getAllProducts() : Error getting database");
+            e.printStackTrace();
+        }
 
+        return shops;
+    }
     @Override
     public ArrayList<Shop> searchShop(String name, Category category, String region, int limit, int page) {
 

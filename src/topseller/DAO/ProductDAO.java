@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public interface ProductDAO {
     public Product getProductByID(int id);
+
+    ArrayList<Product> getAllProducts();
+
     public void reportProduct(ProductReport productReport);
     public void addProduct(Product product);
     public void updateProduct(Product product);

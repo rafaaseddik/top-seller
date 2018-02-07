@@ -72,7 +72,19 @@ public class UserDAOImpl implements UserDAO {
 
         return users.size() > 0 ? users.get(0) : null;
     }
+    @Override
+    public ArrayList<User> getAllUsers(){
+        String sql = "select * from user";
+        ArrayList<User> users = new ArrayList<User>();
+        try{
+            users = (ArrayList<User>)jdbcTemplate.query(sql, new UserMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.getAllProducts() : Error getting database");
+            e.printStackTrace();
+        }
 
+        return users;
+    }
     class UserMapper implements RowMapper<User> {
         public User mapRow(ResultSet rs, int arg1) throws SQLException {
             User user = new User();

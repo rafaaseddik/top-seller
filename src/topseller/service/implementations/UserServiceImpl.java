@@ -10,6 +10,8 @@ import topseller.models.LoginUser;
 import topseller.models.User;
 import topseller.service.UserService;
 
+import java.util.ArrayList;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -78,4 +80,6 @@ public class UserServiceImpl implements UserService {
     public boolean checkExistingUser(User newUser){
         return (this.userDAO.getUserByEmail(newUser.getEmail())!=null);
     }
+    @Override
+    public ArrayList<User> getAllUsers(){return this.userDAO.getAllUsers();}
 }

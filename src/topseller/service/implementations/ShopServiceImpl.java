@@ -17,7 +17,10 @@ public class ShopServiceImpl implements ShopService {
     public Shop getShopByID(int id) {
         return this.shopDAO.getShopByID(id);
     }
-
+    @Override
+    public ArrayList<Shop> getAllShops(){
+        return this.shopDAO.getAllShops();
+    }
     @Override
     public ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page) {
         if (category.equals(Category.ANY_CATEGORY()))

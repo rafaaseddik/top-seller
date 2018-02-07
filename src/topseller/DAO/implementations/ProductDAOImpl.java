@@ -43,7 +43,19 @@ public class ProductDAOImpl implements ProductDAO {
 
         return products.size() > 0 ? products.get(0) : null;
     }
+    @Override
+    public ArrayList<Product> getAllProducts(){
+        String sql = "select * from product";
+        ArrayList<Product> products = new ArrayList<Product>();
+        try{
+            products = (ArrayList<Product>)jdbcTemplate.query(sql, new ProductMapper());
+        }catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.getAllProducts() : Error getting database");
+            e.printStackTrace();
+        }
 
+        return products;
+    }
     @Override
     public void reportProduct(ProductReport productReport) {
         String sql = "INSERT INTO productreport (`description`, `productID`, `userID`) " +

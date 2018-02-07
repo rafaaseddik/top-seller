@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public interface ShopDAO {
     public Shop getShopByID(int id);
 
+    ArrayList<Shop> getAllShops();
+
     ArrayList<Shop> searchShop(String name, Category category, String region, int limit, int page);
 
     ArrayList<Shop> searchShopNoCategory(String name, String region, int limit, int page);

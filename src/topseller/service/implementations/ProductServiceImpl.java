@@ -18,7 +18,8 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductByID(int id) {
         return this.productDAO.getProductByID(id);
     }
-
+    @Override
+    public ArrayList<Product> getAllProducts(){return this.productDAO.getAllProducts();}
     @Override
     public void reportProduct(ProductReport productReport) {
         this.productDAO.reportProduct(productReport);

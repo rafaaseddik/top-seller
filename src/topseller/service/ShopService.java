@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public interface ShopService {
     Shop getShopByID(int id);
 
+    ArrayList<Shop> getAllShops();
+
     ArrayList<Shop> searchShops(String name, Category category, String region, int limit, int page);
 
 
