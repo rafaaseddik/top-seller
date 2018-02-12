@@ -27,8 +27,8 @@
                                 <td>${product.category.name}</td>
                                 <td>${product.status}</td>
                                 <td>
-                                    <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Close</a> |
-                                    <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">Delete</a>
+                                    <a href="/admin/product/delete?id=${product.id}">Delete</a> |
+                                    <a href="/admin/product/block?id=${product.id}"><c:choose><c:when test="${product.closed}">open</c:when><c:otherwise>close</c:otherwise></c:choose></a>
                                 </td>
                             </tr>
                         </c:forEach>

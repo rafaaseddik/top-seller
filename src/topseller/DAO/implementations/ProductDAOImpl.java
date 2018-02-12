@@ -32,8 +32,10 @@ public class ProductDAOImpl implements ProductDAO {
     ShopDAO shopDAO;
 
     @Override
-    public Product getProductByID(int id) {
-        String sql = "select * from product where closed=0 AND id='" + id + "'";
+    public Product getProductByID(int id, boolean isAdmin) {
+        String sql = "select * from product where id='" + id + "'";
+        if(isAdmin == false ) sql+=" AND closed=0";
+
         List<Product> products = new ArrayList<Product>();
         try{
             products = jdbcTemplate.query(sql, new ProductMapper());
@@ -118,6 +120,19 @@ public class ProductDAOImpl implements ProductDAO {
         System.out.println("-- ERROR : ProductDao.blockProduct() : Error getting database");
         e.printStackTrace();
     }
+
+    }
+
+    @Override
+    public void unblockProduct(Product product) {
+        String sql = "UPDATE product set `closed`=0 WHERE ID="+product.getId();
+        try{
+            jdbcTemplate.update(sql);
+        }
+        catch(Exception e){
+            System.out.println("-- ERROR : ProductDao.blockProduct() : Error getting database");
+            e.printStackTrace();
+        }
 
     }
 
@@ -312,7 +327,7 @@ public class ProductDAOImpl implements ProductDAO {
             product.setCreation_date((rs.getDate("creation_date")));
             product.setCategory(ProductDAOImpl.this.categoryDAO.getCategoryByID(rs.getInt("categoryID")));
             product.setImages(ProductDAOImpl.this.getProductImages(product));
-            product.setShop(ProductDAOImpl.this.shopDAO.getShopByID(rs.getInt("shopID")));
+            product.setShop(ProductDAOImpl.this.shopDAO.getShopByID(rs.getInt("shopID"),false));
             return product;
         }
     }
@@ -323,7 +338,7 @@ public class ProductDAOImpl implements ProductDAO {
             productReport.setId(rs.getInt("id"));
             productReport.setDescription(rs.getString("description"));
             productReport.setValidated(rs.getBoolean("validated"));
-            productReport.setSubject(ProductDAOImpl.this.getProductByID(rs.getInt("productID")));
+            productReport.setSubject(ProductDAOImpl.this.getProductByID(rs.getInt("productID"),true));
             productReport.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
             return productReport;
         }

@@ -15,8 +15,14 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public Shop getShopByID(int id) {
-        return this.shopDAO.getShopByID(id);
+        return this.shopDAO.getShopByID(id,false);
     }
+
+    @Override
+    public Shop getAdminShopByID(int id) {
+        return this.shopDAO.getShopByID(id,true);
+    }
+
     @Override
     public ArrayList<Shop> getAllShops(){
         return this.shopDAO.getAllShops();
@@ -68,6 +74,11 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public void blockShop(Shop shop) {
         shopDAO.blockShop(shop);
+    }
+
+    @Override
+    public void unblockShop(Shop shop) {
+        shopDAO.unblockShop(shop);
     }
 
     @Override

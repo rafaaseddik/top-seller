@@ -33,8 +33,8 @@
                                         <td>${report.user.fname} ${report.user.lname}</td>
                                         <td>${report.description}</td>
                                         <td>
-                                            <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Delete</a> |
-                                            <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">Modify</a>
+                                            <a href="/admin/product/delete?id=${report.subject.id}">Delete</a> |
+                                            <a href="/admin/product/block?id=${report.subject.id}"><c:choose><c:when test="${product.closed}">open</c:when><c:otherwise>close</c:otherwise></c:choose></a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -60,8 +60,8 @@
                                     <td>${report.user.fname} ${report.user.lname}</td>
                                     <td>${report.description}</td>
                                     <td>
-                                        <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Delete</a> |
-                                        <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">Modify</a>
+                                        <a href="/admin/shop/delete?id=${report.subject.id}">Delete</a> |
+                                        <a href="/admin/shop/block?id=${report.subject.id}"><c:choose><c:when test="${shop.closed}">open</c:when><c:otherwise>close</c:otherwise></c:choose></a>
                                     </td>
                                 </tr>
                             </c:forEach>

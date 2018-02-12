@@ -31,8 +31,8 @@
                                 <td>${shop.latitude}</td>
                                 <td>${shop.creationDate}</td>
                                 <td>
-                                    <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Delete</a> |
-                                    <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">Modify</a>
+                                    <a href="/admin/shop/delete?id=${shop.id}">Delete</a> |
+                                    <a href="/admin/shop/block?id=${shop.id}"><c:choose><c:when test="${shop.closed}">open</c:when><c:otherwise>close</c:otherwise></c:choose></a>
                                 </td>
                             </tr>
                         </c:forEach>

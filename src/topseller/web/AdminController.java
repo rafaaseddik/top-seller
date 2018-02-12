@@ -75,8 +75,6 @@ public class AdminController {
         return "admin/messages";
     }
 
-
-
     @RequestMapping(value = "/shops",method = RequestMethod.GET)
     public String getPage(Model model, HttpSession session) {
         if((User)session.getAttribute("loggedUser") == null || (((User) session.getAttribute("loggedUser")).getType() != UserType.ADMIN)) return "redirect:/login/signin";
@@ -90,6 +88,47 @@ public class AdminController {
         String pageName = "sh";
         model.addAttribute("pageName",pageName);
         return "admin/shops";
+    }
+
+    @RequestMapping(value = "/shop/delete",method = RequestMethod.GET)
+    public String doDeleteShop(Model model, HttpSession session , @ModelAttribute("id") int id) {
+        Shop shop = shopService.getAdminShopByID(id);
+        if(shop != null) shopService.deleteShop(shop);
+        return "redirect:/admin/shops";
+    }
+
+    @RequestMapping(value = "/shop/block",method = RequestMethod.GET)
+    public String doBlockShop(Model model, HttpSession session , @ModelAttribute("id") int id) {
+        Shop shop = shopService.getAdminShopByID(id);
+        if(shop != null)
+            if(shop.isClosed()) {
+                shopService.unblockShop(shop);
+            }
+            else {
+                shopService.blockShop(shop);
+            }
+        return "redirect:/admin/shops";
+    }
+
+    @RequestMapping(value = "/product/delete",method = RequestMethod.GET)
+    public String doDeleteProduct(Model model, HttpSession session , @ModelAttribute("id") int id) {
+        Product product = productService.getAdminProductByID(id);
+        if(product != null) productService.deleteProduct(product);
+        return "redirect:/admin/products";
+    }
+
+    @RequestMapping(value = "/product/block",method = RequestMethod.GET)
+    public String doBlockProduct(Model model, HttpSession session , @ModelAttribute("id") int id) {
+        Product product = productService.getAdminProductByID(id);
+        System.out.println(product.toString());
+        if(product != null)
+            if(product.isClosed()) {
+                productService.unblockProduct(product);
+            }
+            else {
+                productService.blockProduct(product);
+            }
+        return "redirect:/admin/products";
     }
 
 

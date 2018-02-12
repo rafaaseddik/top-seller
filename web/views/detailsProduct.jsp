@@ -17,7 +17,7 @@
                             </c:when>
                             <c:otherwise>
                                 <div>
-                                    <img src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt="">
+                                    <img src="${imagesServerURL}defaultProduct.jpg" alt="">
                                 </div>
                             </c:otherwise>
                         </c:choose>
@@ -115,7 +115,7 @@
                             <img style="max-height: 200px" src="${imagesServerURL}${product.shop.logoURL}">
                         </c:when>
                         <c:otherwise>
-                            <img style="max-height: 200px" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt="">
+                            <img style="max-height: 200px" src="${imagesServerURL}defaultProduct.jpg" alt="">
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -150,7 +150,7 @@
                                                 <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
                                             </c:when>
                                             <c:otherwise>
-                                                <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                                <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="${imagesServerURL}defaultProduct.jpg" alt=""></a>
                                             </c:otherwise>
                                         </c:choose>
                                     </div>

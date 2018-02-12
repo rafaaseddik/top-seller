@@ -6,7 +6,7 @@ import topseller.models.*;
 import java.util.ArrayList;
 
 public interface ShopDAO {
-    public Shop getShopByID(int id);
+    public Shop getShopByID(int id,boolean isAdmin);
 
     ArrayList<Shop> getAllShops();
 
@@ -25,6 +25,7 @@ public interface ShopDAO {
     public void updateShop(Shop shop);
     public void deleteShop(Shop shop);
     public void blockShop(Shop shop);
+    public void unblockShop(Shop shop);
     public ArrayList<ShopReport> getShopReportsList();
     public ArrayList<Shop> getLatestShopsList(int number);
 

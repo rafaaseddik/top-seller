@@ -11,7 +11,7 @@ public class GlobalVariables {
       return "/Applications/MAMP/htdocs/fileupload/topseller/";
     }
     @Bean
-    public static String imagesServerURL(){ return "http://localhost/fileupload/topseller/"; }
+    public static String imagesServerURL(){ return "http://localhost:8888/fileupload/topseller/"; }
     @Bean
     public static int getMaxPrice(){ return 50000; }
 }

@@ -16,14 +16,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductByID(int id) {
-        return this.productDAO.getProductByID(id);
+        return this.productDAO.getProductByID(id,false);
     }
+
+    @Override
+    public Product getAdminProductByID(int id) {
+        return this.productDAO.getProductByID(id,true);
+    }
+
     @Override
     public ArrayList<Product> getAllProducts(){return this.productDAO.getAllProducts();}
     @Override
     public void reportProduct(ProductReport productReport) {
         this.productDAO.reportProduct(productReport);
-
     }
     @Override
     public void addProduct(Product product){
@@ -40,6 +45,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void blockProduct(Product product) {
         this.productDAO.blockProduct(product);
+    }
+    @Override
+    public void unblockProduct(Product product) {
+        this.productDAO.unblockProduct(product);
     }
     //TODO
     @Override

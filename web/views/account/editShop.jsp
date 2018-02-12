@@ -19,7 +19,7 @@
                                     ${imagesServerURL}${shop.logoURL}
                             </c:when>
                             <c:otherwise>
-                                http://localhost/fileupload/topseller/defaultStore.png
+                                ${imagesServerURL}defaultStore.png
                             </c:otherwise>
                         </c:choose> " alt="">
                             <input class="form-control" name="logoFile" type="file" />
@@ -32,7 +32,7 @@
                                     ${imagesServerURL}${shop.coverURL}
                             </c:when>
                             <c:otherwise>
-                                http://localhost/fileupload/topseller/defaultStore.jpg
+                                ${imagesServerURL}defaultStore.jpg
                             </c:otherwise>
                         </c:choose> " alt="">
                             <input class="form-control" name="coverFile" type="file" />

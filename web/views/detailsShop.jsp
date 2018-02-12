@@ -1,7 +1,7 @@
 
 <%@ include file="/views/includeHeader.jsp" %>
 <section style="height: 200px;z-index: -1;width:  100%;position: absolute;background: url(<c:choose>
-<c:when test="${not empty shop.coverURL }">${imagesServerURL}${shop.coverURL} </c:when> <c:otherwise> http://localhost/fileupload/topseller/defaultStore.jpg</c:otherwise></c:choose>) center;background-size: cover"></section>
+<c:when test="${not empty shop.coverURL }">${imagesServerURL}${shop.coverURL} </c:when> <c:otherwise> ${imagesServerURL}defaultStore.jpg</c:otherwise></c:choose>) center;background-size: cover"></section>
 <section style="height: 200px;z-index: -1;width:  100%;background: #0c0c0c7d;position: absolute;"></section>
 <section id="product-collection" class="section" style="height: 200px;padding: 10px;">
     <div class="container">
@@ -15,7 +15,7 @@
                                     ${imagesServerURL}${shop.logoURL}
                             </c:when>
                             <c:otherwise>
-                                http://localhost/fileupload/topseller/defaultStore.png
+                                ${imagesServerURL}defaultStore.png
                             </c:otherwise>
                         </c:choose>
                     " alt="">
@@ -156,7 +156,7 @@
                                             <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                            <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="${imagesServerURL}defaultProduct.jpg" alt=""></a>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>

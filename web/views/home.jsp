@@ -15,8 +15,6 @@
                         </li>
                         <c:forEach items="${listSuperCategories}" var="item">
                             <li <c:if test="${item.children != null && item.children.size() > 0}"> class="dropdown" </c:if>>
-
-
                             <c:choose>
                                 <c:when test="${not empty item.children && item.children.size() > 0 }">
                                     <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" href="#"> ${item.name} <i class="caret-right fa fa-angle-right"></i></a>
@@ -37,15 +35,18 @@
             </div>
             <div class="col-md-9 col-sm-8">
                 <div class="touch-slider owl-carousel" data-slider-pagination="true">
-                    <div class="item">
-                        <a href="category.html"><img src="/assets/img/touch-slider/img1.jpg" alt=""></a>
-                    </div>
-                    <div class="item">
-                        <a href="category.html"><img src="/assets/img/touch-slider/img2.jpg" alt=""></a>
-                    </div>
-                    <div class="item">
-                        <a href="category.html"><img src="/assets/img/touch-slider/img3.jpg" alt=""></a>
-                    </div>
+                    <c:forEach items="${listShops}" var="shop">
+                        <div class="item">
+                            <a href="/shop?id=${shop.id}"><img style="width: 100%;height: 445px;object-fit: cover" src="<c:choose>
+                                <c:when test="${not empty shop.coverURL}">
+                                    ${imagesServerURL}${shop.coverURL}
+                                </c:when>
+                                <c:otherwise>
+                                ${imagesServerURL}defaultStore.jpg
+                                </c:otherwise>
+                                </c:choose>" alt=""><h1 style="position: absolute; bottom: 10px; left: 20px; font-size: 50px; color: white; text-shadow: 2px 2px #0763ff">${shop.name}</h1></a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -155,7 +156,7 @@
                                     <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                    <a href="/product?id=${product.id}"><img style="height: 200px;object-fit: cover" src="${imagesServerURL}defaultProduct.jpg" alt=""></a>
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -204,7 +205,7 @@
                                                         <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${shop.logoURL}" alt=""></a>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="http://localhost/fileupload/topseller/defaultStore.png" alt=""></a>
+                                                        <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}defaultStore.png" alt=""></a>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </div>
@@ -281,7 +282,7 @@
                                             <a href="/product?id=${product.id}"><img style="height: 115px;object-fit: contain" src="${imagesServerURL}${product.images[0]}" alt=""></a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="/product?id=${product.id}"><img style="height: 115px;object-fit: cover" src="http://localhost/fileupload/topseller/defaultProduct.jpg" alt=""></a>
+                                            <a href="/product?id=${product.id}"><img style="height: 115px;object-fit: cover" src="${imagesServerURL}defaultProduct.jpg" alt=""></a>
                                         </c:otherwise>
                                     </c:choose>
                                     <a href="/product?id=${product.id}" class="quick-view"><i class="icon-magnifier"></i></a>

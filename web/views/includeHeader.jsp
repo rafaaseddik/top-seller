@@ -55,17 +55,6 @@
                         <div class="box-language">
                             <form id="form-language">
                                 <div class="btn-group toggle-wrap">
-<span class="toggle">
-<span><img src="/assets/img/language/flag-lang.png" alt="English" title="English" height="11" width="16"> English</span>
-<span class="hidden">Language</span>
-</span>
-                                    <ul style="display: none;" class="toggle_cont pull-right">
-                                        <li>
-                                            <button class="language-select selected" type="button" name="en-gb">
-                                                <img src="/assets/img/language/en-gb.png" alt="English" title="English" height="11" width="16">
-                                                English </button>
-                                        </li>
-                                    </ul>
                                 </div>
                             </form>
                         </div>

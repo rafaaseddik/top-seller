@@ -6,7 +6,7 @@ import topseller.models.*;
 import java.util.ArrayList;
 
 public interface ProductDAO {
-    public Product getProductByID(int id);
+    Product getProductByID(int id, boolean isAdmin);
 
     ArrayList<Product> getAllProducts();
 
@@ -15,6 +15,9 @@ public interface ProductDAO {
     public void updateProduct(Product product);
     public void deleteProduct(Product product);
     void blockProduct(Product product);
+
+    void unblockProduct(Product product);
+
     ArrayList<ProductReport> getProductReportsList();
     ArrayList<Product> getLatestProductsList(int number);
     ArrayList<Product> searchProducts(String name, Category category, double max_price, double min_price, ProductStatus status, int limit, int page);

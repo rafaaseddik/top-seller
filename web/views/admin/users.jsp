@@ -16,7 +16,6 @@
                             <th scope="col">email</th>
                             <th scope="col">nb Strikes</th>
                             <th scope="col">region</th>
-                            <th scope="col">actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -28,10 +27,6 @@
                                 <td>${user.email}</td>
                                 <td>${user.nbStrikes}</td>
                                 <td>${user.region}</td>
-                                <td>
-                                    <a href="/account/shop/product/remove?id=${product.id}&shopId=${shop.id}">Delete</a> |
-                                    <a href="/account/shop/product/edit?id=${product.id}&shopId=${shop.id}">make admin</a>
-                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

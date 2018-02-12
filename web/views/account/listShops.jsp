@@ -17,7 +17,7 @@
                                     <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}${shop.logoURL}" alt=""></a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="http://localhost/fileupload/topseller/defaultStore.png" alt=""></a>
+                                    <a href="/shop?id=${shop.id}"><img style="height: 200px;object-fit: contain" src="${imagesServerURL}defaultStore.png" alt=""></a>
                                 </c:otherwise>
                             </c:choose>
                         </div>

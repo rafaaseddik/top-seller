@@ -33,9 +33,10 @@ public class ShopDAOImpl implements ShopDAO {
     ProductDAO productDAO;
 
     @Override
-    public Shop getShopByID(int id) {
+    public Shop getShopByID(int id,boolean isAdmin) {
 
-        String sql = "SELECT * FROM shop WHERE closed=0 AND id='" + id + "'";
+        String sql = "SELECT * FROM shop WHERE id='" + id + "'";
+        if(isAdmin == false ) sql+=" AND closed=0";
         List<Shop> shops = new ArrayList<Shop>();
         try {
             shops = jdbcTemplate.query(sql, new ShopDAOImpl.ShopMapper());
@@ -204,6 +205,17 @@ public class ShopDAOImpl implements ShopDAO {
     }
 
     @Override
+    public void unblockShop(Shop shop) {
+        String sql = "UPDATE shop set `closed`=0 WHERE ID="+shop.getId();
+        try{
+            jdbcTemplate.update(sql);
+        }catch(Exception e){
+            System.out.println("-- ERROR : ShopDao.blockShop() : Error getting database");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public ArrayList<ShopReport> getShopReportsList() {
         String sql = "select * from shopreport";
         ArrayList<ShopReport> shops = new ArrayList<ShopReport>();
@@ -307,7 +319,7 @@ public class ShopDAOImpl implements ShopDAO {
             shopReport.setId(rs.getInt("id"));
             shopReport.setDescription(rs.getString("description"));
             //shopReport.setValidated(rs.getBoolean("validated"));
-            shopReport.setSubject(ShopDAOImpl.this.getShopByID(rs.getInt("shopID")));
+            shopReport.setSubject(ShopDAOImpl.this.getShopByID(rs.getInt("shopID"),true));
             shopReport.setUser(this.userDAO.getUserByID(rs.getInt("userID")));
             return shopReport;
         }

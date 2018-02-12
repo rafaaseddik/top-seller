@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public interface ProductService {
     Product getProductByID(int id);
 
+    Product getAdminProductByID(int id);
+
     ArrayList<Product> getAllProducts();
 
 
@@ -20,6 +22,8 @@ public interface ProductService {
     void deleteProduct(Product product);
 
     void blockProduct(Product product);
+
+    void unblockProduct(Product product);
 
     ArrayList<ProductReport> getProductReportsList();
 

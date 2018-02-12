@@ -6,7 +6,8 @@ import topseller.models.*;
 import java.util.ArrayList;
 
 public interface ShopService {
-    Shop getShopByID(int id);
+    public Shop getShopByID(int id);
+    public Shop getAdminShopByID(int id);
 
     ArrayList<Shop> getAllShops();
 
@@ -28,6 +29,8 @@ public interface ShopService {
     void deleteShop(Shop shop);
 
     void blockShop(Shop shop);
+
+    public void unblockShop(Shop shop);
 
     ArrayList<ShopReport> getShopReportsList();
 

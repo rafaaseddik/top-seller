@@ -47,7 +47,7 @@
                                                     ${imagesServerURL}${image}
                                             </c:when>
                                                 <c:otherwise>
-                                                    http://localhost/fileupload/topseller/defaultProduct.jpg
+                                                    ${imagesServerURL}defaultProduct.jpg
                                                 </c:otherwise>
                                             </c:choose>
                                                 ">
