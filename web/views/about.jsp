@@ -13,7 +13,7 @@
                         <figcaption>
                             <div class="info">
                                 <h3>Med khalil nouisser</h3>
-                                <p>Presentation Layer Developer</p>
+                                <p>Frontend developer</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -26,7 +26,7 @@
                         <figcaption>
                             <div class="info">
                                 <h3>Med rafaa seddik</h3>
-                                <p>DAO and Layer Developer</p>
+                                <p>Architect and backend developer</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -40,7 +40,7 @@
 <div class="support section">
     <div class="container">
         <div class="row">
-            <div class="support-inner">
+            <!--div-- class="support-inner">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="row-normal clearfix">
                         <div class="support-info">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
 </div>
