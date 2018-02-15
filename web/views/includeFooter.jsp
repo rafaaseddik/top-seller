@@ -15,28 +15,24 @@
             <div class="col-md-4 col-sm-6">
                 <h3 class="widget-title">Useful Links</h3>
                 <ul>
-                    <li><a href="login.html">My Account</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="404.html">404 Page</a></li>
-                    <li><a href="wishlist.html">Wishlist</a></li>
-                    <li><a href="compare.html">Compare</a></li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/filtre">product</a></li>
+                    <li><a href="/filtre/shop">shops</a></li>
+                    <li><a href="/contact">contact us</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-6">
                 <h3 class="widget-title">Tags</h3>
                 <div class="tagcloud">
-                    <a href="#" class="tag-link">Accessories</a>
-                    <a href="#" class="tag-link">Bags</a>
-                    <a href="#" class="tag-link">Bestseller</a>
-                    <a href="#" class="tag-link">Kids</a>
-                    <a href="#" class="tag-link">Dresses</a>
-                    <a href="#" class="tag-link">Men Fashion</a>
-                    <a href="#" class="tag-link">Sell Off</a>
-                    <a href="#" class="tag-link">Shoes</a>
-                    <a href="#" class="tag-link">Specials</a>
-                    <a href="#" class="tag-link">Tops</a>
-                    <a href="#" class="tag-link">Women Fashion</a>
+                    <a href="/filtre?keyword=accessories" class="tag-link">Accessories</a>
+                    <a href="/filtre?keyword=mac" class="tag-link">Mac</a>
+                    <a href="/filtre/shop?keyword=mac" class="tag-link">Apple</a>
+                    <a href="/filtre?keyword=man" class="tag-link">Men</a>
+                    <a href="/filtre?keyword=women" class="tag-link">women</a>
+                    <a href="/filtre?keyword=kids" class="tag-link">Kids</a>
+                    <a href="/filtre?keyword=phone" class="tag-link">Phone</a>
+                    <a href="/filtre/shop?keyword=samsung" class="tag-link">Samsung</a>
                 </div>
             </div>
         </div>

@@ -55,8 +55,9 @@
                                             </div>
                                         </c:forEach>
                                     </div></c:if>
-                                    <p>Add <c:if test="${type == 'edit'}">new</c:if> photo : </p> <input class="form-control" name="filePhoto" type="file" />
+                                    <c:if test="${type == 'edit'}"><p>Add <c:if test="${type == 'edit'}">new</c:if> photo : </p> <input class="form-control" name="filePhoto" type="file" />
                                     <br>
+                                    </c:if>
                                     <button class="btn btn-common"><i class="icon-basket-loaded-loaded"></i><c:choose> <c:when test="${not empty type && type == 'edit'}">Edit</c:when> <c:otherwise>Add</c:otherwise></c:choose></button>
                                 </div>
                             </div>

@@ -228,7 +228,7 @@ public class MyShopsController {
     }
 
     @RequestMapping(value = "/shop/product/add",method = RequestMethod.POST)
-    public String doAddProduct(@ModelAttribute("shopId") int shopId, Model model, HttpSession session , @RequestParam("filePhoto")MultipartFile file, @ModelAttribute("productForm") ProductForm productForm){
+    public String doAddProduct(@ModelAttribute("shopId") int shopId, Model model, HttpSession session , @ModelAttribute("productForm") ProductForm productForm){
         if((User)session.getAttribute("loggedUser") == null || (((User) session.getAttribute("loggedUser")).getType() != UserType.VENDOR)) return "redirect:/login/signin";
         Product p = new Product();
         if(productForm.getName() != null) p.setName(productForm.getName());
@@ -242,13 +242,7 @@ public class MyShopsController {
         p.setShop(shopService.getShopByID(shopId));
         System.out.println(p.toString());
         productService.addProduct(p);
-        if(file != null && !file.isEmpty()) {
-            try {
-                productService.addPictureToProduct(p,fileService.writeFile(file.getBytes(),System.currentTimeMillis()+file.getOriginalFilename()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+
         return "redirect:/account/shop/edit?id="+shopId;
     }
 

@@ -2,28 +2,6 @@
 <%@ include file="/views/includeHeader.jsp" %>
 
 
-<section class="about section gray-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="single-image">
-                    <a href="#"><img src="/assets/img/about/img1.jpg" alt=""></a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="about-content">
-                    <h3>welcome to demo</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. U enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dol in reprehenderit in </p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. U enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dol in reprehenderit in </p>
-                    <a href="#" class="btn btn-common btn-more">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 <section class="team">
     <div class="container">
         <h1 class="section-title">Team Members</h1>
